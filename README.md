@@ -8,6 +8,10 @@ A curated collection of agent skills, compatible with Claude Code, Cursor, Codex
 |------|-------------|
 | [`six-thinking-hats`](skills/six-thinking-hats/SKILL.md) | Applies Edward de Bono's Six Thinking Hats as a sequential thinking-partner process. Selects hat-set modes (Full, Creative, Risk, Decision, Custom) and depth levels (Quick, Standard, Deep Dive) to match user intent. Use when the user asks for multi-angle reasoning, decision support, brainstorming with tradeoffs, or explicitly asks for Six Thinking Hats. Do not use for simple factual questions, execution-only coding tasks, or narrow single-lens requests that do not need multi-hat structure. |
 
+## Changelog
+
+See [CHANGELOG](https://github.com/ysskrishna/ai-agent-skills/blob/main/CHANGELOG.md) for release history.
+
 ## Support
 
 If you find this library helpful:

@@ -3,7 +3,8 @@
   "description": "Curated agent skills compatible with Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more.",
   "version": "1.0.0",
   "author": {
-    "name": "ysskrishna"
+    "name": "ysskrishna",
+    "url": "https://ysskrishna.vercel.app"
   },
   "homepage": "https://github.com/ysskrishna/ai-agent-skills",
   "repository": "https://github.com/ysskrishna/ai-agent-skills",
