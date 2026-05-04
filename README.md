@@ -2,6 +2,30 @@
 
 A curated collection of agent skills, compatible with Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more.
 
+## Installation
+
+### Via Claude Code Plugin Marketplace
+
+```bash
+# Add the marketplace
+/plugin marketplace add ysskrishna/ai-agent-skills
+
+# Install plugin(s) from the catalog
+/plugin install six-thinking-hats@ai-agent-skills
+```
+
+### Via skills.sh
+
+Install via [skills.sh](https://skills.sh):
+
+```bash
+# Install all skills from this repo
+npx skills add ysskrishna/ai-agent-skills
+
+# Or install individual skills
+npx skills add ysskrishna/ai-agent-skills/six-thinking-hats
+```
+
 ## Skills
 
 | Name | Description |
