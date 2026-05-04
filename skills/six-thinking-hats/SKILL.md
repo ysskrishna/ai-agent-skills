@@ -43,7 +43,7 @@ Process is always:
 3. Depth selection (how deep)
 4. Sequential execution
 5. Blue synthesis (required, see Synthesis Contract)
-6. Optional single-message compiled recap (only if user asks, see Synthesis Contract)
+6. Optional interactive pacing or compiled recap (see Synthesis Contract)
 
 ### 1) Pre-Processing
 
@@ -57,7 +57,8 @@ Gap handling:
 
 1. Infer from user context where reasonable.
 2. If needed, ask at most 3 clarification questions in a single message, then proceed.
-3. If proceeding with missing data, mark White bullets as `[UNKNOWN]` or `[ASSUMED]`.
+3. Only pause for clarification when missing information is decision-critical; otherwise continue with explicit uncertainty labels.
+4. If proceeding with missing data, mark White bullets as `[UNKNOWN]` or `[ASSUMED]`.
 
 ### 2) Mode Selection (hat set)
 
@@ -70,7 +71,7 @@ Defaults:
 | Mode | Hats to run | Default order | Typical use | Why some hats are dropped |
 |------|-------------|---------------|-------------|---------------------------|
 | Full (default) | Blue (frame), White, Red, Black, Yellow, Green, Blue (synthesis) | Blue frame -> White -> Red -> Black -> Yellow -> Green -> Blue synthesis | Broad decisions or full-spectrum reasoning | None |
-| Creative | Green, Yellow, Red, Blue (synthesis) | Green -> Yellow -> Red -> Blue synthesis | Idea generation with upside and emotional resonance | Skips White/Black to keep generation unblocked by facts and risk |
+| Creative | Blue (frame), White (constraints, if needed), Green, Yellow, Red, Blue (synthesis) | Blue frame -> White constraints (only if hard constraints exist) -> Green -> Yellow -> Red -> Blue synthesis | Idea generation with upside and emotional resonance while staying feasible | Skips Black to avoid early idea shutdown |
 | Risk | Blue (frame), White, Black, Blue (synthesis) | Blue frame -> White -> Black -> Blue synthesis | Risk scans and failure prevention | Skips Yellow/Green/Red to stay focused on downside |
 | Decision | Blue (frame), White, Black, Yellow, Blue (synthesis) | Blue frame -> White -> Black -> Yellow -> Blue synthesis | Practical go/no-go decisions | Skips Red/Green to keep evaluation evidence-driven |
 | Custom | User-defined hats + Blue synthesis | Confirm order explicitly, then run sequentially | User-directed workflows | Per user request |
@@ -97,10 +98,10 @@ Depth does not change hat templates or discipline. Per-hat overrides (e.g., Gree
 
 Run hats one at a time in selected order.
 
-- Default output format: emit one hat per assistant message, then pause for the user. Do not blend multiple hats in a single section.
+- Default output format: produce one complete response with clearly separated hat sections in execution order. Do not blend multiple hats in one section.
 - "One focused prompt per hat" means the agent itself produces that hat's analysis as a single focused turn; it does not mean asking the user a question per hat.
 - If the user requests speed, switch to Quick depth or a narrower mode. Do not collapse hats into a mixed-hat blob.
-- Compiled single-message output is allowed only on explicit user request (see Synthesis Contract).
+- If the user requests interactive pacing, emit one hat per assistant message and pause between hats.
 
 ---
 
@@ -141,6 +142,12 @@ Every White bullet must include one label:
 
 If interpretation appears, park it for Black/Yellow.
 
+Count by depth:
+
+- Quick: 2 bullets
+- Standard: 2-3 bullets
+- Deep Dive: 3-5 bullets
+
 ---
 
 ### Red Hat - Emotions
@@ -168,6 +175,12 @@ Every Black bullet must follow:
 
 > **Risk:** [specific failure mode] — **Mitigation:** [concrete action]
 
+Count by depth:
+
+- Quick: 2 bullets
+- Standard: 2-3 bullets
+- Deep Dive: 3-5 bullets
+
 ---
 
 ### Yellow Hat - Value
@@ -177,6 +190,12 @@ Focus: benefits, opportunities, favorable outcomes.
 Every Yellow bullet must follow:
 
 > **Benefit:** [concrete upside] — **Condition:** [what must hold for it to materialize]
+
+Count by depth:
+
+- Quick: 2 bullets
+- Standard: 2-3 bullets
+- Deep Dive: 3-5 bullets
 
 ---
 
@@ -213,9 +232,9 @@ The recommendation must be grounded in content already produced by the hats this
 
 After Blue synthesis, ask the user whether to iterate, expand a specific hat, or stop.
 
-### Compiled Recap (on request only)
+### Compiled Recap (on request, or after interactive run)
 
-If the user explicitly asks for a single compiled recap, provide one consolidated message with sections for each hat that was run, in execution order, ending with the Blue synthesis block above.
+If the user explicitly asks for a single compiled recap, or if hats were run interactively and the user asks for consolidation, provide one message with sections for each hat that was run, in execution order, ending with the Blue synthesis block above.
 
 ---
 
