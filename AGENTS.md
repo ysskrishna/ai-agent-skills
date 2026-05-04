@@ -121,3 +121,18 @@ Brief explanation.
 
 **Prefer:** good pattern or snippet.
 ```
+
+---
+
+## Repository release versioning
+
+When you ship a **repository** semver release (distinct from per-skill `metadata.version` in `SKILL.md`, documented under **Writing `SKILL.md` files** above), update these together:
+
+- [CHANGELOG.md](CHANGELOG.md) — add `## [X.Y.Z]` with release notes and a footer reference link at the bottom (e.g. `releases/tag/vX.Y.Z`, or `compare/vA.B.C...vX.Y.Z` per [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)).
+- [.claude-plugin/plugin.json](.claude-plugin/plugin.json) — top-level `version`.
+- [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) — `metadata.version`.
+- [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json) — top-level `version`.
+- [.cursor-plugin/marketplace.json](.cursor-plugin/marketplace.json) — `metadata.version`.
+- [gemini-extension.json](gemini-extension.json) — `version`.
+
+Then push an annotated Git tag `vX.Y.Z`; [.github/workflows/release.yml](.github/workflows/release.yml) creates the GitHub Release (notes prefer the tag message, else the matching changelog section).
