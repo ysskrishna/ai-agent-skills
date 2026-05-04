@@ -1,4 +1,4 @@
-# AI Agent Skill
+# AI Agent Skills
 
 A curated collection of agent skills, compatible with Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more.
 
