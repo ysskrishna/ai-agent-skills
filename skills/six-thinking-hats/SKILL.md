@@ -1,212 +1,245 @@
 ---
 name: six-thinking-hats
 description: >
-  Applies Edward de Bono's Six Thinking Hats framework for structured multi-perspective
-  analysis. Trigger only when the user explicitly asks for multi-angle analysis,
-  pros-and-cons with a recommendation, brainstorming with risk/value assessment,
-  a "Six Thinking Hats" session, or help deciding when clearly stuck in one mode.
-  Do not trigger for simple factual questions, brief opinions, narrow single-step
-  tasks (e.g., "fix this bug"), or single-lens requests (only risks, only ideas).
+  Applies Edward de Bono's Six Thinking Hats as a sequential thinking-partner process.
+  Selects hat-set modes (Full, Creative, Risk, Decision, Custom) and depth levels
+  (Quick, Standard, Deep Dive) to match user intent. Use when the user asks for
+  multi-angle reasoning, decision support, brainstorming with tradeoffs, or explicitly
+  asks for Six Thinking Hats. Do not use for simple factual questions, execution-only
+  coding tasks, or narrow single-lens requests that do not need multi-hat structure.
 ---
 
 # Six Thinking Hats
 
-Edward de Bono's Six Thinking Hats separates six modes of thinking — each a colored "hat."
-By wearing one hat at a time, you avoid the muddle of defending, critiquing, and creating
-all at once.
+Use one hat at a time. Keep hats separate. End with Blue synthesis.
 
 ## Trigger Rules
 
-Run this skill when **at least one** is true:
+Run this skill when at least one is true:
 
 1. User explicitly asks for multi-angle or "all angles" analysis.
-2. User asks for pros and cons **plus** a recommendation.
+2. User asks for pros and cons plus a recommendation.
 3. User asks for brainstorming combined with risk/value assessment.
 4. User explicitly invokes "Six Thinking Hats."
-5. User is clearly stuck in one mode (all doom, all hype) **and** asks for help deciding.
+5. User is clearly stuck in one mode and asks for help deciding.
 
-Do **not** run full hats when **any** is true:
+Do not run this skill when any is true:
 
 1. Simple factual question.
-2. Brief opinion with no decision context (e.g., "what do you think about X?").
-3. Execution-only work ("fix this bug", "rename this variable").
-4. Only one lens requested (only risks, only ideas, only feelings).
+2. Brief opinion with no decision context.
+3. Execution-only work.
+4. Single-lens request that does not need multi-hat flow.
 
-If only one lens is requested, run that hat only and offer one complementary hat.
-
-## Quick Intake
-
-Before running the hats, establish:
-
-1. **Focus question** — What decision, proposal, or problem are we exploring?
-2. **Key constraints** — Budget, time, policy, or non-negotiables (if any).
-3. **Desired output** — Ideas list, decision, risk register, or just clarity?
-
-If any are missing, **proceed with explicit assumptions** and surface them in White Hat
-as `[ASSUMED]`. Don't stall to interrogate the user.
+If single-lens is enough, answer directly or suggest a lighter subset mode.
 
 ---
 
-## Hat Sequence
+## Operating Model
 
-Pick the **first** row that matches top-to-bottom. If none match, use **General**.
+Process is always:
 
-| Situation | Sequence |
-|-----------|----------|
-| Risky decision (irreversible, high cost) | Blue → White → Black → Red → Yellow → Green → Blue |
-| Post-mortem (something already happened) | Blue → White → Red → Black → Yellow → Green → Blue |
-| New idea / proposal | Blue → White → Yellow → Black → Green → Red → Blue |
-| Creative brainstorm (open-ended) | Blue → Green → Yellow → White → Black → Blue |
-| Stuck thinking (one-mode trap) | Blue → Red → Green → Yellow → Black → White → Blue |
-| General / unspecified | Blue → White → Red → Black → Yellow → Green → Blue |
+1. Pre-Processing
+2. Mode selection (which hats)
+3. Depth selection (how deep)
+4. Sequential execution
+5. Blue synthesis (required, see Synthesis Contract)
+6. Optional single-message compiled recap (only if user asks, see Synthesis Contract)
 
-The sequence governs **thinking order**. The Output Contract below governs **presentation
-order** — they are not the same thing.
+### 1) Pre-Processing
+
+Establish quickly:
+
+1. Focus question.
+2. Key constraints.
+3. Desired output.
+
+Gap handling:
+
+1. Infer from user context where reasonable.
+2. If needed, ask at most 3 clarification questions in a single message, then proceed.
+3. If proceeding with missing data, mark White bullets as `[UNKNOWN]` or `[ASSUMED]`.
+
+### 2) Mode Selection (hat set)
+
+Defaults:
+
+- If user gives no mode/depth: `Full + Standard`.
+- If mode only: keep `Standard`.
+- If depth only: keep `Full`.
+
+| Mode | Hats to run | Default order | Typical use | Why some hats are dropped |
+|------|-------------|---------------|-------------|---------------------------|
+| Full (default) | Blue (frame), White, Red, Black, Yellow, Green, Blue (synthesis) | Blue frame -> White -> Red -> Black -> Yellow -> Green -> Blue synthesis | Broad decisions or full-spectrum reasoning | None |
+| Creative | Green, Yellow, Red, Blue (synthesis) | Green -> Yellow -> Red -> Blue synthesis | Idea generation with upside and emotional resonance | Skips White/Black to keep generation unblocked by facts and risk |
+| Risk | Blue (frame), White, Black, Blue (synthesis) | Blue frame -> White -> Black -> Blue synthesis | Risk scans and failure prevention | Skips Yellow/Green/Red to stay focused on downside |
+| Decision | Blue (frame), White, Black, Yellow, Blue (synthesis) | Blue frame -> White -> Black -> Yellow -> Blue synthesis | Practical go/no-go decisions | Skips Red/Green to keep evaluation evidence-driven |
+| Custom | User-defined hats + Blue synthesis | Confirm order explicitly, then run sequentially | User-directed workflows | Per user request |
+
+Custom mode rules:
+
+- Allowed hats: Blue, White, Red, Black, Yellow, Green. If the user names anything else, ask them to map it to one of these or drop it; do not invent new hats.
+- Require Blue synthesis at the end. If the user omits it, add it without asking.
+- If user order is unclear, ask once and then proceed.
+
+### 3) Depth Selection (independent layer)
+
+Depth applies on top of any mode.
+
+| Depth | Guidance |
+|-------|----------|
+| Quick | 2 insights per hat, concise language |
+| Standard (default) | 2-3 insights per hat, balanced detail |
+| Deep Dive | 3-5 insights per hat with examples, edge cases, and explicit assumptions |
+
+Depth does not change hat templates or discipline. Per-hat overrides (e.g., Green's option counts) take precedence over this table.
+
+### 4) Sequential Execution
+
+Run hats one at a time in selected order.
+
+- Default output format: emit one hat per assistant message, then pause for the user. Do not blend multiple hats in a single section.
+- "One focused prompt per hat" means the agent itself produces that hat's analysis as a single focused turn; it does not mean asking the user a question per hat.
+- If the user requests speed, switch to Quick depth or a narrower mode. Do not collapse hats into a mixed-hat blob.
+- Compiled single-message output is allowed only on explicit user request (see Synthesis Contract).
 
 ---
 
 ## The Six Hats
 
-### 🔵 Blue Hat — Process
+### Blue Hat - Process
 
-**Role:** Frame the session, transition between hats, synthesize at the end.
+Blue runs at least twice: once at the start (frame) and once at the end (synthesis). Both turns share the same constraint:
 
-- **Allowed:** declare focus question + chosen sequence; transitions; final synthesis.
-- **Not allowed:** introducing facts, risks, or ideas not surfaced under the other hats.
+- Allowed: framing, transitions, synthesis.
+- Not allowed: adding new facts, risks, ideas, or recommendations that were never surfaced by another hat.
+
+#### Blue Frame (start)
+
+Open the run with a single short block stating:
+
+1. Focus question (one sentence).
+2. Scope and key constraints.
+3. Mode selected (and whether defaulted).
+4. Depth selected (and whether defaulted).
+5. Hat order to be used.
+
+#### Blue Synthesis (end)
+
+Follow the Synthesis Contract below.
 
 ---
 
-### 🤍 White Hat — Facts
+### White Hat - Facts
 
-**Focus:** Data, evidence, known facts, information gaps. No interpretation.
+Focus: data, evidence, unknowns. No interpretation.
 
-Every bullet **must** carry an evidence label:
+Every White bullet must include one label:
 
 - `[KNOWN]` — verifiable fact provided by the user or reliable context.
 - `[ASSUMED]` — working assumption due to missing data; flag explicitly.
 - `[UNKNOWN]` — missing information that blocks confidence; name what's missing.
 
-If analysis slides into opinion, park it: "That's interpretation — let's save it for
-Yellow/Black."
+If interpretation appears, park it for Black/Yellow.
 
 ---
 
-### ❤️ Red Hat — Emotions
+### Red Hat - Emotions
 
-**Focus:** Gut feelings, intuitions, fears, excitement. No justification required.
+Focus: intuitions, concerns, enthusiasm, resistance.
 
-**Guardrail:** When inferring others' emotions, always use hypothetical phrasing
-("Stakeholders **might** feel…", "This **could** trigger concerns about…"). Never
-assert inferred emotions as fact. Keep Red Hat brief.
+Guardrails:
 
-If the user discloses clinical-level distress, acknowledge briefly and recommend
-professional support — that is out of scope for this framework.
+- Inferred emotions must be hypothetical ("might", "could", "may"), never asserted as fact.
+- Emotions stated by the user are passed through verbatim and labeled as **stated**, not paraphrased.
+
+Count by depth:
+
+- Quick: 2 signals
+- Standard: 2-3 signals
+- Deep Dive: 3-5 signals
 
 ---
 
-### 🖤 Black Hat — Risks
+### Black Hat - Risks
 
-**Focus:** Weaknesses, risks, what could go wrong, counterarguments.
+Focus: failure modes, weaknesses, downside scenarios.
 
-Every bullet **must** follow this template:
+Every Black bullet must follow:
 
 > **Risk:** [specific failure mode] — **Mitigation:** [concrete action]
 
-Be specific, not vaguely negative.
-
 ---
 
-### 💛 Yellow Hat — Value
+### Yellow Hat - Value
 
-**Focus:** Benefits, opportunities, best-case outcomes, why it could work.
+Focus: benefits, opportunities, favorable outcomes.
 
-Every bullet **must** follow this template:
+Every Yellow bullet must follow:
 
 > **Benefit:** [concrete upside] — **Condition:** [what must hold for it to materialize]
 
-Grounded optimism, not wishful thinking.
+---
+
+### Green Hat - Creativity
+
+Focus: alternatives, novel options, reframes.
+
+Generate distinct options without evaluating them.
+
+Count by depth:
+
+- Quick: 2 options
+- Standard: 3 options
+- Deep Dive: 4-5 options
+
+Use at least one forcing tactic when stuck (reversal, analogy, constraint removal).
 
 ---
 
-### 💚 Green Hat — Creativity
+## Synthesis Contract
 
-**Focus:** New ideas, alternatives, lateral thinking.
+Always finish with Blue synthesis. Default synthesis shape:
 
-Generate **exactly 3** genuinely distinct options. No evaluation inside Green Hat
-(judgment happens in Black / Yellow). Use reversal ("what's the opposite?"), analogy,
-or constraint-removal to push past the obvious.
+1. Top tension
+2. Second tension (if relevant)
+3. Recommendation
+4. Next step (owner/timeframe when known)
 
----
+A **tension** is a concrete trade-off where one hat's finding pulls against another's (e.g., a Yellow benefit only holds if a Black risk is mitigated, or a Green option contradicts a White `[KNOWN]` constraint).
 
-## Output Contract
+In Quick depth, collapse to 3 bullets: one merged tension, recommendation, next step.
 
-Default mode is **single-turn**. Switch to multi-turn **only** if the user uses an
-explicit opt-in phrase such as *"walk me through this"*, *"let's do this interactively"*,
-*"one hat at a time"*, or equivalent.
+The recommendation must be grounded in content already produced by the hats this run. Blue does not introduce new evidence, risks, or options here.
 
-**Tie-break:** if interactive intent is ambiguous, stay in single-turn.
+After Blue synthesis, ask the user whether to iterate, expand a specific hat, or stop.
 
-### Single-turn format (canonical)
+### Compiled Recap (on request only)
 
-Use these **exact** headings, in this **exact** order — regardless of the thinking
-sequence chosen above:
-
-1. **Blue Hat — Framing**
-2. **White Hat — Facts**
-3. **Red Hat — Emotions**
-4. **Black Hat — Risks**
-5. **Yellow Hat — Value**
-6. **Green Hat — Options**
-7. **Blue Hat — Synthesis**
-
-Per-section bullet counts (standard mode):
-
-- Sections 1–6: **exactly 3 bullets each.**
-- Section 7 (Synthesis): **exactly 4 bullets**, in this order:
-  1. Key tension #1 (between hats)
-  2. Key tension #2
-  3. Recommendation
-  4. Next step (with owner / timeframe if known)
-
-### Compact mode (length & budget fallback)
-
-Use compact mode when **any** of these hold: prompt is very long, intake context is
-substantially incomplete, or output budget is tight. Keep the **same headings and order**:
-
-- Sections 1–6: **exactly 2 bullets each.**
-- Section 7: **exactly 3 bullets** — top tension, recommendation, next step.
-
-**Never drop required sections.** Compactness reduces bullets, never structure.
-
-### Multi-turn mode
-
-Only when explicitly opted in. Ask one focused prompt per hat in the chosen thinking
-sequence, wait for the user, then proceed. The final turn must still end with a
-**Blue Hat — Synthesis** that follows the same synthesis bullet rules above.
+If the user explicitly asks for a single compiled recap, provide one consolidated message with sections for each hat that was run, in execution order, ending with the Blue synthesis block above.
 
 ---
 
 ## Key Principles
 
-1. **Keep hats separate.** Park out-of-scope thoughts for the appropriate hat.
-2. **Blue owns process, not perspective.** Synthesis references prior hat outputs only.
-3. **Evidence discipline in White.** Every bullet labeled `[KNOWN] / [ASSUMED] / [UNKNOWN]`.
-4. **Risk + mitigation are inseparable** (Black Hat).
-5. **Benefit + condition are inseparable** (Yellow Hat).
-6. **Green Hat is judgment-free** — generation only.
-7. **Always end with Blue.** Synthesis is mandatory, not optional.
-8. **Unstick trapped thinking** — if one-mode-trapped, name it and route to a contrasting hat.
+1. Keep hats separate; do not blend lenses.
+2. Blue controls process; it does not invent new content.
+3. White requires evidence labels on every bullet.
+4. Black requires Risk + Mitigation in the same bullet.
+5. Yellow requires Benefit + Condition in the same bullet.
+6. Green is generation only; no evaluation.
+7. End with Blue synthesis every time.
+8. If the user is stuck in one lens (e.g., only complaining, only fantasizing), route to a contrasting hat.
 
----
+## Acceptance Checklist
 
-## When to Offer a Lighter Path
+Before finishing, verify:
 
-The full method is overkill for reversible / cheap decisions or single-lens needs.
-Offer one of these instead:
-
-- **Risk scan only:** White + Black.
-- **Idea generation only:** Green + Yellow.
-- **Decision shortcut:** White + Black + Yellow + Blue synthesis.
-
-Propose the lighter path **before** running full hats when (a) the user requested only
-one lens, or (b) the decision is explicitly described as low-stakes / reversible.
+- Mode selected (or defaulted) and visible in the Blue Frame.
+- Depth selected (or defaulted) and respected in every hat's count.
+- Hats executed sequentially in declared order, one hat per message (unless a compiled recap was requested).
+- White: every bullet carries `[KNOWN]`, `[ASSUMED]`, or `[UNKNOWN]`.
+- Black: every bullet has both **Risk** and **Mitigation**.
+- Yellow: every bullet has both **Benefit** and **Condition**.
+- Red: inferred emotions use hypothetical language; user-stated emotions are passed through verbatim.
+- Green: option count matches depth (Quick 2, Standard 3, Deep Dive 4-5); no evaluation mixed in.
+- Blue Frame present at start; Blue Synthesis present at end; neither introduces new content.
