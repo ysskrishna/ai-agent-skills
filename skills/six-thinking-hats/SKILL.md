@@ -66,28 +66,6 @@ User wants to focus on just one perspective (e.g., "I only want to think about r
 
 ---
 
-### Mode 3: Unsticking Someone
-
-If the user seems trapped in one mode (all doom and gloom = stuck in Black Hat; wildly
-overconfident = stuck in Yellow; paralysed by data = stuck in White):
-
-- Gently name the hat they're wearing.
-- Invite them to try a contrasting hat.
-- Example: *"It sounds like we've been in Black Hat territory. Let's put on the Yellow Hat
-  for a moment and ask: what's the best version of how this could go?"*
-
----
-
-### Mode 4: Interactive coaching (turn-by-turn)
-
-When the user wants to *think with* you rather than receive a finished write-up:
-
-1. State the focus question in one line (Blue Hat).
-2. For each hat in the chosen sequence, ask **one crisp prompt** and wait for their answer.
-3. Reflect back what you heard in 1–2 sentences, then move to the next hat.
-4. Reserve the final Blue Hat for tensions ("where Yellow and Black disagree") and **one**
-   concrete next step with an owner or deadline if applicable.
-
 ---
 
 ## Hat-by-Hat Reference
@@ -243,9 +221,15 @@ The order of hats matters. Choose the sequence that fits the situation:
 Use a structured response with each hat clearly labelled and emoji. End with a Blue Hat
 synthesis. Keep each hat section focused (3–6 bullet points or a short paragraph).
 
-### For conversational / coaching:
+### For conversational / coaching (turn-by-turn):
 Work through hats interactively — ask the user to contribute their own thinking under
 each hat, then add your own observations where they help.
+
+1. State the focus question in one line (Blue Hat).
+2. For each hat in the chosen sequence, ask **one crisp prompt** and wait for their answer.
+3. Reflect back what you heard in 1–2 sentences, then move to the next hat.
+4. Reserve the final Blue Hat for tensions ("where Yellow and Black disagree") and **one**
+   concrete next step with an owner or deadline if applicable.
 
 ### Copy-ready report template
 
@@ -330,3 +314,9 @@ Black Hat + White Hat). In those cases, say so and offer a lighter structure.
 
 6. **End with Blue** — always synthesise before closing. Teams that skip this leave the
    session without shared understanding of what was decided.
+
+7. **Unstick trapped thinking** — if the user seems stuck in one mode (all doom and gloom
+   = Black Hat; wildly overconfident = Yellow; paralysed by data = White), gently name
+   the hat they're wearing and invite a contrasting one. Example: *"It sounds like we've
+   been in Black Hat territory. Let's put on the Yellow Hat for a moment and ask: what's
+   the best version of how this could go?"*
