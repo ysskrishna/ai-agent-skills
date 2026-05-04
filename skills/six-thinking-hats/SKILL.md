@@ -79,19 +79,7 @@ User wants to focus on just one perspective (e.g., "I only want to think about r
 
 ---
 
-### Mode 3: Meeting Facilitation Script
-
-User is running or planning a real meeting. Generate:
-- An agenda with time allocations per hat
-- Facilitation prompts for each hat section
-- A notes template / grid for capturing outputs
-- Tips for the facilitator
-
-See the full facilitation guide in `references/facilitation.md`.
-
----
-
-### Mode 4: Unsticking Someone
+### Mode 3: Unsticking Someone
 
 If the user seems trapped in one mode (all doom and gloom = stuck in Black Hat; wildly
 overconfident = stuck in Yellow; paralysed by data = stuck in White):
@@ -103,7 +91,7 @@ overconfident = stuck in Yellow; paralysed by data = stuck in White):
 
 ---
 
-### Mode 5: Interactive coaching (turn-by-turn)
+### Mode 4: Interactive coaching (turn-by-turn)
 
 When the user wants to *think with* you rather than receive a finished write-up:
 
@@ -267,9 +255,6 @@ The order of hats matters. Choose the sequence that fits the situation:
 Use a structured response with each hat clearly labelled and emoji. End with a Blue Hat
 synthesis. Keep each hat section focused (3–6 bullet points or a short paragraph).
 
-### For meeting facilitation:
-See `references/facilitation.md` for full agenda template, notes grid, and facilitator prompts.
-
 ### For conversational / coaching:
 Work through hats interactively — ask the user to contribute their own thinking under
 each hat, then supplement with Claude's observations.
@@ -324,7 +309,7 @@ Use this skeleton when the user wants a single document they can paste into a do
 | Situation | Suggestion |
 |-----------|------------|
 | ~10 minutes, solo | White → Black → Yellow → Blue (skip Red/Green or touch in one line each under Blue) |
-| ~25 minutes, team | White → Black → Green → Blue (from facilitation guide short form) |
+| ~25 minutes, team | White → Black → Green → Blue |
 | "Just give me pros/cons" | Run Yellow + Black only, then Blue synthesis; cite facts (White) as footnotes |
 
 ---
@@ -361,10 +346,6 @@ Black Hat + White Hat). In those cases, say so and offer a lighter structure.
 ---
 
 ## Reference Files
-
-- `references/facilitation.md` — Full meeting facilitation guide: agenda templates,
-  time budgets, facilitator scripts, notes grid template. Load this when the user
-  wants to run an actual meeting or workshop.
 
 - `references/examples.md` — Worked examples of full Six Hat analyses (business, personal,
   team conflict, technical architecture). Load when you need inspiration or a model output.
