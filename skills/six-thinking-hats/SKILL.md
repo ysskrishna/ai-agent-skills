@@ -7,6 +7,9 @@ description: >
   multi-angle reasoning, decision support, brainstorming with tradeoffs, or explicitly
   asks for Six Thinking Hats. Do not use for simple factual questions, execution-only
   coding tasks, or narrow single-lens requests that do not need multi-hat structure.
+license: MIT
+metadata:
+  author: ysskrishna
 ---
 
 # Six Thinking Hats
