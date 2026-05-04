@@ -27,7 +27,7 @@ while assessing risks while feeling anxious about it.
 ## Session intake (gather first)
 
 Before running the hats, collect enough context to pick a sequence and depth. If anything
-essential is missing, ask briefly — do not stall the user if they want a quick pass.
+essential is missing, ask briefly — do not stall the user if they want to proceed immediately.
 
 - **Focus question** — one sentence: what decision, proposal, or tension are we exploring?
 - **Stakeholders** — who is affected, who decides, who might block?
@@ -66,8 +66,6 @@ User wants to focus on just one perspective (e.g., "I only want to think about r
 
 ---
 
----
-
 ## Hat-by-Hat Reference
 
 ### 🤍 White Hat — Facts & Information
@@ -82,9 +80,9 @@ User wants to focus on just one perspective (e.g., "I only want to think about r
 
 **Tone:** Neutral, data-driven, no opinions or interpretations.
 
-**Facilitation tip:** Prevent people from sliding into interpretation or opinion here.
-"That's an interesting conclusion — let's park that for the Yellow or Black Hat and
-stick with the raw data for now."
+**Guidance note:** If the user (or your own analysis) starts sliding into interpretation
+or opinion, flag it explicitly: "That's an interesting conclusion — let's park that for
+the Yellow or Black Hat and stick with the raw data for now."
 
 **Guidance:** Lead with what is concretely known. Clearly flag gaps with
 "We don't currently know..." or "This would require research into...".
@@ -101,8 +99,8 @@ stick with the raw data for now."
 - What are you most excited about? Most anxious about?
 - What does your intuition say?
 
-**Important rule:** No one needs to justify or defend their feelings here. Other participants
-must not try to argue against feelings or explain them away. Just listen.
+**Important rule:** Feelings don't need to be justified or defended here. Do not argue
+against or explain away the emotional response — surface it faithfully and move on.
 
 **Tone:** Warm, permissive, non-judgmental.
 
@@ -208,14 +206,19 @@ The order of hats matters. Choose the sequence that fits the situation:
 |-----------|----------------------|
 | New idea / proposal | Blue → White → Yellow → Black → Green → Red → Blue |
 | Risky decision | Blue → White → Black → Red → Yellow → Green → Blue |
-| Stuck/stuck team | Blue → Red → Green → Yellow → Black → White → Blue |
-| Quick individual analysis | White → Black → Yellow → Green → Blue |
-| Creative brainstorm | Green → Yellow → White → Black → Blue |
-| Post-mortem / retrospective | White → Red → Black → Yellow → Green → Blue |
+| Stuck individual / stuck team | Blue → Red → Green → Yellow → Black → White → Blue |
+| Quick individual analysis | Blue → White → Black → Yellow → Green → Blue |
+| Creative brainstorm | Blue → Green → Yellow → White → Black → Blue |
+| Post-mortem / retrospective | Blue → White → Red → Black → Yellow → Green → Blue |
 
 ---
 
 ## Output Formats
+
+**How to choose:** Use the written analysis format by default. Switch to conversational
+if the user explicitly wants to think interactively or says something like "let's work
+through this together." Use the copy-ready template only if the user asks for a document
+they can paste or share.
 
 ### For individual analysis (user asks for a written pass on their topic):
 Use a structured response with each hat clearly labelled and emoji. End with a Blue Hat
@@ -289,11 +292,12 @@ Black Hat + White Hat). In those cases, say so and offer a lighter structure.
 1. **Keep hats separate** — if you're in White Hat mode, observations about risk (Black)
    or new ideas (Green) get parked for later.
 
-2. **Blue Hat belongs to the facilitator** — in a group, the Blue Hat wearer doesn't express
-   personal views through the other hats while facilitating. They put on other hats in turn.
+2. **Blue Hat belongs to the process, not a perspective** — when wearing the Blue Hat,
+   don't let opinions, risks, or ideas bleed in. Keep it purely structural: frame, transition,
+   synthesise, conclude.
 
-3. **Red Hat is brief** — 1–2 sentences per person is fine. It's not a therapy session;
-   it's an emotional check-in.
+3. **Red Hat is brief** — a sentence or two capturing the emotional tone is enough.
+   It's not a therapy session; it's an emotional check-in.
 
 4. **Black Hat needs mitigation cues** — after surfacing a risk, invite "so what would
    we need to address this?" to keep it constructive.
