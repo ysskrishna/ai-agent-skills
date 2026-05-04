@@ -19,7 +19,12 @@ skills/
 .github/workflows/  # release automation (GitHub Releases on version tags)
 ```
 
-When you add or rename a skill, keep the [README](README.md) skills table in sync.
+When you add or rename a skill, keep these in sync:
+
+- [README.md](README.md) — **Skills** table and **Installation** section.
+- [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) — `plugins` catalog for Claude Code.
+- Claude Code install line: `/plugin install {skill-name}@ai-agent-skills`.
+- [skills.sh](https://skills.sh) install line: `npx skills add ysskrishna/ai-agent-skills/{skill-name}`.
 
 ## Creating a new skill
 
@@ -28,7 +33,16 @@ Skills follow the [Agent Skills Open Standard](https://agentskills.io/).
 1. Create `skills/{skill-name}/SKILL.md` with the required frontmatter (see below).
 2. Add optional deep-dive files under `skills/{skill-name}/references/` and link them from the body of `SKILL.md` instead of inflating the main file.
 3. Register the skill in [README.md](README.md).
-4. If the skill should surface in plugin discovery, consider updating keywords in [.claude-plugin/plugin.json](.claude-plugin/plugin.json) / [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json).
+   - Add a row to the **Skills** table.
+   - Extend **Installation** with a Claude Code line: `/plugin install {skill-name}@ai-agent-skills`.
+   - Extend **Installation** with a [skills.sh](https://skills.sh) line: `npx skills add ysskrishna/ai-agent-skills/{skill-name}`.
+   - Follow the examples already in the README.
+4. Register the skill in [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
+   - Add a matching entry to the `plugins` array (`name`, `source`, `description`, and `skills` as needed).
+   - Ensure `name` matches the skill directory and the `name` field in `SKILL.md` frontmatter so `/plugin install` resolves correctly.
+5. If the skill should surface in plugin discovery, consider updating keywords.
+   - [.claude-plugin/plugin.json](.claude-plugin/plugin.json)
+   - [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json)
 
 ---
 
