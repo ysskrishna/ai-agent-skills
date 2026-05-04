@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Curated agent skills compatible with Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more.",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "plugins": [
     {
