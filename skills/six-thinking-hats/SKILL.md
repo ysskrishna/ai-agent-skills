@@ -276,16 +276,6 @@ Use this skeleton when the user wants a single document they can paste into a do
 
 ---
 
-## Quick passes (when time is short)
-
-| Situation | Suggestion |
-|-----------|------------|
-| ~10 minutes, solo | White → Black → Yellow → Blue (skip Red/Green or touch in one line each under Blue) |
-| ~25 minutes, team | White → Black → Green → Blue |
-| "Just give me pros/cons" | Run Yellow + Black only, then Blue synthesis; cite facts (White) as footnotes |
-
----
-
 ## When *not* to use full Six Hats
 
 The method is overkill when the decision is reversible and cheap, or when the user only
