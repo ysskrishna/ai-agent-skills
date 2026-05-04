@@ -10,6 +10,7 @@ description: >
 license: MIT
 metadata:
   author: ysskrishna
+  version: "2026.5.4"
 ---
 
 # Six Thinking Hats
