@@ -38,19 +38,6 @@ essential is missing, ask briefly — do not stall the user if they want a quick
 
 ---
 
-## The Six Hats at a Glance
-
-| Hat | Colour | Focus | Key Question |
-|-----|--------|-------|--------------|
-| 🤍 White | White | Facts, data, objectivity | What do we know? What do we need? |
-| ❤️ Red | Red | Emotions, gut instincts | How does this feel? What's the vibe? |
-| 🖤 Black | Black | Risks, caution, critical thinking | What could go wrong? What are the flaws? |
-| 💛 Yellow | Yellow | Benefits, optimism, best case | What's the upside? Why could this work? |
-| 💚 Green | Green | Creativity, new ideas, alternatives | What else could we do? What if...? |
-| 🔵 Blue | Blue | Process, control, synthesis | What's the plan? What have we concluded? |
-
----
-
 ## How to Use This Skill
 
 ### Mode 1: Full Six Hats Analysis (most common)
