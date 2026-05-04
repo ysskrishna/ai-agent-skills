@@ -121,7 +121,7 @@ When the user wants to *think with* you rather than receive a finished write-up:
 "That's an interesting conclusion — let's park that for the Yellow or Black Hat and
 stick with the raw data for now."
 
-**Claude guidance:** Lead with what is concretely known. Clearly flag gaps with
+**Guidance:** Lead with what is concretely known. Clearly flag gaps with
 "We don't currently know..." or "This would require research into...".
 
 ---
@@ -141,7 +141,7 @@ must not try to argue against feelings or explain them away. Just listen.
 
 **Tone:** Warm, permissive, non-judgmental.
 
-**Claude guidance:** When applying this hat solo for a user, invite them to share their gut
+**Guidance:** When applying this hat solo for a user, invite them to share their gut
 response, or generate plausible emotional responses that a team might have. Use language
 like "Some people might feel..." or ask "How does this sit with you emotionally?"
 
@@ -164,7 +164,7 @@ which means we'd need to..."*
 
 **Tone:** Analytical, not cynical. Firm but constructive.
 
-**Claude guidance:** Be specific about risks. Vague negatives are unhelpful.
+**Guidance:** Be specific about risks. Vague negatives are unhelpful.
 Name the failure mode, estimate its likelihood or severity where possible.
 
 ---
@@ -184,7 +184,7 @@ thinking. "This could work because..." is stronger than "imagine if everything w
 
 **Tone:** Enthusiastic but reasoned.
 
-**Claude guidance:** Look for genuine upsides, not just cheerleading. Frame benefits
+**Guidance:** Look for genuine upsides, not just cheerleading. Frame benefits
 concretely: who gains what, under what conditions.
 
 ---
@@ -205,7 +205,7 @@ Even impractical ideas can spark useful directions.
 
 **Tone:** Playful, exploratory, judgment-free.
 
-**Claude guidance:** Go beyond the obvious. Generate at least 3–5 genuinely distinct ideas,
+**Guidance:** Go beyond the obvious. Generate at least 3–5 genuinely distinct ideas,
 not just variations on one idea. Use techniques: reversal ("what if we did the opposite?"),
 analogy ("how would a hotel solve this?"), constraint removal ("what if cost wasn't an issue?").
 
@@ -215,7 +215,8 @@ analogy ("how would a hotel solve this?"), constraint removal ("what if cost was
 
 **Focus:** Overseeing the thinking process, summarising, drawing conclusions, planning next steps.
 
-**Worn by:** The facilitator or, in a Claude-led session, by Claude.
+**Worn by:** The human facilitator in groups. In solo or chat sessions without that role,
+**you** wear the Blue Hat for framing, transitions, synthesis, and next steps.
 
 **Used to:**
 - Open and frame the session ("Today we're exploring X")
@@ -227,7 +228,7 @@ analogy ("how would a hotel solve this?"), constraint removal ("what if cost was
 
 **Tone:** Calm, structured, synthesising.
 
-**Claude guidance:** Don't let the Blue Hat just be a recap. Draw out the *tensions* between
+**Guidance:** Don't let the Blue Hat just be a recap. Draw out the *tensions* between
 hats (e.g., "The Black Hat identified risk A, but the Yellow Hat suggests this could be
 mitigated by opportunity B — the Green Hat idea C might be a way to bridge them"). Produce
 a clear, actionable conclusion.
@@ -251,13 +252,13 @@ The order of hats matters. Choose the sequence that fits the situation:
 
 ## Output Formats
 
-### For individual analysis (user asks Claude to analyse their topic):
+### For individual analysis (user asks for a written pass on their topic):
 Use a structured response with each hat clearly labelled and emoji. End with a Blue Hat
 synthesis. Keep each hat section focused (3–6 bullet points or a short paragraph).
 
 ### For conversational / coaching:
 Work through hats interactively — ask the user to contribute their own thinking under
-each hat, then supplement with Claude's observations.
+each hat, then add your own observations where they help.
 
 ### Copy-ready report template
 
