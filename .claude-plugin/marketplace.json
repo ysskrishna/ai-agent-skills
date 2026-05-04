@@ -1,0 +1,18 @@
+{
+  "name": "ai-agent-skills",
+  "owner": {
+    "name": "ysskrishna"
+  },
+  "metadata": {
+    "description": "Curated agent skills compatible with Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "six-thinking-hats",
+      "source": "./skills/six-thinking-hats",
+      "skills": "./",
+      "description": "Applies Edward de Bono's Six Thinking Hats as a sequential thinking-partner process. Selects hat-set modes (Full, Creative, Risk, Decision, Custom) and depth levels (Quick, Standard, Deep Dive) to match user intent. Use when the user asks for multi-angle reasoning, decision support, brainstorming with tradeoffs, or explicitly asks for Six Thinking Hats."
+    }
+  ]
+}
