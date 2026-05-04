@@ -343,18 +343,3 @@ Black Hat + White Hat). In those cases, say so and offer a lighter structure.
 
 6. **End with Blue** — always synthesise before closing. Teams that skip this leave the
    session without shared understanding of what was decided.
-
----
-
-## Reference Files
-
-- `references/examples.md` — Worked examples of full Six Hat analyses (business, personal,
-  team conflict, technical architecture). Load when you need inspiration or a model output.
-
----
-
-## Sources
-
-The technique originates from Edward de Bono's *Six Thinking Hats* (1985). For a concise
-overview of hat roles and facilitation norms, BiteSize Learning's summary is a practical
-companion: https://www.bitesizelearning.co.uk/resources/six-thinking-hats-technique
