@@ -1,0 +1,68 @@
+# Create a GitHub Release when you push a version tag (e.g. v1.0.0).
+#
+# Release body (in order):
+# 1. Annotated tag message — use: git tag -a v1.2.3 -m "Title" -m "Longer notes..."
+# 2. Else the matching ## [x.y.z] section in CHANGELOG.md (tag v1.2.3 → version 1.2.3)
+# 3. Else GitHub-generated notes from commits
+name: Release
+
+on:
+  push:
+    tags:
+      # Publish on any tag starting with a `v`, e.g., v0.1.0
+      - v*
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create GitHub release from tag / changelog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          TITLE="Release Version ${TAG}"
+
+          if gh release view "$TAG" --json url &>/dev/null; then
+            echo "Release for $TAG already exists; skipping."
+            exit 0
+          fi
+
+          TAG_TYPE="$(git cat-file -t "$TAG" 2>/dev/null || echo "")"
+          NOTES=""
+
+          if [ "$TAG_TYPE" = "tag" ]; then
+            NOTES="$(git tag -l --format='%(contents)' "$TAG" \
+              | sed '/^-----BEGIN PGP SIGNATURE-----$/,/^-----END PGP SIGNATURE-----$/d')"
+          fi
+
+          nonempty() {
+            local x
+            x="$(printf '%s' "$1" | tr -d '[:space:]')"
+            [ -n "$x" ]
+          }
+
+          if ! nonempty "$NOTES" && [ -f CHANGELOG.md ]; then
+            VERSION="${TAG#v}"
+            NOTES="$(awk -v ver="$VERSION" '
+              $0 ~ "^## \\[" ver "\\]" { emit = 1; next }
+              emit && /^## / { exit }
+              emit && $0 ~ /^\[[0-9A-Za-z.-]+\]: https?:\/\// { exit }
+              emit { print }
+            ' CHANGELOG.md)"
+          fi
+
+          if nonempty "$NOTES"; then
+            printf '%s\n' "$NOTES" | gh release create "$TAG" --title "$TITLE" --verify-tag --notes-file -
+          else
+            gh release create "$TAG" --title "$TITLE" --verify-tag --generate-notes
+          fi
