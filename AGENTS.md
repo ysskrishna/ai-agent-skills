@@ -15,7 +15,6 @@ skills/
     SKILL.md
     references/     # optional; add when a skill needs extra on-demand docs
 .claude-plugin/     # Claude Code plugin + marketplace metadata
-.cursor-plugin/     # Cursor plugin + marketplace metadata
 .github/workflows/  # release automation (GitHub Releases on version tags)
 ```
 
@@ -42,7 +41,6 @@ Skills follow the [Agent Skills Open Standard](https://agentskills.io/).
    - Ensure `name` matches the skill directory and the `name` field in `SKILL.md` frontmatter so `/plugin install` resolves correctly.
 5. If the skill should surface in plugin discovery, consider updating keywords.
    - [.claude-plugin/plugin.json](.claude-plugin/plugin.json)
-   - [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json)
 
 ---
 
@@ -131,8 +129,5 @@ When you ship a **repository** semver release (distinct from per-skill `metadata
 - [CHANGELOG.md](CHANGELOG.md) — add `## [X.Y.Z]` with release notes and a footer reference link at the bottom (e.g. `releases/tag/vX.Y.Z`, or `compare/vA.B.C...vX.Y.Z` per [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)).
 - [.claude-plugin/plugin.json](.claude-plugin/plugin.json) — top-level `version`.
 - [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) — `metadata.version`.
-- [.cursor-plugin/plugin.json](.cursor-plugin/plugin.json) — top-level `version`.
-- [.cursor-plugin/marketplace.json](.cursor-plugin/marketplace.json) — `metadata.version`.
-- [gemini-extension.json](gemini-extension.json) — `version`.
 
 Then push an annotated Git tag `vX.Y.Z`; [.github/workflows/release.yml](.github/workflows/release.yml) creates the GitHub Release (notes prefer the tag message, else the matching changelog section).
