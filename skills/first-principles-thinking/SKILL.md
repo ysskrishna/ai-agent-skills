@@ -19,11 +19,7 @@ metadata:
 
 Question inherited baggage. Rebuild only from **bedrock** you can defend.
 
----
-
-## When to Use
-
-Use when analogies may mislead: new markets, hard tech, cost structure invention, personal strategy against social scripts. Less useful when best practice is truly optimal and context-free.
+**How to run it with this skill:** one clearly headed section per step in this order: Surface → Question → Bedrock → Rebuild → Implications.
 
 ---
 
@@ -34,7 +30,7 @@ In one short block:
 1. **Reconstruction target** — belief, cost, design, or strategy to ground
 2. **Default pass** — Surface → Question → Bedrock → Rebuild → Implications (state this line)
 
-Up to 3 questions on immutable constraints (physics, law, budget); mark unknowns `[UNKNOWN]`.
+If immutable constraints (physics, law, budget) are unclear, ask at most 3 questions in one message, then proceed. Note unknowns or working guesses in plain language (no bracket tags in Setup).
 
 ---
 
@@ -52,7 +48,7 @@ For each major assumption: **Assumption:** … — **Why believed?** (authority,
 
 List **fundamental truths** that survive scrutiny — physics, logic identities, legal musts, documented preferences of real users, arithmetic. Label each `[FUNDAMENTAL]` vs `[STILL ASSUMPTION]`.
 
-Aim for **at least 3** bedrock items; if fewer are honest, explain why.
+Prefer three or more honest bedrock items when that is credible; if fewer are honest, say why in one line.
 
 ### Rebuild
 

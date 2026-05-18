@@ -1,15 +1,15 @@
 ---
 name: six-thinking-hats
 description: >
-  Use this skill when the user wants a sequential, six-role thinking partner
-  (Edward de Bono's Six Thinking Hats / parallel thinking) for one focus—keeping
-  facts, feelings, risks, benefits, and new ideas in separate passes instead of
-  one mixed reply. Use for structured brainstorms, decisions, or reviews when
-  they ask for hat-by-hat analysis, parallel thinking, or name the method or
-  author, even if phrasing is casual or incomplete. Skip for plain factual
-  questions, execution-only implementation with no structured perspective pass,
-  or one-off hot takes and single-angle verdicts where they do not want a
-  fixed, hat-by-hat sequence across six roles.
+  Use this skill when the user asks for six thinking hats, parallel thinking, or
+  Edward de Bono's method—or wants a sequential, six-role thinking partner for
+  one focus—keeping facts, feelings, risks, benefits, and new ideas in separate
+  passes instead of one mixed reply. Use for structured brainstorms, decisions,
+  or reviews when they ask for hat-by-hat analysis or name the method or author,
+  even if phrasing is casual or incomplete. Skip for plain factual questions,
+  execution-only implementation with no structured perspective pass, or one-off
+  hot takes and single-angle verdicts where they do not want a fixed, hat-by-hat
+  sequence across six roles.
 license: MIT
 metadata:
   author: ysskrishna
@@ -35,7 +35,7 @@ Before executing hats, establish in one short block:
 3. **Depth** — how much detail per hat (see table below); default: Standard
 4. **Hat order** — list the sequence you'll follow
 
-If critical information is missing, ask at most 3 questions in one message, then proceed. For non-critical gaps, proceed and mark bullets `[ASSUMED]` or `[UNKNOWN]`.
+If critical information is missing, ask at most 3 questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
 
 ---
 

@@ -18,11 +18,7 @@ metadata:
 
 Clarity beats cleverness. End with answers tied to structure and stated confidence.
 
----
-
-## When to Use
-
-Use for problems that benefit from decomposition: metrics, prioritization, debugging complex situations, business case structure, research planning. Skip when the user only wants empathy or creative divergence without measurement framing.
+**How to run it with this skill:** one clearly headed section per step in this order: Frame → Decompose → Hypotheses → Evidence → Synthesis. Insert **Options matrix** only when Setup calls for it (after Evidence, before Synthesis).
 
 ---
 
@@ -33,9 +29,9 @@ In one short block:
 1. **Analytical question** — precise, ideally falsifiable
 2. **Default pass** — Frame → Decompose → Hypotheses → Evidence → Synthesis (state this line)
 
-Up to 3 questions on data availability and definitions; otherwise tag `[ASSUMED]` for baselines.
+If data availability or definitions are missing, ask at most 3 questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
 
-If the user is **choosing among concrete alternatives**, after **Evidence** insert **Options matrix**: rows = options, columns = criteria (state weights if any), qualitative scores (− / 0 / + or 1–5) with one-line justification per cell — then finish with **Synthesis**.
+If the user is **choosing among concrete alternatives**, after **Evidence** insert **Options matrix**: rows = options, columns = criteria (state weights if any), qualitative scores (− / 0 / +) with one-line justification per cell — then finish with **Synthesis**.
 
 ---
 
@@ -55,7 +51,7 @@ Ranked **H1, H2, H3** — what would we expect to observe if each were true? Wha
 
 ### Evidence
 
-For each hypothesis: **Observation:** … — **Strength:** Strong / Moderate / Weak — **Caveat:** …
+For each hypothesis: **Observation:** … — **Strength note:** one short sentence on how much this observation supports or undermines the hypothesis and the main limit (no Strong/Moderate/Weak labels). **Caveat:** …
 
 If no real data, run a **thought experiment** section instead — label bullets `[THEORETICAL]`.
 

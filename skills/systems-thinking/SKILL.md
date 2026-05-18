@@ -19,11 +19,7 @@ metadata:
 
 See the whole before optimizing parts. End with leverage-aware recommendations.
 
----
-
-## When to Use
-
-Use for messes that span people, time, and incentives — org change, incidents, product ecosystems, policy, operations. Not for trivial linear tasks or single-variable math.
+**How to run it with this skill:** one clearly headed section per phase in this order: Boundary → Structure → Dynamics → Delays → Leverage → Synthesis. Do not skip **Structure** before **Leverage**.
 
 ---
 
@@ -34,7 +30,7 @@ In one short block:
 1. **System in focus** — what is inside the boundary?
 2. **Default pass** — Boundary → Structure → Dynamics → Delays → Leverage → Synthesis (state this line)
 
-Ask at most 3 scoping questions if the boundary is unclear, then proceed with labeled `[ASSUMED]` gaps.
+If the boundary is unclear, ask at most 3 scoping questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
 
 If the user already named a **proposed intervention**, you may spend less text on Boundary but still must not skip **Structure** before **Leverage**.
 
@@ -66,7 +62,7 @@ Where is **time lag** between action and effect? How does delay change behavior 
 
 **Leverage point:** … — **Why it matters:** … — **Risk of backfire:** …
 
-Prefer high-leverage, low-blame interventions (rules, information flows, goals) over name-and-shame unless evidence supports it.
+Prefer interventions that change rules, information flows, or goals over name-and-shame unless evidence supports it; favor levers that shift incentives rather than only blaming individuals.
 
 ### Synthesis
 

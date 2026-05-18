@@ -19,11 +19,7 @@ metadata:
 
 Movement before judgment. Treat provocative lines as **stepping stones**, not final positions.
 
----
-
-## When to Use
-
-Use when stuck in either/or, incrementalism, or "we've always done it this way". Pairs well after a blocked brainstorm; not for situations requiring strict compliance logic only.
+**How to run it with this skill:** one clearly headed section per move in the default order from Setup (Provocation (Po) → Extract principle → Concept fan → Candidates), or the alternate path the user chose.
 
 ---
 
@@ -34,9 +30,9 @@ In one short block:
 1. **Stuck point** — what pattern or assumption feels rigid?
 2. **Default pass** — Provocation (Po) → Extract principle → Concept fan → Candidates (state this line)
 
-Up to 3 questions on safety/legal constraints before generating provocations.
+If safety or legal constraints are unclear, ask at most 3 questions in one message before generating provocations. Note any remaining gaps in plain language (no bracket tags in Setup).
 
-If the user asks for **random stimulus** instead of a Po, replace the **Provocation** step with **Random entry**: one random noun or image, then **4 bridges** (property → analogy → mechanism → application) into ideas.
+If the user asks for **random stimulus** instead of a Po, replace the **Provocation** step with **Random entry**: one random noun or image, then **several bridges** (property → analogy → mechanism → application) into ideas.
 
 If the user asks to **challenge implicit rules**, replace **Provocation** / **Extract principle** / **Concept fan** with: list implicit rules → for each, **Challenge / Reframe / Test** (smallest experiment) → **Escape** (two ways to sidestep the load-bearing rule) → then **Candidates** only from that thread.
 
@@ -56,11 +52,11 @@ From the movement idea, state **one operating principle** that *could* work in t
 
 ### Concept fan
 
-Widen from the principle along three directions — **broaden**, **deepen**, **redirect** — with **~4 branches** per direction unless the user wants more.
+Widen from the principle along three directions — **broaden**, **deepen**, **redirect** — with **several branches** per direction unless the user wants more.
 
 ### Candidates
 
-**~6** actionable ideas. Tag each: `near-term` / `stretch` / `experimental`.
+**Several** actionable ideas. Tag each: `near-term` / `stretch` / `experimental`.
 
 ---
 
