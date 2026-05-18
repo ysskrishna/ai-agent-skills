@@ -1,11 +1,14 @@
 ---
 name: creative-thinking
 description: >
-  Facilitate divergent ideation: fluency, flexible perspectives, novel
-  combinations, and elaboration — with optional light convergence. Use when the
-  user asks for creative thinking, fresh ideas, "blue sky" options, creative
-  reframes, or more variety before committing — not when they only want critique
-  or a single correct answer.
+  Use this skill when the user asks for creative thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants
+  divergent ideation—fluency, flexible perspectives, novel combinations, and
+  elaboration, with optional light convergence. Use when they want fresh ideas,
+  blue-sky options, reframes, or more variety before committing, including casual
+  or messy prompts. Skip when they want a single delivered answer with no
+  exploration, audit-only teardown with no generation asked for, or purely
+  mechanical execution.
 license: MIT
 metadata:
   author: ysskrishna
@@ -16,11 +19,7 @@ metadata:
 
 Defer judgment during divergence. Keep **generate** (Prime, Diverge, Connect) separate from **Harvest** (pick and plan).
 
----
-
-## When to Use
-
-Use for open-ended invention — features, narratives, workshop prompts, campaign angles, teaching examples, naming explorations. Skip when the user wants audit-only, compliance checks, or deterministic code fixes.
+**How to run it with this skill:** one clearly headed section per phase in this order: Prime → Diverge → Connect → Harvest. Optional **Perspectives** beat only when noted in Setup.
 
 ---
 
@@ -31,7 +30,7 @@ In one short block:
 1. **Creative brief** — goal, audience, constraints (time, tone, taboos)
 2. **Default pass** — Prime → Diverge → Connect → Harvest (state this line)
 
-Up to 3 clarifying questions if constraints are missing; otherwise assume sensibly and tag `[ASSUMED]`.
+If constraints are missing, ask at most 3 clarifying questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
 
 If the user is **stuck on one framing**, add a short **Perspectives** beat before **Diverge**: Optimist / Skeptic / Outsider — two reframes each, no cross-critique yet.
 
@@ -45,13 +44,13 @@ Warm context in 2–4 bullets: what would **delight** or **surprise** success lo
 
 ### Diverge
 
-Quantity first. Aim for **about 10** ideas unless the user asks for fewer or many more. Tag ideas `F` (flexible reuse of existing), `N` (novel twist), or `W` (wild — may be impractical).
+Quantity first. Produce a **substantive** list of ideas (no fixed count unless the user asks for one). Tag ideas `F` (flexible reuse of existing), `N` (novel twist), or `W` (wild — may be impractical).
 
 Use at least **two** different creative triggers drawn from: **analogy** (unrelated domain), **constraint flip** (remove/add a rule), **user fantasy** (absurd ideal), **time shift** (past/future), **scale shift** (micro/macro).
 
 ### Connect
 
-Combine or **mash** ideas: **A + B →** hybrid concept in several lines (roughly half the Diverge count, minimum 3).
+Combine or **mash** ideas: **A + B →** hybrid concept in several lines (aim for multiple mashups, fewer than Diverge but not a single mashup unless the brief is tiny).
 
 ### Harvest
 

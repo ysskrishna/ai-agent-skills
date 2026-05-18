@@ -1,10 +1,15 @@
 ---
 name: ethical-thinking
 description: >
-  Map stakeholders, values, harms and benefits, power asymmetries, and fair
-  process to clarify ethical tradeoffs and recommendations. Use when the user
-  asks for ethical thinking, moral review of a plan, AI or data ethics, fairness,
-  stakeholder harm scans, or "should we" questions beyond pure legality.
+  Use this skill when the user asks for ethical thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants a
+  structured pass on values and harms—mapping stakeholders, tradeoffs, power
+  asymmetries, harms and benefits, consent, justice, and fair process for a plan
+  or product. Use for moral review, fairness or AI-ethics style questions,
+  stakeholder harm scans, or should-we questions beyond pure legality, including
+  indirect asks. Skip when they want legal advice as such, only neutral facts with
+  no normative review requested, or implementation-only work with no values lens
+  asked for.
 license: MIT
 metadata:
   author: ysskrishna
@@ -15,11 +20,7 @@ metadata:
 
 Ethics is about **conflicts between legitimate goods**. End with transparent tradeoffs, not false certainty.
 
----
-
-## When to Use
-
-Use for actions affecting welfare, dignity, consent, autonomy, justice, or collective risk. Not a substitute for legal advice; flag **legal review needed** when law may bind.
+**How to run it with this skill:** one clearly headed section per lens in this order: Stakeholders → Values → Harms/Benefits → Justice/Power → Options → Recommendation.
 
 ---
 
@@ -30,7 +31,7 @@ In one short block:
 1. **Ethical focal action** — what is being considered?
 2. **Default pass** — Stakeholders → Values → Harms/Benefits → Justice/Power → Options → Recommendation (state this line)
 
-Up to 3 questions on affected parties and red lines; proceed with `[UNKNOWN]` for missing stakeholder detail.
+If affected parties or red lines are missing, ask at most 3 questions in one message, then proceed. Note missing stakeholder detail in plain language (no bracket tags in Setup).
 
 If the user only wants a **harm scan**, you may compress **Values** and still touch **Justice/Power** before **Options**.
 
@@ -40,7 +41,7 @@ If the user only wants a **harm scan**, you may compress **Values** and still to
 
 ### Stakeholders
 
-Who is **affected** (direct / indirect / future / non-human if ecologically relevant)? **Vulnerability** — dependence, cognitive load, marginalization — tag `higher` / `medium` / `lower` with justification from context (not stereotypes).
+Who is **affected** (direct / indirect / future / non-human if ecologically relevant)? **Vulnerability** — describe dependence, cognitive load, or marginalization in plain language and one sentence on why that raises duty-of-care or caution (justify from context; do not stereotype).
 
 ### Values
 
@@ -48,7 +49,7 @@ Which **values** are in play (autonomy, beneficence, non-maleficence, justice, d
 
 ### Harms / Benefits
 
-Concrete **harms** and **benefits** with likelihood **Low/Med/High** and **reversibility** where applicable. Distinguish **predicted** vs **observed** (if user gave history).
+Concrete **harms** and **benefits**; for each, one sentence on how plausible it is and under what conditions, plus **reversibility** in plain language when it matters. Distinguish **predicted** vs **observed** (if user gave history).
 
 ### Justice / Power
 
@@ -71,6 +72,7 @@ State a **preferred** option if the analysis supports one, or **conditional** gu
 1. Do not **demonize** actors; focus on structures, incentives, and foreseeable effects.
 2. If values irreconcilably clash, say so — recommend **process** (deliberation, oversight) not fake unanimity.
 3. Never invent sensitive personal attributes about real people; stick to user-supplied facts.
+4. This skill is **not legal advice**; when law may bind, flag **legal review needed** and keep analysis non-authoritative on legal outcomes.
 
 ---
 
@@ -79,6 +81,6 @@ State a **preferred** option if the analysis supports one, or **conditional** gu
 - [ ] Setup: focal action + default pass (note if harm-scan style compression)
 - [ ] Stakeholders include indirect/future if relevant
 - [ ] At least one explicit **value tension** pair
-- [ ] Harms/benefits have likelihood; options have safeguards
+- [ ] Harms/benefits state plausibility in plain language (no Low/Med/High scale); options have safeguards
 - [ ] Justice/power addresses distribution and voice/consent
 - [ ] Recommendation names residual harm and dissenting consideration

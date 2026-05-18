@@ -1,11 +1,14 @@
 ---
 name: design-thinking
 description: >
-  Human-centered design flow: empathize with needs, frame the problem, ideate,
-  prototype intent, and define learning tests. Use when the user asks for design
-  thinking, HCD, problem reframing from user evidence, service or UX concept
-  sprints, or "how might we" exploration before build — not for pure code review
-  without a user problem.
+  Use this skill when the user asks for design thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants
+  human-centered exploration—empathizing with needs, framing the problem,
+  ideating, prototyping intent, and defining what to learn next. Use for HCD,
+  service or UX concept sprints, how-might-we style discovery before build, or
+  reframing from user evidence, even with messy context. Skip when the spec is
+  fully frozen and they want no discovery, or when the task is code-only
+  maintenance with no user problem framing requested.
 license: MIT
 metadata:
   author: ysskrishna
@@ -16,11 +19,7 @@ metadata:
 
 Fall in love with the problem, not the first solution. End with **what to learn next**, not just ideas.
 
----
-
-## When to Use
-
-Use for product, service, policy, or experience work where **user/stakeholder needs** should drive the shape of the solution. Skip when the spec is fully frozen and no discovery is wanted.
+**How to run it with this skill:** one clearly headed section per stage in this order: Empathize → Define → Ideate → Prototype → Test plan.
 
 ---
 
@@ -31,7 +30,7 @@ In one short block:
 1. **Design challenge** — who is affected and in what situation?
 2. **Default pass** — Empathize → Define → Ideate → Prototype → Test plan (state this line)
 
-Up to 3 questions on users, constraints, and success signals; otherwise proceed with `[ASSUMED]`.
+If users, constraints, or success signals are missing, ask at most 3 questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
 
 If **Empathize** is thin (no real user input), say so honestly in **Define** and keep the POV narrow instead of inventing research.
 
@@ -51,11 +50,11 @@ No fabricated quotes; paraphrase only what the user supplied.
 
 ### Ideate
 
-Quantity + variety. Use **HMW** as prompts. Tag ideas `desirable` / `feasible` / `viable` as **hypotheses** (not proven). Aim for **about 10** ideas unless the user specifies otherwise.
+Quantity + variety. Use **HMW** as prompts. Tag ideas `desirable` / `feasible` / `viable` as **hypotheses** (not proven). Produce a **substantive** list (no fixed count unless the user specifies one).
 
 ### Prototype
 
-Describe **low-fidelity** artifacts: paper flow, roleplay script, landing smoke test, clickable sketch. For each: **Purpose:** what question does this answer? **Fidelity:** low / medium.
+Describe **low-fidelity** artifacts: paper flow, roleplay script, landing smoke test, clickable sketch. For each: **Purpose:** what question does this answer? **Fidelity note:** one line placing the artifact on a sketch-only vs interactive spectrum (no low/medium labels).
 
 ### Test plan
 
@@ -76,6 +75,6 @@ Describe **low-fidelity** artifacts: paper flow, roleplay script, landing smoke 
 - [ ] Setup: design challenge + default pass
 - [ ] Empathize distinguishes fact vs `[INFERRED]`
 - [ ] POV + HMW before Ideate
-- [ ] Ideation volume ~10 unless adjusted; desirable / feasible / viable tags used
-- [ ] Prototype states purpose and fidelity
+- [ ] Ideation is substantive; desirable / feasible / viable tags used
+- [ ] Prototype states purpose and a one-line fidelity note (no low/medium labels)
 - [ ] Test plan has learning goals and signals

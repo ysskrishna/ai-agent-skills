@@ -1,11 +1,15 @@
 ---
 name: systems-thinking
 description: >
-  Map interdependencies, feedback loops, delays, stocks and flows, and
-  leverage points before recommending action. Use when the user asks for
-  systems thinking, holistic analysis, unintended consequences, root causes
-  beyond single blame, or "how does this connect to that?" across teams,
-  products, or policies.
+  Use this skill when the user asks for systems thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants to
+  see how parts connect—mapping interdependencies, feedback loops, delays, stocks
+  and flows, and leverage points before recommending action. Use when they worry
+  about unintended consequences, holistic views, root causes beyond single
+  blame, or how choices propagate across teams, products, or policies, even if
+  they never say "feedback loop" or "stock and flow". Skip for single-step
+  linear tasks, lone-variable calculations, or fixes that need no map of
+  interactions or incentives.
 license: MIT
 metadata:
   author: ysskrishna
@@ -16,11 +20,7 @@ metadata:
 
 See the whole before optimizing parts. End with leverage-aware recommendations.
 
----
-
-## When to Use
-
-Use for messes that span people, time, and incentives — org change, incidents, product ecosystems, policy, operations. Not for trivial linear tasks or single-variable math.
+**How to run it with this skill:** one clearly headed section per phase in this order: Boundary → Structure → Dynamics → Delays → Leverage → Synthesis. Do not skip **Structure** before **Leverage**.
 
 ---
 
@@ -31,7 +31,7 @@ In one short block:
 1. **System in focus** — what is inside the boundary?
 2. **Default pass** — Boundary → Structure → Dynamics → Delays → Leverage → Synthesis (state this line)
 
-Ask at most 3 scoping questions if the boundary is unclear, then proceed with labeled `[ASSUMED]` gaps.
+If the boundary is unclear, ask at most 3 scoping questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
 
 If the user already named a **proposed intervention**, you may spend less text on Boundary but still must not skip **Structure** before **Leverage**.
 
@@ -63,7 +63,7 @@ Where is **time lag** between action and effect? How does delay change behavior 
 
 **Leverage point:** … — **Why it matters:** … — **Risk of backfire:** …
 
-Prefer high-leverage, low-blame interventions (rules, information flows, goals) over name-and-shame unless evidence supports it.
+Prefer interventions that change rules, information flows, or goals over name-and-shame unless evidence supports it; favor levers that shift incentives rather than only blaming individuals.
 
 ### Synthesis
 

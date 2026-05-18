@@ -2,13 +2,59 @@
 
 A curated collection of agent skills, compatible with Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more.
 
+## Skills
+
+| Name | Description |
+|------|-------------|
+| [`six-thinking-hats`](skills/six-thinking-hats/SKILL.md) | Use when the user asks for Six Thinking Hats, parallel thinking, or Edward de Bono (naming or directing use/apply/run with typos is decisive), or wants sequential six-hat facilitation: facts, feelings, risks, benefits, new ideas, then synthesis for decisions and brainstorms. |
+| [`critical-thinking`](skills/critical-thinking/SKILL.md) | Use when the user asks for critical thinking (naming or directing use/apply/run with typos is decisive), or wants claim and argument audit: assumptions, evidence, logic gaps, bias and fallacy scan, red team, devil's advocate, epistemic calibration. |
+| [`systems-thinking`](skills/systems-thinking/SKILL.md) | Use when the user asks for systems thinking (naming or directing use/apply/run with typos is decisive), or wants feedback loops, delays, stocks and flows, leverage points, unintended consequences, and holistic propagation across teams, products, and policies. |
+| [`creative-thinking`](skills/creative-thinking/SKILL.md) | Use when the user asks for creative thinking (naming or directing use/apply/run with typos is decisive), or wants divergent ideation: fluency, reframes, novel combinations, blue-sky variety, optional light convergence before commitment. |
+| [`strategic-thinking`](skills/strategic-thinking/SKILL.md) | Use when the user asks for strategic thinking (naming or directing use/apply/run with typos is decisive), or wants bets under constraints: where to play, how to win, roadmap narrative, tradeoffs, risks, portfolio prioritization, sequenced path. |
+| [`analytical-thinking`](skills/analytical-thinking/SKILL.md) | Use when the user asks for analytical thinking (naming or directing use/apply/run with typos is decisive), or wants structured breakdown: hypotheses, metrics, evidence, MECE-ish trees, decision tables, explicit uncertainty in synthesis. |
+| [`lateral-thinking`](skills/lateral-thinking/SKILL.md) | Use when the user asks for lateral thinking (naming or directing use/apply/run with typos is decisive), or wants provocations, concept fans, challenge questions, reframes to escape local optima when ideation stalls or feels incremental. |
+| [`design-thinking`](skills/design-thinking/SKILL.md) | Use when the user asks for design thinking (naming or directing use/apply/run with typos is decisive), or wants human-centered discovery: empathize, define POV and HMW, ideate, low-fi prototype intent, falsifiable test plan for HCD and UX sprints. |
+| [`first-principles-thinking`](skills/first-principles-thinking/SKILL.md) | Use when the user asks for first-principles thinking or first principles (naming or directing use/apply/run with typos is decisive), or wants to strip analogies, tag fundamentals, rebuild logic from bedrock, challenge defaults, sanity-check copycat strategies. |
+| [`ethical-thinking`](skills/ethical-thinking/SKILL.md) | Use when the user asks for ethical thinking (naming or directing use/apply/run with typos is decisive), or wants values, harms, benefits, power asymmetry, justice, consent, fair process—moral review, AI and data ethics, stakeholder harm scans beyond legality. |
+
+
+
+
 ## Installation
+
+### Via skills.sh (Recommended)
+
+Install via [skills.sh](https://skills.sh):
+
+```bash
+# Install all skills from this repo
+npx skills add ysskrishna/ai-agent-skills
+
+# List available skills
+npx skills add ysskrishna/ai-agent-skills --list
+
+# Or install individual skills (--skill names match plugin / directory names)
+npx skills add ysskrishna/ai-agent-skills --skill six-thinking-hats
+npx skills add ysskrishna/ai-agent-skills --skill critical-thinking
+npx skills add ysskrishna/ai-agent-skills --skill systems-thinking
+npx skills add ysskrishna/ai-agent-skills --skill creative-thinking
+npx skills add ysskrishna/ai-agent-skills --skill strategic-thinking
+npx skills add ysskrishna/ai-agent-skills --skill analytical-thinking
+npx skills add ysskrishna/ai-agent-skills --skill lateral-thinking
+npx skills add ysskrishna/ai-agent-skills --skill design-thinking
+npx skills add ysskrishna/ai-agent-skills --skill first-principles-thinking
+npx skills add ysskrishna/ai-agent-skills --skill ethical-thinking
+```
+
 
 ### Via Claude Code Plugin Marketplace
 
 ```bash
 # Add the marketplace
 /plugin marketplace add ysskrishna/ai-agent-skills
+
+# Update marketplace
+/plugin marketplace update ai-agent-skills
 
 # Install plugin(s) from the catalog
 /plugin install six-thinking-hats@ai-agent-skills
@@ -23,41 +69,15 @@ A curated collection of agent skills, compatible with Claude Code, Cursor, Codex
 /plugin install ethical-thinking@ai-agent-skills
 ```
 
-### Via skills.sh
+## Usage
 
-Install via [skills.sh](https://skills.sh):
+Call skills directly with /skill-name, or describe your goal and the agent will infer the best match.
 
-```bash
-# Install all skills from this repo
-npx skills add ysskrishna/ai-agent-skills
+```text
+/six-thinking-hats Pizza or pasta for dinner?
 
-# Or install individual skills
-npx skills add ysskrishna/ai-agent-skills/six-thinking-hats
-npx skills add ysskrishna/ai-agent-skills/critical-thinking
-npx skills add ysskrishna/ai-agent-skills/systems-thinking
-npx skills add ysskrishna/ai-agent-skills/creative-thinking
-npx skills add ysskrishna/ai-agent-skills/strategic-thinking
-npx skills add ysskrishna/ai-agent-skills/analytical-thinking
-npx skills add ysskrishna/ai-agent-skills/lateral-thinking
-npx skills add ysskrishna/ai-agent-skills/design-thinking
-npx skills add ysskrishna/ai-agent-skills/first-principles-thinking
-npx skills add ysskrishna/ai-agent-skills/ethical-thinking
+Use Six Thinking Hats for pizza or pasta for dinner.
 ```
-
-## Skills
-
-| Name | Description |
-|------|-------------|
-| [`six-thinking-hats`](skills/six-thinking-hats/SKILL.md) | Applies Edward de Bono's Six Thinking Hats as a sequential thinking-partner process. Selects hat-set modes (Full, Creative, Risk, Decision, Custom) and depth levels (Quick, Standard, Deep Dive) to match user intent. Use when the user asks for multi-angle reasoning, decision support, brainstorming with tradeoffs, or explicitly asks for Six Thinking Hats. Do not use for simple factual questions, execution-only coding tasks, or narrow single-lens requests that do not need multi-hat structure. |
-| [`critical-thinking`](skills/critical-thinking/SKILL.md) | Structured critical inquiry: clarify claims, surface assumptions, weigh evidence, test logic, and stress-test conclusions. Use when the user asks for critical thinking, rigorous evaluation of an argument, a belief audit, decision quality review, or explicit devil's-advocate analysis without needing a full multi-framework workshop. |
-| [`systems-thinking`](skills/systems-thinking/SKILL.md) | Map interdependencies, feedback loops, delays, stocks and flows, and leverage points before recommending action. Use when the user asks for systems thinking, holistic analysis, unintended consequences, root causes beyond single blame, or "how does this connect to that?" across teams, products, or policies. |
-| [`creative-thinking`](skills/creative-thinking/SKILL.md) | Facilitate divergent ideation: fluency, flexible perspectives, novel combinations, and elaboration — with optional light convergence. Use when the user asks for creative thinking, fresh ideas, "blue sky" options, creative reframes, or more variety before committing — not when they only want critique or a single correct answer. |
-| [`strategic-thinking`](skills/strategic-thinking/SKILL.md) | Connect intent, context, capabilities, and options into a coherent strategy with tradeoffs, risks, and a sequenced path. Use when the user asks for strategic thinking, competitive positioning, roadmap logic, "where to play / how to win", portfolio prioritization, or narrative that links goals to constraints and bets. |
-| [`analytical-thinking`](skills/analytical-thinking/SKILL.md) | Decompose problems, define metrics and hypotheses, structure evidence, and synthesize findings with explicit uncertainty. Use when the user asks for analytical thinking, structured breakdowns, quant reasoning framing, root-cause trees, or decision tables — not pure brainstorming or ethics-first deliberation alone. |
-| [`lateral-thinking`](skills/lateral-thinking/SKILL.md) | Disrupt fixed patterns with provocations, concept fans, challenge questions, and deliberate reframes to escape local optima. Use when the user asks for lateral thinking, de Bono-style provocation, "unstick" ideation, pattern break, or surprising angles — especially after conventional brainstorming stalls. |
-| [`design-thinking`](skills/design-thinking/SKILL.md) | Human-centered design flow: empathize with needs, frame the problem, ideate, prototype intent, and define learning tests. Use when the user asks for design thinking, HCD, problem reframing from user evidence, service or UX concept sprints, or "how might we" exploration before build — not for pure code review without a user problem. |
-| [`first-principles-thinking`](skills/first-principles-thinking/SKILL.md) | Strip analogies and convention to surface fundamental truths, then rebuild a reasoning chain and implications. Use when the user asks for first principles, "reason from scratch", challenge industry defaults, physics-of-business style breakdowns, or to sanity-check whether copying incumbents makes sense. |
-| [`ethical-thinking`](skills/ethical-thinking/SKILL.md) | Map stakeholders, values, harms and benefits, power asymmetries, and fair process to clarify ethical tradeoffs and recommendations. Use when the user asks for ethical thinking, moral review of a plan, AI or data ethics, fairness, stakeholder harm scans, or "should we" questions beyond pure legality. |
 
 ## Changelog
 

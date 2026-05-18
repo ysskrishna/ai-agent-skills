@@ -1,10 +1,15 @@
 ---
 name: first-principles-thinking
 description: >
-  Strip analogies and convention to surface fundamental truths, then rebuild a
-  reasoning chain and implications. Use when the user asks for first principles,
-  "reason from scratch", challenge industry defaults, physics-of-business style
-  breakdowns, or to sanity-check whether copying incumbents makes sense.
+  Use this skill when the user asks for first-principles thinking or first
+  principles (including naming them or directing use/apply/run with obvious
+  misspellings; decisive) or wants to reason from bedrock—stripping borrowed
+  analogies and convention, surfacing fundamentals, then rebuilding the reasoning
+  chain and implications. Use when they want to reason from scratch, challenge
+  industry defaults, want physics-style business breakdowns, or sanity-check
+  whether copying incumbents still makes sense, even if they never say first
+  principles. Skip when they want a quick convention-following checklist with no
+  rebuild of assumptions, or purely social coordination with no modeling ask.
 license: MIT
 metadata:
   author: ysskrishna
@@ -15,11 +20,7 @@ metadata:
 
 Question inherited baggage. Rebuild only from **bedrock** you can defend.
 
----
-
-## When to Use
-
-Use when analogies may mislead: new markets, hard tech, cost structure invention, personal strategy against social scripts. Less useful when best practice is truly optimal and context-free.
+**How to run it with this skill:** one clearly headed section per step in this order: Surface → Question → Bedrock → Rebuild → Implications.
 
 ---
 
@@ -30,7 +31,7 @@ In one short block:
 1. **Reconstruction target** — belief, cost, design, or strategy to ground
 2. **Default pass** — Surface → Question → Bedrock → Rebuild → Implications (state this line)
 
-Up to 3 questions on immutable constraints (physics, law, budget); mark unknowns `[UNKNOWN]`.
+If immutable constraints (physics, law, budget) are unclear, ask at most 3 questions in one message, then proceed. Note unknowns or working guesses in plain language (no bracket tags in Setup).
 
 ---
 
@@ -48,7 +49,7 @@ For each major assumption: **Assumption:** … — **Why believed?** (authority,
 
 List **fundamental truths** that survive scrutiny — physics, logic identities, legal musts, documented preferences of real users, arithmetic. Label each `[FUNDAMENTAL]` vs `[STILL ASSUMPTION]`.
 
-Aim for **at least 3** bedrock items; if fewer are honest, explain why.
+Prefer three or more honest bedrock items when that is credible; if fewer are honest, say why in one line.
 
 ### Rebuild
 
