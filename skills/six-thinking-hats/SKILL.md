@@ -1,25 +1,20 @@
 ---
 name: six-thinking-hats
 description: >
-  Apply Edward de Bono's Six Thinking Hats framework. Use only when the user
-  explicitly requests it by name (e.g. "six thinking hats", "use the hats",
-  "run a six hat analysis"). Do not infer or auto-apply for general analysis,
-  pros/cons, or brainstorming requests.
+  Apply Edward de Bono's Six Thinking Hats framework as a sequential
+  thinking-partner process. Use when the user clearly names the method or
+  author (e.g. "six thinking hats", "six hat session", "six hat analysis",
+  "De Bono hats", "thinking hats framework"). Do not infer or auto-apply for
+  general analysis, pros/cons, or unstructured brainstorming alone.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.16"
+  version: "2026.5.19"
 ---
 
 # Six Thinking Hats
 
 One hat at a time. Never blend lenses. Always end with Blue synthesis.
-
----
-
-## When to Use
-
-Run only when the user explicitly names this framework — e.g. "six thinking hats", "use the hats", "run a six hat analysis". Do not auto-apply for general analysis, pros/cons, or brainstorming.
 
 ---
 
