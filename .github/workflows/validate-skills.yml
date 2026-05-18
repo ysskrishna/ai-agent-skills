@@ -1,0 +1,29 @@
+# Run validate-skills.sh against skills/*/SKILL.md (name, description, structure).
+name: Validate skills
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "validate-skills.sh"
+      - ".github/workflows/validate-skills.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "validate-skills.sh"
+      - ".github/workflows/validate-skills.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate SKILL.md files
+        run: bash validate-skills.sh
