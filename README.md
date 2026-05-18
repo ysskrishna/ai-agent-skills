@@ -1,5 +1,7 @@
 # AI Agent Skills
 
+[![Tests](https://github.com/ysskrishna/ai-agent-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/ysskrishna/ai-agent-skills/actions/workflows/validate-skills.yml) [![License: MIT](https://img.shields.io/github/license/ysskrishna/ai-agent-skills)](https://github.com/ysskrishna/ai-agent-skills/blob/main/LICENSE) [![GitHub release](https://img.shields.io/github/v/release/ysskrishna/ai-agent-skills?label=release)](https://github.com/ysskrishna/ai-agent-skills/releases)
+
 A curated collection of cognitive workflows designed to upgrade your AI agents from simple code generators into strong collaborators for **decision support**, **brainstorming**, and **structured thinking**.
 
 Instead of one-off mega-prompts, these are modular [`SKILL.md`](https://agentskills.io/) packs from the [Agent Skills](https://agentskills.io/) open standard: reusable frameworks that help agents work through trade-offs, architectural choices, and ideation alongside you.
