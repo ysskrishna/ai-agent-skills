@@ -1,19 +1,24 @@
 ---
 name: six-thinking-hats
 description: >
-  Apply Edward de Bono's Six Thinking Hats framework as a sequential
-  thinking-partner process. Use when the user clearly names the method or
-  author (e.g. "six thinking hats", "six hat session", "six hat analysis",
-  "De Bono hats", "thinking hats framework").
+  Applies Edward de Bono's Six Thinking Hats framework as a sequential
+  thinking-partner process. Use when the user names the method or author,
+  asks for parallel thinking, a hat-by-hat session (e.g. "six thinking hats", 
+  "six hat session","six hat analysis", "De Bono hats", "Edward de Bono hats",
+  "thinking hats framework", "parallel thinking", "hat-by-hat").
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.18"
+  version: "2026.5.25"
 ---
 
 # Six Thinking Hats
 
-One hat at a time. Never blend lenses. Always end with Blue synthesis.
+**Six Thinking Hats** (Edward de Bono) is a **parallel thinking** method for a single **focus question**. Rather than mixing logic, emotion, optimism, and critique in one back-and-forth, the thinker or group takes **six complementary roles in sequence**, all wearing the “same hat” at each step. That keeps facts, gut reactions, risks, upsides, and new ideas from talking past each other.
+
+Each hat’s meaning, constraints, and bullet formats are defined once in **[The Hats](#the-hats)**; the closing **Blue** pass is in **[Blue Synthesis](#blue-synthesis)**.
+
+**How to run it with this skill:** one hat per section, clearly labelled; never mix two hats in the same section; always close with **Blue synthesis** that integrates earlier hats and adds **no** new facts, risks, ideas, or recommendations beyond what those hats produced.
 
 ---
 
@@ -87,6 +92,10 @@ Every bullet format:
 
 ### 🟢 Green — Creativity
 Alternatives, novel options, reframes. Generate only — no evaluation here.
+
+Produce **one distinct option per bullet**, using the same **bullets-per-hat**
+count as the **Depth** table for the chosen level (Quick: 2, Standard: 3,
+Deep Dive: 4–5).
 
 When stuck, use a forcing tactic: reversal, analogy, or constraint removal.
 
