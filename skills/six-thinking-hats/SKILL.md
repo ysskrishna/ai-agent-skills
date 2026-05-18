@@ -4,12 +4,11 @@ description: >
   Apply Edward de Bono's Six Thinking Hats framework as a sequential
   thinking-partner process. Use when the user clearly names the method or
   author (e.g. "six thinking hats", "six hat session", "six hat analysis",
-  "De Bono hats", "thinking hats framework"). Do not infer or auto-apply for
-  general analysis, pros/cons, or unstructured brainstorming alone.
+  "De Bono hats", "thinking hats framework").
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.19"
+  version: "2026.5.18"
 ---
 
 # Six Thinking Hats
