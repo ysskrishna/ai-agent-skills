@@ -1,14 +1,13 @@
 ---
 name: critical-thinking
 description: >
-  Structured critical inquiry: clarify claims, surface assumptions, weigh
-  evidence, test logic for gaps and fallacies, scan for common biases, and
-  stress-test conclusions. Use when the user asks for critical thinking, a
-  belief or assumption audit, decision-quality review, devil's advocate,
-  steel man or straw man check, bias or fallacy scan, red-team of an argument,
-  "what am I missing", logical stress-test, or epistemic or confidence
-  calibration without needing a full multi-framework workshop. Skip for pure
-  execution tasks with no evaluative angle.
+  Critical thinking: clarify claims, weigh evidence, surface assumptions,
+  test logic for gaps and fallacies, scan biases, stress-test conclusions.
+  Use when the user asks for critical thinking, a belief or argument audit,
+  decision-quality review, devil's advocate, steel/straw man check, bias or
+  fallacy scan, red-team, "what am I missing", logical stress-test, or
+  epistemic or confidence calibration. Skip for execution-only tasks with no
+  evaluative angle.
 license: MIT
 metadata:
   author: ysskrishna
@@ -19,7 +18,7 @@ metadata:
 
 **Critical thinking** is disciplined inquiry that keeps **description** separate from **evaluation**: surface assumptions, weigh evidence, test logic, consider alternatives, then state a proportionate conclusion. If the conventional view is well-supported, say so — this is inquiry, not contrarianism by default.
 
-**How to run it with this skill:** one phase per clearly headed section, in the declared order; always close with **Conclusion** (judgment, confidence, falsifiers) unless the user explicitly stops early.
+**How to run it with this skill:** one phase per clearly headed section, in the order stated in Setup (default pass unless the user requested otherwise); always close with **Conclusion** (judgment, confidence, falsifiers) unless the user explicitly stops early.
 
 ---
 
@@ -30,7 +29,7 @@ In one short block:
 1. **Focus** — the specific claim, proposal, or question under review
 2. **Default pass** — Clarify → Information → Assumptions → Reasoning → Alternatives → Conclusion (state this line so the user sees the path)
 
-If essential context is missing, ask at most 3 questions in one message, then proceed. Mark gaps `[UNKNOWN]` or working guesses `[ASSUMED]`.
+If essential context is missing, ask at most 3 questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
 
 If the user asks to **skip or reorder** phases (e.g. fast logic-only pass), follow their sequence and still end with **Conclusion**.
 
@@ -44,7 +43,10 @@ Restate the target in one precise sentence. Separate **factual** vs **normative*
 
 ### Information
 
-What evidence exists? Label each bullet `[STRONG]`, `[WEAK]`, or `[MISSING]` (evidence quality / availability — not emotional strength).
+What evidence exists? Each bullet starts with **`[CITED]`** or **`[MISSING]`**:
+
+- **`[CITED]`** — a traceable basis (user text, repo, doc, link, study, etc.); in the same bullet, name the basis and one line on strength or limits (no extra strength tags).
+- **`[MISSING]`** — no traceable basis yet for that point, or evidence was requested but not available.
 
 ### Assumptions
 
@@ -68,7 +70,7 @@ Credible competing explanations, plans, or frames. Do not collapse into debate r
 ### Conclusion
 
 1. **Judgment** — answer the focus question directly
-2. **Confidence** — High / Medium / Low with one-line justification tied to evidence gaps
+2. **Confidence** — High / Medium / Low with one-line justification tied to how much is `[MISSING]` vs well-supported `[CITED]` evidence
 3. **What would change my mind** — concrete falsifiers or new data
 
 ---
@@ -86,8 +88,8 @@ Credible competing explanations, plans, or frames. Do not collapse into debate r
 ## Checklist (verify before responding)
 
 - [ ] Setup block: focus + stated pass (or user-requested variant)
-- [ ] Each phase is its own section, in order
-- [ ] Information bullets carry `[STRONG]` / `[WEAK]` / `[MISSING]`
+- [ ] Each phase is its own section, following the order stated in Setup
+- [ ] Information: each bullet starts with `[CITED]` (basis + limits in-bullet) or `[MISSING]`
 - [ ] Assumptions use **Assumption** / **If false** pairs
 - [ ] Reasoning references only what earlier phases established; bias/fallacy pass done or explicitly "none identified"
 - [ ] Conclusion includes judgment, confidence, and falsifiers
