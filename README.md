@@ -69,6 +69,15 @@ npx skills add ysskrishna/ai-agent-skills --skill ethical-thinking
 /plugin install ethical-thinking@ai-agent-skills
 ```
 
+## Usage
+
+Call skills directly with /skill-name, or describe your goal and the agent will infer the best match.
+
+```text
+/six-thinking-hats Pizza or pasta for dinner?
+
+Use Six Thinking Hats for pizza or pasta for dinner.
+```
 
 ## Changelog
 
