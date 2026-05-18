@@ -23,7 +23,7 @@ When you add or rename a skill, keep these in sync:
 - [README.md](README.md) — **Skills** table and **Installation** section.
 - [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) — `plugins` catalog for Claude Code.
 - Claude Code install line: `/plugin install {skill-name}@ai-agent-skills`.
-- [skills.sh](https://skills.sh) install line: `npx skills add ysskrishna/ai-agent-skills/{skill-name}`.
+- [skills.sh](https://skills.sh) install line: `npx skills add ysskrishna/ai-agent-skills --skill {skill-name}`.
 
 ## Creating a new skill
 
@@ -34,7 +34,7 @@ Skills follow the [Agent Skills Open Standard](https://agentskills.io/).
 3. Register the skill in [README.md](README.md).
    - Add a row to the **Skills** table.
    - Extend **Installation** with a Claude Code line: `/plugin install {skill-name}@ai-agent-skills`.
-   - Extend **Installation** with a [skills.sh](https://skills.sh) line: `npx skills add ysskrishna/ai-agent-skills/{skill-name}`.
+   - Extend **Installation** with a [skills.sh](https://skills.sh) line: `npx skills add ysskrishna/ai-agent-skills --skill {skill-name}`.
    - Follow the examples already in the README.
 4. Register the skill in [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
    - Add a matching entry to the `plugins` array (`name`, `source`, `description`, and `skills` as needed).
