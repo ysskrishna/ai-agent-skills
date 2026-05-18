@@ -1,10 +1,14 @@
 ---
 name: first-principles-thinking
 description: >
-  Strip analogies and convention to surface fundamental truths, then rebuild a
-  reasoning chain and implications. Use when the user asks for first principles,
-  "reason from scratch", challenge industry defaults, physics-of-business style
-  breakdowns, or to sanity-check whether copying incumbents makes sense.
+  Use this skill when the user asks for first-principles thinking or wants to
+  reason from bedrock—stripping borrowed analogies and convention, surfacing
+  fundamentals, then rebuilding the reasoning chain and implications. Use when
+  they want to reason from scratch, challenge industry defaults, want physics-style
+  business breakdowns, or sanity-check whether copying incumbents still makes
+  sense, even if they never say first principles. Skip when they want a quick
+  convention-following checklist with no rebuild of assumptions, or purely
+  social coordination with no modeling ask.
 license: MIT
 metadata:
   author: ysskrishna

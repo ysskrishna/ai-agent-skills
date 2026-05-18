@@ -1,11 +1,14 @@
 ---
 name: systems-thinking
 description: >
-  Map interdependencies, feedback loops, delays, stocks and flows, and
-  leverage points before recommending action. Use when the user asks for
-  systems thinking, holistic analysis, unintended consequences, root causes
-  beyond single blame, or "how does this connect to that?" across teams,
-  products, or policies.
+  Use this skill when the user asks for systems thinking or wants to see how
+  parts connect—mapping interdependencies, feedback loops, delays, stocks and
+  flows, and leverage points before recommending action. Use when they worry
+  about unintended consequences, holistic views, root causes beyond single
+  blame, or how choices propagate across teams, products, or policies, even if
+  they never say "feedback loop" or "stock and flow". Skip for single-step
+  linear tasks, lone-variable calculations, or fixes that need no map of
+  interactions or incentives.
 license: MIT
 metadata:
   author: ysskrishna

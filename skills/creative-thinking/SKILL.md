@@ -1,11 +1,13 @@
 ---
 name: creative-thinking
 description: >
-  Facilitate divergent ideation: fluency, flexible perspectives, novel
-  combinations, and elaboration — with optional light convergence. Use when the
-  user asks for creative thinking, fresh ideas, "blue sky" options, creative
-  reframes, or more variety before committing — not when they only want critique
-  or a single correct answer.
+  Use this skill when the user asks for creative thinking or wants divergent
+  ideation—fluency, flexible perspectives, novel combinations, and elaboration,
+  with optional light convergence. Use when they want fresh ideas, blue-sky
+  options, reframes, or more variety before committing, including casual or
+  messy prompts. Skip when they want a single delivered answer with no
+  exploration, audit-only teardown with no generation asked for, or purely
+  mechanical execution.
 license: MIT
 metadata:
   author: ysskrishna

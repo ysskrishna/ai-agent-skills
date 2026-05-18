@@ -1,11 +1,13 @@
 ---
 name: analytical-thinking
 description: >
-  Decompose problems, define metrics and hypotheses, structure evidence, and
-  synthesize findings with explicit uncertainty. Use when the user asks for
-  analytical thinking, structured breakdowns, quant reasoning framing,
-  root-cause trees, or decision tables — not pure brainstorming or ethics-first
-  deliberation alone.
+  Use this skill when the user asks for analytical thinking or wants a
+  structured breakdown—decomposing the problem, defining metrics and
+  hypotheses, organizing evidence, and synthesizing findings with explicit
+  uncertainty. Use for quant-style reasoning framing, root-cause trees, decision
+  tables, or comparable structure, including informal or incomplete data asks.
+  Skip when they want open-ended idea spray with no measurement or hypothesis
+  angle, or a short verdict with no decomposition requested.
 license: MIT
 metadata:
   author: ysskrishna

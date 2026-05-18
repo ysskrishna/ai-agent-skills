@@ -1,11 +1,13 @@
 ---
 name: design-thinking
 description: >
-  Human-centered design flow: empathize with needs, frame the problem, ideate,
-  prototype intent, and define learning tests. Use when the user asks for design
-  thinking, HCD, problem reframing from user evidence, service or UX concept
-  sprints, or "how might we" exploration before build — not for pure code review
-  without a user problem.
+  Use this skill when the user asks for design thinking or wants human-centered
+  exploration—empathizing with needs, framing the problem, ideating, prototyping
+  intent, and defining what to learn next. Use for HCD, service or UX concept
+  sprints, how-might-we style discovery before build, or reframing from user
+  evidence, even with messy context. Skip when the spec is fully frozen and they
+  want no discovery, or when the task is code-only maintenance with no user
+  problem framing requested.
 license: MIT
 metadata:
   author: ysskrishna
