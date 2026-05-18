@@ -1,10 +1,11 @@
 {
   "name": "ai-agent-skills",
   "owner": {
-    "name": "ysskrishna"
+    "name": "ysskrishna",
+    "url": "https://ysskrishna.space"
   },
   "metadata": {
-    "description": "Curated agent skills compatible with Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more.",
+    "description": "Curated Agent Skills (SKILL.md) for Claude Code: structured thinking lenses, decision support, and brainstorming workflows.",
     "version": "1.0.1"
   },
   "plugins": [

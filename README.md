@@ -1,6 +1,18 @@
 # AI Agent Skills
 
-A curated collection of agent skills, compatible with Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more.
+A curated collection of cognitive workflows designed to upgrade your AI agents from simple code generators into strong collaborators for **decision support**, **brainstorming**, and **structured thinking**.
+
+Instead of one-off mega-prompts, these are modular [`SKILL.md`](https://agentskills.io/) packs from the [Agent Skills](https://agentskills.io/) open standard: reusable frameworks that help agents work through trade-offs, architectural choices, and ideation alongside you.
+
+Compatible with **Claude Code**, **Cursor**, **Codex CLI**, **Gemini CLI**, **Windsurf**, **Antigravity**, and any tool that supports the same specification.
+
+## Overview
+
+Most coding assistants default to quick answers. This repository provides standard [`SKILL.md`](https://agentskills.io/) packs that add explicit thinking frameworks to your agent's loop, grouped into three pillars:
+
+- **Thinking lenses:** Six Thinking Hats; critical, systems, creative, strategic, analytical, and lateral thinking; design thinking; first-principles thinking; ethical reasoning.
+- **Decision support:** Structured trade-off analysis, synthesis, and evaluation passes.
+- **Brainstorming and critique:** Facilitation-style sequences for ideation and review (including adversarial angles where a skill calls for it).
 
 ## Skills
 
@@ -22,7 +34,7 @@ A curated collection of agent skills, compatible with Claude Code, Cursor, Codex
 
 ## Installation
 
-### Via skills.sh (Recommended)
+### skills.sh (recommended)
 
 Install via [skills.sh](https://skills.sh):
 
@@ -47,7 +59,7 @@ npx skills add ysskrishna/ai-agent-skills --skill ethical-thinking
 ```
 
 
-### Via Claude Code Plugin Marketplace
+### Claude Code marketplace
 
 ```bash
 # Add the marketplace
@@ -71,7 +83,7 @@ npx skills add ysskrishna/ai-agent-skills --skill ethical-thinking
 
 ## Usage
 
-Call skills directly with /skill-name, or describe your goal and the agent will infer the best match.
+Call skills directly with `/skill-name`, or describe your goal and the agent will infer the best match.
 
 ```text
 /six-thinking-hats Pizza or pasta for dinner?
