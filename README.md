@@ -53,6 +53,9 @@ npx skills add ysskrishna/ai-agent-skills --skill ethical-thinking
 # Add the marketplace
 /plugin marketplace add ysskrishna/ai-agent-skills
 
+# Update marketplace
+/plugin marketplace update ai-agent-skills
+
 # Install plugin(s) from the catalog
 /plugin install six-thinking-hats@ai-agent-skills
 /plugin install critical-thinking@ai-agent-skills
