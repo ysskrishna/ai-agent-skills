@@ -1,15 +1,19 @@
 ---
 name: six-thinking-hats
 description: >
-  Applies Edward de Bono's Six Thinking Hats framework as a sequential
-  thinking-partner process. Use when the user names the method or author,
-  asks for parallel thinking, a hat-by-hat session (e.g. "six thinking hats", 
-  "six hat session","six hat analysis", "De Bono hats", "Edward de Bono hats",
-  "thinking hats framework", "parallel thinking", "hat-by-hat").
+  Use this skill when the user wants a sequential, six-role thinking partner
+  (Edward de Bono's Six Thinking Hats / parallel thinking) for one focus—keeping
+  facts, feelings, risks, benefits, and new ideas in separate passes instead of
+  one mixed reply. Use for structured brainstorms, decisions, or reviews when
+  they ask for hat-by-hat analysis, parallel thinking, or name the method or
+  author, even if phrasing is casual or incomplete. Skip for plain factual
+  questions, execution-only implementation with no structured perspective pass,
+  or one-off hot takes and single-angle verdicts where they do not want a
+  fixed, hat-by-hat sequence across six roles.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.25"
+  version: "2026.5.18"
 ---
 
 # Six Thinking Hats

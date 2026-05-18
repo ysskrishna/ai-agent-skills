@@ -53,14 +53,16 @@ Skills follow the [Agent Skills Open Standard](https://agentskills.io/).
 ```yaml
 ---
 name: skill-name
-description: What this skill does and when to use it.
+description: >
+  Use this skill when the user ... (intent and triggers). Optional: skip when
+  ... (task-shape boundaries only—do not route to other skills by name).
 ---
 ```
 
 | Field         | Required | Constraints |
 | ------------- | -------- | ----------- |
 | `name`        | Yes      | 1–64 chars. Lowercase alphanumeric and hyphens only. Must match the directory name. |
-| `description` | Yes    | 1–1024 chars. Describe what the skill does **and** when to use it (this is the primary trigger signal). |
+| `description` | Yes    | 1–1024 chars. Primary trigger signal: imperative when-to-use, user intent, concrete triggers (see **Description field** below). |
 | `license`     | No       | License name or reference to a bundled license file. |
 | `metadata`    | No       | Arbitrary key-value pairs (e.g. `author`, `version`). |
 
@@ -75,10 +77,15 @@ When you ship meaningful updates to a skill, bump `metadata.version` (or your ch
 
 ### Description field (critical)
 
-The description is how agents decide whether to activate the skill. Include:
+The description is how agents decide whether to activate the skill. See [Optimizing skill descriptions](https://agentskills.io/skill-creation/optimizing-descriptions) for trigger testing and iteration.
 
-1. What the skill does.
-2. Concrete triggers (topics, tasks, phrasing) for when to use it.
+Write the `description` so it works at a glance:
+
+1. **Imperative open** — start with **“Use this skill when…”** (or equivalent). The agent is choosing an action; tell it when to load this skill, not only what the skill contains.
+2. **User intent first** — say what the user is trying to accomplish (decide, audit, brainstorm in a fixed structure, etc.), then the method labels. Avoid opening with implementation-only framing (“Applies the X framework…”) without a when-to-use clause in the same breath.
+3. **Obvious phrasing early** — if people often say the skill name or a stock phrase (“critical thinking”, “six thinking hats”), put that **near the start**, not only buried in a long parenthetical list. You can still add indirect triggers after.
+4. **Concrete triggers** — topics, tasks, casual and indirect phrasing, and “even if they don’t say …” style coverage where it helps recall.
+5. *(Optional)* **When not to use** — only if it materially cuts false activations. State boundaries as **task shape** (execution-only, plain factual lookup, single-angle hot take with no structured pass, etc.). **Do not** point at other skills in this repo by name, method, or “use skill Y instead” routing—those lists do not scale as the catalog grows and they go stale fast. The [Agent Skills Open Standard](https://agentskills.io/) does not require negatives—many published skills omit them.
 
 Put trigger guidance in **frontmatter `description`**, not only in the body—the body loads after the skill is already chosen.
 
@@ -97,6 +104,18 @@ Write concise, imperative instructions. Prefer short examples and links to `refe
 1. **Metadata** — always available to the agent.
 2. **Body** — loaded when the skill triggers; keep it lean.
 3. **References** — load on demand via links from the body.
+
+### Skill authoring quality (recommended)
+
+- Use **minimal, consistent tagging**; avoid parallel bracket vocabularies (e.g. Setup vs phases) without a one-line rule for where each applies. Prefer prose in Setup and a small tag set only where structure matters.
+- Keep **checklists aligned** with body and execution rules—no bullets that contradict optional paths. Either specify branching fully or **prefer a fixed canonical phase order** unless the skill truly needs skips or reorders; if phases vary by run, **Setup must state the exact sequence** for that response.
+- When a rule **forbids** something in a phase (e.g. no new factual assertions), say **what to do instead** (structural gap label, ask the user, etc.).
+- **Thread early distinctions** through later phases and Conclusion (e.g. factual vs normative): if you introduce a split up front, say how later steps use it.
+- Align **falsifiers, uncertainty, and voice** to the skill’s **Focus** (whose claim, which party, impersonal review)—avoid ambiguous first person.
+- Frame short **example lists** (biases, fallacies, prompts) as **examples**, not exhaustive catalogs, unless you intend completeness.
+- Prefer **one plain sentence** on strength of case or uncertainty over **ordinal scales** (e.g. High / Medium / Low) unless you commit to maintaining a rubric in the skill.
+- When a **named workflow step** could be mistaken for generic **Setup**, state explicitly whether Setup satisfies that step or a **separate labeled section** is required.
+- For content shared across many skills, use **one** `references/*.md` and **one-line links** from each skill instead of duplicating large routing or comparison blocks.
 
 ---
 
