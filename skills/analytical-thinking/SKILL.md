@@ -1,7 +1,8 @@
 ---
 name: analytical-thinking
 description: >
-  Use this skill when the user asks for analytical thinking or wants a
+  Use this skill when the user asks for analytical thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants a
   structured breakdown—decomposing the problem, defining metrics and
   hypotheses, organizing evidence, and synthesizing findings with explicit
   uncertainty. Use for quant-style reasoning framing, root-cause trees, decision

@@ -1,13 +1,14 @@
 ---
 name: ethical-thinking
 description: >
-  Use this skill when the user asks for ethical thinking or wants a structured
-  pass on values and harms—mapping stakeholders, tradeoffs, power asymmetries,
-  harms and benefits, consent, justice, and fair process for a plan or product.
-  Use for moral review, fairness or AI-ethics style questions, stakeholder harm
-  scans, or should-we questions beyond pure legality, including indirect asks.
-  Skip when they want legal advice as such, only neutral facts with no
-  normative review requested, or implementation-only work with no values lens
+  Use this skill when the user asks for ethical thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants a
+  structured pass on values and harms—mapping stakeholders, tradeoffs, power
+  asymmetries, harms and benefits, consent, justice, and fair process for a plan
+  or product. Use for moral review, fairness or AI-ethics style questions,
+  stakeholder harm scans, or should-we questions beyond pure legality, including
+  indirect asks. Skip when they want legal advice as such, only neutral facts with
+  no normative review requested, or implementation-only work with no values lens
   asked for.
 license: MIT
 metadata:

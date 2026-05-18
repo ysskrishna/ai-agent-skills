@@ -1,12 +1,13 @@
 ---
 name: lateral-thinking
 description: >
-  Use this skill when the user asks for lateral thinking or wants to break a
-  sticky pattern—provocations, concept fans, challenge questions, and deliberate
-  reframes to escape local optima. Use when ideation feels stuck, options feel
-  incremental, or they want surprising angles (including after conventional
-  brainstorming stalls), even if they never say "lateral thinking" or
-  "provocation". Skip when they need a single compliant rule lookup, tight
+  Use this skill when the user asks for lateral thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants to
+  break a sticky pattern—provocations, concept fans, challenge questions, and
+  deliberate reframes to escape local optima. Use when ideation feels stuck,
+  options feel incremental, or they want surprising angles (including after
+  conventional brainstorming stalls), even if they never say "lateral thinking"
+  or "provocation". Skip when they need a single compliant rule lookup, tight
   logical proof with no exploration phase, or no appetite for playful what-if
   moves.
 license: MIT

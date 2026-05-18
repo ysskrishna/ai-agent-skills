@@ -1,8 +1,9 @@
 ---
 name: critical-thinking
 description: >
-  Use this skill when the user asks for critical thinking or wants to evaluate
-  a claim, argument, plan, or belief: clarify assertions, weigh evidence,
+  Use this skill when the user asks for critical thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants to
+  evaluate a claim, argument, plan, or belief: clarify assertions, weigh evidence,
   surface assumptions, test reasoning for gaps or fallacies, scan biases,
   consider alternatives, and stress-test conclusions—whether they phrase it
   plainly ("red team", "devil's advocate", "what am I missing", steel/straw

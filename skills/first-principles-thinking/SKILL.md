@@ -1,14 +1,15 @@
 ---
 name: first-principles-thinking
 description: >
-  Use this skill when the user asks for first-principles thinking or wants to
-  reason from bedrock—stripping borrowed analogies and convention, surfacing
-  fundamentals, then rebuilding the reasoning chain and implications. Use when
-  they want to reason from scratch, challenge industry defaults, want physics-style
-  business breakdowns, or sanity-check whether copying incumbents still makes
-  sense, even if they never say first principles. Skip when they want a quick
-  convention-following checklist with no rebuild of assumptions, or purely
-  social coordination with no modeling ask.
+  Use this skill when the user asks for first-principles thinking or first
+  principles (including naming them or directing use/apply/run with obvious
+  misspellings; decisive) or wants to reason from bedrock—stripping borrowed
+  analogies and convention, surfacing fundamentals, then rebuilding the reasoning
+  chain and implications. Use when they want to reason from scratch, challenge
+  industry defaults, want physics-style business breakdowns, or sanity-check
+  whether copying incumbents still makes sense, even if they never say first
+  principles. Skip when they want a quick convention-following checklist with no
+  rebuild of assumptions, or purely social coordination with no modeling ask.
 license: MIT
 metadata:
   author: ysskrishna

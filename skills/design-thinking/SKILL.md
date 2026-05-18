@@ -1,13 +1,14 @@
 ---
 name: design-thinking
 description: >
-  Use this skill when the user asks for design thinking or wants human-centered
-  exploration—empathizing with needs, framing the problem, ideating, prototyping
-  intent, and defining what to learn next. Use for HCD, service or UX concept
-  sprints, how-might-we style discovery before build, or reframing from user
-  evidence, even with messy context. Skip when the spec is fully frozen and they
-  want no discovery, or when the task is code-only maintenance with no user
-  problem framing requested.
+  Use this skill when the user asks for design thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants
+  human-centered exploration—empathizing with needs, framing the problem,
+  ideating, prototyping intent, and defining what to learn next. Use for HCD,
+  service or UX concept sprints, how-might-we style discovery before build, or
+  reframing from user evidence, even with messy context. Skip when the spec is
+  fully frozen and they want no discovery, or when the task is code-only
+  maintenance with no user problem framing requested.
 license: MIT
 metadata:
   author: ysskrishna

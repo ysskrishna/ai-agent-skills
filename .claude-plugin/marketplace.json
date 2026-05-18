@@ -12,61 +12,61 @@
       "name": "six-thinking-hats",
       "source": "./skills/six-thinking-hats",
       "skills": "./",
-      "description": "Applies Edward de Bono's Six Thinking Hats as a sequential thinking-partner process. Selects hat-set modes (Full, Creative, Risk, Decision, Custom) and depth levels (Quick, Standard, Deep Dive) to match user intent. Use when the user asks for multi-angle reasoning, decision support, brainstorming with tradeoffs, or explicitly asks for Six Thinking Hats."
+      "description": "Use when the user asks for Six Thinking Hats, parallel thinking, or Edward de Bono (naming or directing use/apply/run with typos is decisive), or wants sequential six-hat facilitation: facts, feelings, risks, benefits, new ideas, then synthesis for decisions and brainstorms."
     },
     {
       "name": "critical-thinking",
       "source": "./skills/critical-thinking",
       "skills": "./",
-      "description": "Structured critical inquiry: clarify claims, surface assumptions, weigh evidence, test logic, and stress-test conclusions. Use when the user asks for critical thinking, rigorous evaluation of an argument, a belief audit, decision quality review, or explicit devil's-advocate analysis without needing a full multi-framework workshop."
+      "description": "Use when the user asks for critical thinking (naming or directing use/apply/run with typos is decisive), or wants claim and argument audit: assumptions, evidence, logic gaps, bias and fallacy scan, red team, devil's advocate, epistemic calibration."
     },
     {
       "name": "systems-thinking",
       "source": "./skills/systems-thinking",
       "skills": "./",
-      "description": "Map interdependencies, feedback loops, delays, stocks and flows, and leverage points before recommending action. Use when the user asks for systems thinking, holistic analysis, unintended consequences, root causes beyond single blame, or how different parts connect across teams, products, or policies."
+      "description": "Use when the user asks for systems thinking (naming or directing use/apply/run with typos is decisive), or wants feedback loops, delays, stocks and flows, leverage points, unintended consequences, and holistic propagation across teams, products, and policies."
     },
     {
       "name": "creative-thinking",
       "source": "./skills/creative-thinking",
       "skills": "./",
-      "description": "Facilitate divergent ideation: fluency, flexible perspectives, novel combinations, and elaboration with optional light convergence. Use when the user asks for creative thinking, fresh ideas, blue sky options, creative reframes, or more variety before committing."
+      "description": "Use when the user asks for creative thinking (naming or directing use/apply/run with typos is decisive), or wants divergent ideation: fluency, reframes, novel combinations, blue-sky variety, optional light convergence before commitment."
     },
     {
       "name": "strategic-thinking",
       "source": "./skills/strategic-thinking",
       "skills": "./",
-      "description": "Connect intent, context, capabilities, and options into a coherent strategy with tradeoffs, risks, and a sequenced path. Use when the user asks for strategic thinking, competitive positioning, roadmap logic, where to play and how to win, portfolio prioritization, or narrative linking goals to constraints and bets."
+      "description": "Use when the user asks for strategic thinking (naming or directing use/apply/run with typos is decisive), or wants bets under constraints: where to play, how to win, roadmap narrative, tradeoffs, risks, portfolio prioritization, sequenced path."
     },
     {
       "name": "analytical-thinking",
       "source": "./skills/analytical-thinking",
       "skills": "./",
-      "description": "Decompose problems, define metrics and hypotheses, structure evidence, and synthesize findings with explicit uncertainty. Use when the user asks for analytical thinking, structured breakdowns, quant reasoning framing, root-cause trees, or decision tables."
+      "description": "Use when the user asks for analytical thinking (naming or directing use/apply/run with typos is decisive), or wants structured breakdown: hypotheses, metrics, evidence, MECE-ish trees, decision tables, explicit uncertainty in synthesis."
     },
     {
       "name": "lateral-thinking",
       "source": "./skills/lateral-thinking",
       "skills": "./",
-      "description": "Disrupt fixed patterns with provocations, concept fans, challenge questions, and deliberate reframes to escape local optima. Use when the user asks for lateral thinking, de Bono-style provocation, unstick ideation, pattern break, or surprising angles after conventional brainstorming stalls."
+      "description": "Use when the user asks for lateral thinking (naming or directing use/apply/run with typos is decisive), or wants provocations, concept fans, challenge questions, reframes to escape local optima when ideation stalls or feels incremental."
     },
     {
       "name": "design-thinking",
       "source": "./skills/design-thinking",
       "skills": "./",
-      "description": "Human-centered design flow: empathize with needs, frame the problem, ideate, prototype intent, and define learning tests. Use when the user asks for design thinking, HCD, problem reframing from user evidence, service or UX concept sprints, or how might we exploration before build."
+      "description": "Use when the user asks for design thinking (naming or directing use/apply/run with typos is decisive), or wants human-centered discovery: empathize, define POV and HMW, ideate, low-fi prototype intent, falsifiable test plan for HCD and UX sprints."
     },
     {
       "name": "first-principles-thinking",
       "source": "./skills/first-principles-thinking",
       "skills": "./",
-      "description": "Strip analogies and convention to surface fundamental truths, then rebuild a reasoning chain and implications. Use when the user asks for first principles, reason from scratch, challenge industry defaults, physics-of-business style breakdowns, or sanity-checking whether copying incumbents makes sense."
+      "description": "Use when the user asks for first-principles thinking or first principles (naming or directing use/apply/run with typos is decisive), or wants to strip analogies, tag fundamentals, rebuild logic from bedrock, challenge defaults, sanity-check copycat strategies."
     },
     {
       "name": "ethical-thinking",
       "source": "./skills/ethical-thinking",
       "skills": "./",
-      "description": "Map stakeholders, values, harms and benefits, power asymmetries, and fair process to clarify ethical tradeoffs and recommendations. Use when the user asks for ethical thinking, moral review of a plan, AI or data ethics, fairness, stakeholder harm scans, or should we questions beyond pure legality."
+      "description": "Use when the user asks for ethical thinking (naming or directing use/apply/run with typos is decisive), or wants values, harms, benefits, power asymmetry, justice, consent, fair process—moral review, AI and data ethics, stakeholder harm scans beyond legality."
     }
   ]
 }

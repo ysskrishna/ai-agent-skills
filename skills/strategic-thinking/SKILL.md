@@ -1,12 +1,13 @@
 ---
 name: strategic-thinking
 description: >
-  Use this skill when the user asks for strategic thinking or wants direction
-  under constraint—connecting intent, context, capabilities, and options into
-  coherent bets, tradeoffs, risks, and a sequenced path. Use when they talk about
-  competitive positioning, roadmap narrative, where to play and how to win,
-  portfolio prioritization, or leadership narrative that links goals to
-  constraints, even if they never use the word strategy. Skip for step-by-step
+  Use this skill when the user asks for strategic thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants
+  direction under constraint—connecting intent, context, capabilities, and
+  options into coherent bets, tradeoffs, risks, and a sequenced path. Use when
+  they talk about competitive positioning, roadmap narrative, where to play and
+  how to win, portfolio prioritization, or leadership narrative that links goals
+  to constraints, even if they never use the word strategy. Skip for step-by-step
   implementation detail when no strategic framing or choice among directions is
   requested.
 license: MIT

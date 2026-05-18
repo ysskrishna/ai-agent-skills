@@ -2,14 +2,15 @@
 name: six-thinking-hats
 description: >
   Use this skill when the user asks for six thinking hats, parallel thinking, or
-  Edward de Bono's method—or wants a sequential, six-role thinking partner for
-  one focus—keeping facts, feelings, risks, benefits, and new ideas in separate
-  passes instead of one mixed reply. Use for structured brainstorms, decisions,
-  or reviews when they ask for hat-by-hat analysis or name the method or author,
-  even if phrasing is casual or incomplete. Skip for plain factual questions,
-  execution-only implementation with no structured perspective pass, or one-off
-  hot takes and single-angle verdicts where they do not want a fixed, hat-by-hat
-  sequence across six roles.
+  Edward de Bono's method (including naming any of these or directing
+  use/apply/run with obvious misspellings; decisive)—or wants a sequential,
+  six-role thinking partner for one focus—keeping facts, feelings, risks,
+  benefits, and new ideas in separate passes instead of one mixed reply. Use for
+  structured brainstorms, decisions, or reviews when they ask for hat-by-hat
+  analysis or name the method or author, even if phrasing is casual or incomplete.
+  Skip for plain factual questions, execution-only implementation with no
+  structured perspective pass, or one-off hot takes and single-angle verdicts
+  where they do not want a fixed, hat-by-hat sequence across six roles.
 license: MIT
 metadata:
   author: ysskrishna

@@ -1,9 +1,10 @@
 ---
 name: systems-thinking
 description: >
-  Use this skill when the user asks for systems thinking or wants to see how
-  parts connect—mapping interdependencies, feedback loops, delays, stocks and
-  flows, and leverage points before recommending action. Use when they worry
+  Use this skill when the user asks for systems thinking (including naming it
+  or directing use/apply/run with obvious misspellings; decisive) or wants to
+  see how parts connect—mapping interdependencies, feedback loops, delays, stocks
+  and flows, and leverage points before recommending action. Use when they worry
   about unintended consequences, holistic views, root causes beyond single
   blame, or how choices propagate across teams, products, or policies, even if
   they never say "feedback loop" or "stock and flow". Skip for single-step
