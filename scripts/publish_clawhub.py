@@ -44,8 +44,20 @@ def changelog(skill_dir: Path) -> str:
     return f"Release version: {version(skill_dir)}"
 
 
-def publish_cmd(slug: str) -> list[str]:
-    path = SKILLS_DIR / slug
+def clawhub_slug(folder: str) -> str:
+    try:
+        return clawhub_slug_map[folder]
+    except KeyError:
+        raise SystemExit(
+            f"no clawhub slug for folder {folder!r}; add it to clawhub_slug_map"
+        ) from None
+
+
+def publish_cmd(folder: str) -> list[str]:
+    slug = clawhub_slug(folder)
+    path = SKILLS_DIR / folder
+    if not path.is_dir():
+        raise SystemExit(f"skill folder not found: {path}")
     ver = version(path)
     return [
         "clawhub",
@@ -65,8 +77,8 @@ def publish_cmd(slug: str) -> list[str]:
 
 
 def main() -> None:
-    for slug in SKILLS:
-        cmd = publish_cmd(slug)
+    for folder in SKILLS:
+        cmd = publish_cmd(folder)
         # print(shlex.join(cmd))
         subprocess.run(cmd, check=True)
         time.sleep(1)
