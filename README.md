@@ -38,7 +38,7 @@ Most coding assistants default to quick answers. This repository provides standa
 
 ### skills.sh (recommended)
 
-Install via [skills.sh](https://skills.sh):
+Install via the [skills.sh](https://skills.sh) CLI (`npx skills`). It supports writes skills to each agent’s directory—works across **Claude Code**, **Codex**, **Cursor**, **Gemini CLI**, **Windsurf**, **Antigravity**, **GitHub Copilot**, and [many more](https://github.com/vercel-labs/skills#supported-agents).
 
 ```bash
 # Install all skills from this repo
