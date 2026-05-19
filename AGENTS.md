@@ -20,10 +20,33 @@ skills/
 
 When you add or rename a skill, keep these in sync:
 
-- [README.md](README.md) — **Skills** table and **Installation** section.
+- [README.md](README.md) — **Skills** table (including **Registry** badge column), **Installation** section, and footer ClawHub link when applicable.
+- [scripts/publish_clawhub.py](scripts/publish_clawhub.py) — `clawhub_slug_map` entry (and publish when listing on ClawHub).
 - [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) — `plugins` catalog for Claude Code.
 - Claude Code install line: `/plugin install {skill-name}@ai-agent-skills`.
 - [skills.sh](https://skills.sh) install line: `npx skills add ysskrishna/ai-agent-skills --skill {skill-name}`.
+- GitHub CLI install line: `gh skill install ysskrishna/ai-agent-skills {skill-name}`.
+
+## README registry badges (ClawHub)
+
+The README **Skills** table has a right-hand **Registry** column (generic label—not “ClawHub” in the header). Each cell is a shields.io badge linking to that skill’s public listing on [ClawHub](https://clawhub.ai/user/ysskrishna).
+
+**Per-skill badge** (copy pattern; substitute `{clawhub-slug}`):
+
+```markdown
+[![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/{clawhub-slug})
+```
+
+**Listing URL:** `https://clawhub.ai/ysskrishna/{clawhub-slug}`
+
+**Slug source:** `clawhub_slug_map` in [scripts/publish_clawhub.py](scripts/publish_clawhub.py). Keys are skill **directory** names under `skills/`; values are the ClawHub slug. When they match, use the directory name as the slug. Remapped today:
+
+| Directory | ClawHub slug |
+| --------- | ------------ |
+| `six-thinking-hats` | `six-hats-thinking` |
+| `first-principles-thinking` | `first-principles-reasoning` |
+
+Add a new row to `clawhub_slug_map` whenever you publish a skill to ClawHub, then add the matching **Registry** badge in the README table. 
 
 ## Creating a new skill
 
@@ -32,9 +55,11 @@ Skills follow the [Agent Skills Open Standard](https://agentskills.io/).
 1. Create `skills/{skill-name}/SKILL.md` with the required frontmatter (see below).
 2. Add optional deep-dive files under `skills/{skill-name}/references/` and link them from the body of `SKILL.md` instead of inflating the main file.
 3. Register the skill in [README.md](README.md).
-   - Add a row to the **Skills** table.
+   - Add a row to the **Skills** table with a **Registry** badge (see [README registry badges (ClawHub)](#readme-registry-badges-clawhub)).
+   - Add the skill to `clawhub_slug_map` in [scripts/publish_clawhub.py](scripts/publish_clawhub.py) if it is published on ClawHub.
    - Extend **Installation** with a Claude Code line: `/plugin install {skill-name}@ai-agent-skills`.
    - Extend **Installation** with a [skills.sh](https://skills.sh) line: `npx skills add ysskrishna/ai-agent-skills --skill {skill-name}`.
+   - Extend **Installation** with a GitHub CLI line: `gh skill install ysskrishna/ai-agent-skills {skill-name}`.
    - Follow the examples already in the README.
 4. Register the skill in [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
    - Add a matching entry to the `plugins` array (`name`, `source`, `description`, and `skills` as needed).
