@@ -60,6 +60,31 @@ npx skills add ysskrishna/ai-agent-skills --skill first-principles-thinking
 npx skills add ysskrishna/ai-agent-skills --skill ethical-thinking
 ```
 
+### GitHub CLI (`gh skill`)
+
+Install via [GitHub CLI](https://cli.github.com/) Agent Skills support (`gh skill`). Requires GitHub CLI v2.90.0 or later.
+
+```bash
+# Browse this repo's skills interactively
+gh skill install ysskrishna/ai-agent-skills
+
+# Install specific skills directly
+gh skill install ysskrishna/ai-agent-skills six-thinking-hats
+gh skill install ysskrishna/ai-agent-skills critical-thinking
+gh skill install ysskrishna/ai-agent-skills systems-thinking
+gh skill install ysskrishna/ai-agent-skills creative-thinking
+gh skill install ysskrishna/ai-agent-skills strategic-thinking
+gh skill install ysskrishna/ai-agent-skills analytical-thinking
+gh skill install ysskrishna/ai-agent-skills lateral-thinking
+gh skill install ysskrishna/ai-agent-skills design-thinking
+gh skill install ysskrishna/ai-agent-skills first-principles-thinking
+gh skill install ysskrishna/ai-agent-skills ethical-thinking
+
+# Target a specific host and scope when needed
+gh skill install ysskrishna/ai-agent-skills critical-thinking --agent codex --scope user
+```
+
+`gh skill` installs to the correct skill directory for the selected host, including GitHub Copilot, Claude Code, Codex, Cursor, and Gemini CLI.
 
 ### Claude Code marketplace
 
