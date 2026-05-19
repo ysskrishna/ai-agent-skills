@@ -2,15 +2,11 @@
 
 [![Tests](https://github.com/ysskrishna/ai-agent-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/ysskrishna/ai-agent-skills/actions/workflows/validate-skills.yml) [![License: MIT](https://img.shields.io/github/license/ysskrishna/ai-agent-skills)](https://github.com/ysskrishna/ai-agent-skills/blob/main/LICENSE) [![GitHub release](https://img.shields.io/github/v/release/ysskrishna/ai-agent-skills?label=release)](https://github.com/ysskrishna/ai-agent-skills/releases) [![ClawHub](https://img.shields.io/badge/ClawHub-ysskrishna-informational)](https://clawhub.ai/user/ysskrishna) [![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
 
-A curated collection of cognitive workflows designed to upgrade your AI agents from simple code generators into strong collaborators for **decision support**, **brainstorming**, and **structured thinking**.
-
-Instead of one-off mega-prompts, these are modular [`SKILL.md`](https://agentskills.io/) packs from the [Agent Skills](https://agentskills.io/) open standard: reusable frameworks that help agents work through trade-offs, architectural choices, and ideation alongside you.
-
-Compatible with **Claude Code**, **Cursor**, **Codex CLI**, **Gemini CLI**, **Windsurf**, **Antigravity**, and any tool that supports the same specification.
+A curated collection of cognitive workflows designed to upgrade your AI agents from simple code generators into strong collaborators for **decision support**, **brainstorming**, and **structured thinking**. Compatible with **Claude Code**, **Cursor**, **Codex CLI**, **Gemini CLI**, **Windsurf**, **Antigravity**, **OpenClaw**, and any tool that supports the same specification.
 
 ## Overview
 
-Most coding assistants default to quick answers. This repository provides standard [`SKILL.md`](https://agentskills.io/) packs that add explicit thinking frameworks to your agent's loop, grouped into three pillars:
+Most coding assistants default to quick answers. Instead of one-off mega-prompts, this repository provides modular [`SKILL.md`](https://agentskills.io/) packs from the [Agent Skills](https://agentskills.io/) open standard—reusable frameworks for trade-offs, architectural choices, ideation, and explicit thinking in your agent's loop, grouped into three pillars:
 
 - **Thinking lenses:** Six Thinking Hats; critical, systems, creative, strategic, analytical, and lateral thinking; design thinking; first-principles thinking; ethical reasoning.
 - **Decision support:** Structured trade-off analysis, synthesis, and evaluation passes.
@@ -38,7 +34,7 @@ Most coding assistants default to quick answers. This repository provides standa
 
 ### skills.sh (recommended)
 
-Install via the [skills.sh](https://skills.sh) CLI (`npx skills`). It supports writes skills to each agent’s directory—works across **Claude Code**, **Codex**, **Cursor**, **Gemini CLI**, **Windsurf**, **Antigravity**, **GitHub Copilot**, and [many more](https://github.com/vercel-labs/skills#supported-agents).
+Install via the [skills.sh](https://skills.sh) CLI (`npx skills`). It installs skills into each agent’s directory and works across **Claude Code**, **Codex**, **Cursor**, **Gemini CLI**, **Windsurf**, **Antigravity**, **OpenClaw**, **GitHub Copilot**, and [many more](https://github.com/vercel-labs/skills#supported-agents).
 
 ```bash
 # Install all skills from this repo
