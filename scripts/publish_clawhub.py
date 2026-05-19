@@ -17,8 +17,8 @@ clawhub_slug_map = {
     "lateral-thinking": "lateral-thinking",
     "strategic-thinking": "strategic-thinking",
     "systems-thinking": "systems-thinking",
-    # "six-thinking-hats": "six-thinking-hats",
-    # "first-principles-thinking": "first-principles-thinking",
+    "six-thinking-hats": "six-hats-thinking",
+    "first-principles-thinking": "first-principles-reasoning",
 }
 
 SKILLS = [
