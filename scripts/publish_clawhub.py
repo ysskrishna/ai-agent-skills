@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+import argparse
+import json
 import re
-import shlex
 import subprocess
 import time
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal
 
 clawhub_slug_map = {
     "analytical-thinking": "analytical-thinking",
@@ -26,6 +29,17 @@ SKILLS = [
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
+
+SyncStatus = Literal["new", "update", "synced"]
+
+
+@dataclass(frozen=True)
+class SyncState:
+    folder: str
+    slug: str
+    status: SyncStatus
+    local_version: str
+    registry_version: str | None
 
 
 def title_case(slug: str) -> str:
@@ -53,11 +67,59 @@ def clawhub_slug(folder: str) -> str:
         ) from None
 
 
-def publish_cmd(folder: str) -> list[str]:
+def inspect_registry_version(slug: str) -> str | None:
+    result = subprocess.run(
+        ["clawhub", "inspect", slug, "--json"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        return None
+    try:
+        data = json.loads(result.stdout)
+    except json.JSONDecodeError:
+        return None
+    skill = data.get("skill")
+    if not skill:
+        return None
+    latest = data.get("latestVersion") or {}
+    registry = latest.get("version")
+    if registry:
+        return str(registry).strip()
+    tags = skill.get("tags") or {}
+    tagged = tags.get("latest")
+    return str(tagged).strip() if tagged else None
+
+
+def check_sync_state(folder: str) -> SyncState:
     slug = clawhub_slug(folder)
     path = SKILLS_DIR / folder
     if not path.is_dir():
         raise SystemExit(f"skill folder not found: {path}")
+    local = version(path)
+    registry = inspect_registry_version(slug)
+    if registry is None:
+        return SyncState(folder, slug, "new", local, None)
+    if local == registry:
+        return SyncState(folder, slug, "synced", local, registry)
+    return SyncState(folder, slug, "update", local, registry)
+
+
+def format_status_line(state: SyncState) -> str:
+    if state.status == "synced":
+        return f"{state.folder}  synced  ({state.local_version})"
+    if state.status == "new":
+        return f"{state.folder}  new  ({state.local_version})"
+    return (
+        f"{state.folder}  update  "
+        f"local {state.local_version} → registry {state.registry_version}"
+    )
+
+
+def publish_cmd(folder: str) -> list[str]:
+    slug = clawhub_slug(folder)
+    path = SKILLS_DIR / folder
     ver = version(path)
     return [
         "clawhub",
@@ -76,12 +138,36 @@ def publish_cmd(folder: str) -> list[str]:
     ]
 
 
-def main() -> None:
+def cmd_plan() -> None:
     for folder in SKILLS:
-        cmd = publish_cmd(folder)
-        # print(shlex.join(cmd))
-        subprocess.run(cmd, check=True)
+        state = check_sync_state(folder)
+        print(format_status_line(state))
+
+
+def cmd_publish() -> None:
+    published = 0
+    for folder in SKILLS:
+        state = check_sync_state(folder)
+        print(format_status_line(state))
+        if state.status == "synced":
+            continue
+        subprocess.run(publish_cmd(folder), check=True)
+        published += 1
         time.sleep(1)
+    if published == 0:
+        print("Nothing to publish.")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Publish skills to ClawHub.")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+    subparsers.add_parser("plan", help="Show new / update / synced status for SKILLS")
+    subparsers.add_parser("publish", help="Publish new or updated skills in SKILLS")
+    args = parser.parse_args()
+    if args.command == "plan":
+        cmd_plan()
+    elif args.command == "publish":
+        cmd_publish()
 
 
 if __name__ == "__main__":
