@@ -22,9 +22,6 @@ clawhub_slug_map = {
 }
 
 SKILLS = [
-    "lateral-thinking",
-    "strategic-thinking",
-    "systems-thinking",
 ]
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -59,12 +56,28 @@ def changelog(skill_dir: Path) -> str:
 
 
 def clawhub_slug(folder: str) -> str:
-    try:
+    if folder in clawhub_slug_map:
         return clawhub_slug_map[folder]
-    except KeyError:
+    raise SystemExit(
+        f"no clawhub slug for folder {folder!r}; add it to clawhub_slug_map"
+    )
+
+
+def target_folders() -> list[str]:
+    if SKILLS:
+        return list(SKILLS)
+    folders: list[str] = []
+    for path in sorted(SKILLS_DIR.iterdir()):
+        if not path.is_dir() or not (path / "SKILL.md").is_file():
+            continue
+        if path.name not in clawhub_slug_map:
+            continue
+        folders.append(path.name)
+    if not folders:
         raise SystemExit(
-            f"no clawhub slug for folder {folder!r}; add it to clawhub_slug_map"
-        ) from None
+            f"no skills found under {SKILLS_DIR} (need SKILL.md and clawhub_slug_map entry)"
+        )
+    return folders
 
 
 def inspect_registry_version(slug: str) -> str | None:
@@ -139,14 +152,14 @@ def publish_cmd(folder: str) -> list[str]:
 
 
 def cmd_plan() -> None:
-    for folder in SKILLS:
+    for folder in target_folders():
         state = check_sync_state(folder)
         print(format_status_line(state))
 
 
 def cmd_publish() -> None:
     published = 0
-    for folder in SKILLS:
+    for folder in target_folders():
         state = check_sync_state(folder)
         print(format_status_line(state))
         if state.status == "synced":
@@ -161,8 +174,14 @@ def cmd_publish() -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Publish skills to ClawHub.")
     subparsers = parser.add_subparsers(dest="command", required=True)
-    subparsers.add_parser("plan", help="Show new / update / synced status for SKILLS")
-    subparsers.add_parser("publish", help="Publish new or updated skills in SKILLS")
+    subparsers.add_parser(
+        "plan",
+        help="Show new / update / synced (SKILLS list, or all skills/ if empty)",
+    )
+    subparsers.add_parser(
+        "publish",
+        help="Publish new or updated (SKILLS list, or all skills/ if empty)",
+    )
     args = parser.parse_args()
     if args.command == "plan":
         cmd_plan()
