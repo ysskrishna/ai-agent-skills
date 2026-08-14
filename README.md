@@ -1,3 +1,5 @@
+
+
 # AI Agent Skills
 
 [![Tests](https://github.com/ysskrishna/ai-agent-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/ysskrishna/ai-agent-skills/actions/workflows/validate-skills.yml) [![License: MIT](https://img.shields.io/github/license/ysskrishna/ai-agent-skills)](https://github.com/ysskrishna/ai-agent-skills/blob/main/LICENSE) [![GitHub release](https://img.shields.io/github/v/release/ysskrishna/ai-agent-skills?label=release)](https://github.com/ysskrishna/ai-agent-skills/releases) [![ClawHub](https://img.shields.io/badge/ClawHub-ysskrishna-informational)](https://clawhub.ai/user/ysskrishna) [![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
@@ -106,7 +108,7 @@ gh skill install ysskrishna/ai-agent-skills critical-thinking --agent codex --sc
 
 ## Usage
 
-Call skills directly with `/skill-name`, or describe your goal and the agent will infer the best match.
+Call skills directly with `/skill-name` (or `@skill-name` / space-separated syntax, depending on your agent), or describe your goal and the agent will infer the best match.
 
 ```text
 /six-thinking-hats Pizza or pasta for dinner?
