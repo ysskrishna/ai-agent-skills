@@ -1,2 +1,3 @@
 workspace/
 .cursor/
+__pycache__/
