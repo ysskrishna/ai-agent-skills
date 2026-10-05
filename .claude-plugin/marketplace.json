@@ -68,6 +68,48 @@
       "source": "./skills/ethical-thinking",
       "skills": "./",
       "description": "Use for ethical thinking, or when a plan could harm or unfairly burden people: \"should we do this?\", \"is this fair?\", \"privacy or bias risk\", \"who gets hurt?\". Maps stakeholders, harms, power and consent. Skip for legal advice, neutral fact lookups and implementation-only work."
+    },
+    {
+      "name": "five-whys",
+      "source": "./skills/five-whys",
+      "skills": "./",
+      "description": "Use for the 5 Whys, or when the user wants the root cause of a failure: \"why did this happen?\", \"this keeps breaking\", \"write the postmortem\", \"find the real cause\". Asks why repeatedly with evidence at each step, then sets countermeasures. Skip for one-off typos or when the cause is already proven."
+    },
+    {
+      "name": "swot-analysis",
+      "source": "./skills/swot-analysis",
+      "skills": "./",
+      "description": "Use for SWOT analysis, or when the user wants to assess where a team, product or company stands: \"strengths and weaknesses\", \"should we enter this market?\", \"review our position\", \"competitor comparison\". Turns findings into actions. Skip for detailed planning or pure market sizing."
+    },
+    {
+      "name": "pre-mortem",
+      "source": "./skills/pre-mortem",
+      "skills": "./",
+      "description": "Use for a pre-mortem, or before committing to a plan, launch or migration: \"what could go wrong?\", \"stress test this plan\", \"how might this fail?\", \"risks before we ship\". Assumes failure, lists causes, ranks them and sets mitigations. Skip for explaining a failure that already happened."
+    },
+    {
+      "name": "tradeoff-analysis",
+      "source": "./skills/tradeoff-analysis",
+      "skills": "./",
+      "description": "Use for tradeoff analysis, or when the user must pick between concrete options: \"A or B?\", \"which library should we use?\", \"build vs buy\", \"compare these approaches\". Scores options on weighted criteria, tests sensitivity and reversibility. Skip for open ideation or single-option reviews."
+    },
+    {
+      "name": "prioritization",
+      "source": "./skills/prioritization",
+      "skills": "./",
+      "description": "Use for prioritization, or when there are more tasks than capacity: \"what should we do first?\", \"rank this backlog\", \"cut scope for the MVP\", \"RICE score these\". Picks a method (RICE, ICE, MoSCoW, impact-effort), scores items and sets a cut line. Skip for choosing between two designs."
+    },
+    {
+      "name": "fermi-estimation",
+      "source": "./skills/fermi-estimation",
+      "skills": "./",
+      "description": "Use for Fermi estimation, or when a rough number is needed fast: \"roughly how many...\", \"ballpark the cost\", \"estimate capacity or market size\", \"is this even feasible?\". Decomposes, uses ranges and sanity-checks. Skip when exact data is available or a precise calculation is wanted."
+    },
+    {
+      "name": "thinking-method-selector",
+      "source": "./skills/thinking-method-selector",
+      "skills": "./",
+      "description": "Use when the user describes a problem, decision or stuck situation but names no method: \"how should I approach this?\", \"help me think this through\", \"we can't decide\", \"where do I start?\". Picks the best-fit thinking method and runs it. Skip for plain execution tasks or when a method is named."
     }
   ]
 }

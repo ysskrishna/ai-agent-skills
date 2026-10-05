@@ -119,6 +119,18 @@ def check_unique_prefixes(info: dict) -> None:
         seen[prefix] = name
 
 
+def check_router(info: dict) -> None:
+    """The router must list every other skill in its table and its fallback outlines."""
+    router = "thinking-method-selector"
+    if router not in info:
+        return
+    text = (SKILLS_DIR / router / "SKILL.md").read_text()
+    for name in sorted(set(info) - {router}):
+        mentions = text.count(f"`{name}`") + text.count(f"**{name}:**")
+        if mentions < 2:
+            err(router, f"must list `{name}` in both the selection table and the fallback outlines")
+
+
 def slug_map() -> dict[str, str]:
     text = (ROOT / "scripts" / "publish_clawhub.py").read_text()
     block = re.search(r"clawhub_slug_map\s*=\s*\{(.*?)\}", text, re.S)
@@ -176,6 +188,7 @@ def main() -> int:
         if (path / "SKILL.md").is_file():
             check_skill(path, info)
     check_unique_prefixes(info)
+    check_router(info)
     check_sync(info)
 
     for w in warnings:

@@ -6,29 +6,62 @@ A curated collection of cognitive workflows designed to upgrade your AI agents f
 
 ## Overview
 
-Most coding assistants default to quick answers. Instead of one-off mega-prompts, this repository provides modular [`SKILL.md`](https://agentskills.io/) packs from the [Agent Skills](https://agentskills.io/) open standard—reusable frameworks for trade-offs, architectural choices, ideation, and explicit thinking in your agent's loop, grouped into three pillars:
+Most coding assistants default to quick answers. This repository packages structured thinking methods as modular [`SKILL.md`](https://agentskills.io/) skills from the [Agent Skills](https://agentskills.io/) open standard, so an agent can run a method on a real decision instead of improvising one.
 
-- **Thinking lenses:** Six Thinking Hats; critical, systems, creative, strategic, analytical, and lateral thinking; design thinking; first-principles thinking; ethical reasoning.
-- **Decision support:** Structured trade-off analysis, synthesis, and evaluation passes.
-- **Brainstorming and critique:** Facilitation-style sequences for ideation and review (including adversarial angles where a skill calls for it).
+- **Describe the problem, not the method.** Each skill's description lists the situations and phrases it fits ("what could go wrong?", "A or B?", "why does this keep happening?") and when to skip it. You do not need to name the method.
+- **Not sure which one?** Start with [`thinking-method-selector`](skills/thinking-method-selector/SKILL.md). It picks a method for your situation and runs it.
+- **Each skill is standalone.** Install one or all. Every skill has a light path for small questions and a worked example in its `references/` folder.
 
 ## Skills
 
-| Name | Description | Registry |
-|------|-------------|----------|
-| [`six-thinking-hats`](skills/six-thinking-hats/SKILL.md) | Use when the user asks for Six Thinking Hats, parallel thinking, or Edward de Bono (naming or directing use/apply/run with typos is decisive), or wants sequential six-hat facilitation: facts, feelings, risks, benefits, new ideas, then synthesis for decisions and brainstorms. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/six-hats-thinking) |
-| [`critical-thinking`](skills/critical-thinking/SKILL.md) | Use when the user asks for critical thinking (naming or directing use/apply/run with typos is decisive), or wants claim and argument audit: assumptions, evidence, logic gaps, bias and fallacy scan, red team, devil's advocate, epistemic calibration. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/critical-thinking) |
-| [`systems-thinking`](skills/systems-thinking/SKILL.md) | Use when the user asks for systems thinking (naming or directing use/apply/run with typos is decisive), or wants feedback loops, delays, stocks and flows, leverage points, unintended consequences, and holistic propagation across teams, products, and policies. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/systems-thinking) |
-| [`creative-thinking`](skills/creative-thinking/SKILL.md) | Use when the user asks for creative thinking (naming or directing use/apply/run with typos is decisive), or wants divergent ideation: fluency, reframes, novel combinations, blue-sky variety, optional light convergence before commitment. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/creative-thinking) |
-| [`strategic-thinking`](skills/strategic-thinking/SKILL.md) | Use when the user asks for strategic thinking (naming or directing use/apply/run with typos is decisive), or wants bets under constraints: where to play, how to win, roadmap narrative, tradeoffs, risks, portfolio prioritization, sequenced path. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/strategic-thinking) |
-| [`analytical-thinking`](skills/analytical-thinking/SKILL.md) | Use when the user asks for analytical thinking (naming or directing use/apply/run with typos is decisive), or wants structured breakdown: hypotheses, metrics, evidence, MECE-ish trees, decision tables, explicit uncertainty in synthesis. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/analytical-thinking) |
-| [`lateral-thinking`](skills/lateral-thinking/SKILL.md) | Use when the user asks for lateral thinking (naming or directing use/apply/run with typos is decisive), or wants provocations, concept fans, challenge questions, reframes to escape local optima when ideation stalls or feels incremental. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/lateral-thinking) |
-| [`design-thinking`](skills/design-thinking/SKILL.md) | Use when the user asks for design thinking (naming or directing use/apply/run with typos is decisive), or wants human-centered discovery: empathize, define POV and HMW, ideate, low-fi prototype intent, falsifiable test plan for HCD and UX sprints. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/design-thinking) |
-| [`first-principles-thinking`](skills/first-principles-thinking/SKILL.md) | Use when the user asks for first-principles thinking or first principles (naming or directing use/apply/run with typos is decisive), or wants to strip analogies, tag fundamentals, rebuild logic from bedrock, challenge defaults, sanity-check copycat strategies. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/first-principles-reasoning) |
-| [`ethical-thinking`](skills/ethical-thinking/SKILL.md) | Use when the user asks for ethical thinking (naming or directing use/apply/run with typos is decisive), or wants values, harms, benefits, power asymmetry, justice, consent, fair process—moral review, AI and data ethics, stakeholder harm scans beyond legality. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/ethical-thinking) |
+### Start here
 
+| Skill | Use it when | Registry |
+|-------|-------------|----------|
+| [`thinking-method-selector`](skills/thinking-method-selector/SKILL.md) | You have a problem or decision but no method in mind. Picks one and runs it. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/thinking-method-selector) |
 
+### Understand a problem
 
+| Skill | Use it when | Registry |
+|-------|-------------|----------|
+| [`five-whys`](skills/five-whys/SKILL.md) | Something failed or keeps recurring and you need the real cause. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/five-whys) |
+| [`analytical-thinking`](skills/analytical-thinking/SKILL.md) | A number moved or a question needs a driver tree, hypotheses and evidence. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/analytical-thinking) |
+| [`systems-thinking`](skills/systems-thinking/SKILL.md) | A change may have side effects, or a problem keeps coming back across teams or services. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/systems-thinking) |
+| [`first-principles-thinking`](skills/first-principles-thinking/SKILL.md) | You want to test an inherited default or a copied approach from scratch. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/first-principles-reasoning) |
+| [`design-thinking`](skills/design-thinking/SKILL.md) | You need to understand users before designing or building. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/design-thinking) |
+
+### Assess and decide
+
+| Skill | Use it when | Registry |
+|-------|-------------|----------|
+| [`swot-analysis`](skills/swot-analysis/SKILL.md) | You want to assess where a team, product or company stands, then act on it. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/swot-analysis) |
+| [`tradeoff-analysis`](skills/tradeoff-analysis/SKILL.md) | You must pick between concrete options (A or B, build vs buy). | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/tradeoff-analysis) |
+| [`prioritization`](skills/prioritization/SKILL.md) | There is more work than capacity and you need an order and a cut line. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/prioritization) |
+| [`strategic-thinking`](skills/strategic-thinking/SKILL.md) | You must choose a direction under constraints. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/strategic-thinking) |
+| [`fermi-estimation`](skills/fermi-estimation/SKILL.md) | You need a rough number fast (capacity, cost, size). | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/fermi-estimation) |
+
+### Check and de-risk
+
+| Skill | Use it when | Registry |
+|-------|-------------|----------|
+| [`critical-thinking`](skills/critical-thinking/SKILL.md) | You want a claim, plan or decision checked for weak spots. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/critical-thinking) |
+| [`pre-mortem`](skills/pre-mortem/SKILL.md) | Before a launch or commitment: imagine it failed and find out why. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/pre-mortem) |
+| [`ethical-thinking`](skills/ethical-thinking/SKILL.md) | A plan could harm or unfairly burden people. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/ethical-thinking) |
+
+### Generate ideas
+
+| Skill | Use it when | Registry |
+|-------|-------------|----------|
+| [`creative-thinking`](skills/creative-thinking/SKILL.md) | You want many fresh options before choosing. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/creative-thinking) |
+| [`lateral-thinking`](skills/lateral-thinking/SKILL.md) | Ideas feel stuck or incremental and you need a different angle. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/lateral-thinking) |
+
+### See it from several angles
+
+| Skill | Use it when | Registry |
+|-------|-------------|----------|
+| [`six-thinking-hats`](skills/six-thinking-hats/SKILL.md) | You want facts, feelings, risks, benefits and new ideas examined separately. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/six-hats-thinking) |
+
+The full trigger text for each skill is in its `SKILL.md` frontmatter.
 
 ## Installation
 
@@ -44,16 +77,23 @@ npx skills add ysskrishna/ai-agent-skills
 npx skills add ysskrishna/ai-agent-skills --list
 
 # Or install individual skills (--skill names match plugin / directory names)
-npx skills add ysskrishna/ai-agent-skills --skill six-thinking-hats
-npx skills add ysskrishna/ai-agent-skills --skill critical-thinking
-npx skills add ysskrishna/ai-agent-skills --skill systems-thinking
-npx skills add ysskrishna/ai-agent-skills --skill creative-thinking
-npx skills add ysskrishna/ai-agent-skills --skill strategic-thinking
+npx skills add ysskrishna/ai-agent-skills --skill thinking-method-selector
+npx skills add ysskrishna/ai-agent-skills --skill five-whys
 npx skills add ysskrishna/ai-agent-skills --skill analytical-thinking
-npx skills add ysskrishna/ai-agent-skills --skill lateral-thinking
-npx skills add ysskrishna/ai-agent-skills --skill design-thinking
+npx skills add ysskrishna/ai-agent-skills --skill systems-thinking
 npx skills add ysskrishna/ai-agent-skills --skill first-principles-thinking
+npx skills add ysskrishna/ai-agent-skills --skill design-thinking
+npx skills add ysskrishna/ai-agent-skills --skill swot-analysis
+npx skills add ysskrishna/ai-agent-skills --skill tradeoff-analysis
+npx skills add ysskrishna/ai-agent-skills --skill prioritization
+npx skills add ysskrishna/ai-agent-skills --skill strategic-thinking
+npx skills add ysskrishna/ai-agent-skills --skill fermi-estimation
+npx skills add ysskrishna/ai-agent-skills --skill critical-thinking
+npx skills add ysskrishna/ai-agent-skills --skill pre-mortem
 npx skills add ysskrishna/ai-agent-skills --skill ethical-thinking
+npx skills add ysskrishna/ai-agent-skills --skill creative-thinking
+npx skills add ysskrishna/ai-agent-skills --skill lateral-thinking
+npx skills add ysskrishna/ai-agent-skills --skill six-thinking-hats
 ```
 
 ### GitHub CLI (`gh skill`)
@@ -65,19 +105,26 @@ Install via [GitHub CLI](https://cli.github.com/) Agent Skills support (`gh skil
 gh skill install ysskrishna/ai-agent-skills
 
 # Install specific skills directly
-gh skill install ysskrishna/ai-agent-skills six-thinking-hats
-gh skill install ysskrishna/ai-agent-skills critical-thinking
-gh skill install ysskrishna/ai-agent-skills systems-thinking
-gh skill install ysskrishna/ai-agent-skills creative-thinking
-gh skill install ysskrishna/ai-agent-skills strategic-thinking
+gh skill install ysskrishna/ai-agent-skills thinking-method-selector
+gh skill install ysskrishna/ai-agent-skills five-whys
 gh skill install ysskrishna/ai-agent-skills analytical-thinking
-gh skill install ysskrishna/ai-agent-skills lateral-thinking
-gh skill install ysskrishna/ai-agent-skills design-thinking
+gh skill install ysskrishna/ai-agent-skills systems-thinking
 gh skill install ysskrishna/ai-agent-skills first-principles-thinking
+gh skill install ysskrishna/ai-agent-skills design-thinking
+gh skill install ysskrishna/ai-agent-skills swot-analysis
+gh skill install ysskrishna/ai-agent-skills tradeoff-analysis
+gh skill install ysskrishna/ai-agent-skills prioritization
+gh skill install ysskrishna/ai-agent-skills strategic-thinking
+gh skill install ysskrishna/ai-agent-skills fermi-estimation
+gh skill install ysskrishna/ai-agent-skills critical-thinking
+gh skill install ysskrishna/ai-agent-skills pre-mortem
 gh skill install ysskrishna/ai-agent-skills ethical-thinking
+gh skill install ysskrishna/ai-agent-skills creative-thinking
+gh skill install ysskrishna/ai-agent-skills lateral-thinking
+gh skill install ysskrishna/ai-agent-skills six-thinking-hats
 
 # Target a specific host and scope when needed
-gh skill install ysskrishna/ai-agent-skills critical-thinking --agent codex --scope user
+gh skill install ysskrishna/ai-agent-skills tradeoff-analysis --agent codex --scope user
 ```
 
 `gh skill` installs to the correct skill directory for the selected host, including GitHub Copilot, Claude Code, Codex, Cursor, and Gemini CLI.
@@ -92,27 +139,40 @@ gh skill install ysskrishna/ai-agent-skills critical-thinking --agent codex --sc
 /plugin marketplace update ai-agent-skills
 
 # Install plugin(s) from the catalog
-/plugin install six-thinking-hats@ai-agent-skills
-/plugin install critical-thinking@ai-agent-skills
-/plugin install systems-thinking@ai-agent-skills
-/plugin install creative-thinking@ai-agent-skills
-/plugin install strategic-thinking@ai-agent-skills
+/plugin install thinking-method-selector@ai-agent-skills
+/plugin install five-whys@ai-agent-skills
 /plugin install analytical-thinking@ai-agent-skills
-/plugin install lateral-thinking@ai-agent-skills
-/plugin install design-thinking@ai-agent-skills
+/plugin install systems-thinking@ai-agent-skills
 /plugin install first-principles-thinking@ai-agent-skills
+/plugin install design-thinking@ai-agent-skills
+/plugin install swot-analysis@ai-agent-skills
+/plugin install tradeoff-analysis@ai-agent-skills
+/plugin install prioritization@ai-agent-skills
+/plugin install strategic-thinking@ai-agent-skills
+/plugin install fermi-estimation@ai-agent-skills
+/plugin install critical-thinking@ai-agent-skills
+/plugin install pre-mortem@ai-agent-skills
 /plugin install ethical-thinking@ai-agent-skills
+/plugin install creative-thinking@ai-agent-skills
+/plugin install lateral-thinking@ai-agent-skills
+/plugin install six-thinking-hats@ai-agent-skills
 ```
 
 ## Usage
 
-Call skills directly with `/skill-name`, or describe your goal and the agent will infer the best match.
+Describe your situation and the agent picks a matching skill from the descriptions, or name a skill directly.
 
 ```text
-/six-thinking-hats Pizza or pasta for dinner?
+We have to pick a job queue: Postgres, Redis or a managed service. Team of four.
 
-Use Six Thinking Hats for pizza or pasta for dinner.
+What could go wrong with the database cutover next Friday?
+
+Why did last night's deploy fail? Keep asking why until we reach something we can fix.
+
+I have a pile of problems and no idea how to approach them.
 ```
+
+To call a skill by name, use `/skill-name` after a skills.sh or `gh skill` install (for example `/pre-mortem`). Claude Code plugin installs namespace skills by plugin name (`/<plugin>:<skill>`).
 
 ## Changelog
 

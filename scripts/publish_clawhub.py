@@ -22,6 +22,13 @@ clawhub_slug_map = {
     "systems-thinking": "systems-thinking",
     "six-thinking-hats": "six-hats-thinking",
     "first-principles-thinking": "first-principles-reasoning",
+    "five-whys": "five-whys",
+    "swot-analysis": "swot-analysis",
+    "pre-mortem": "pre-mortem",
+    "tradeoff-analysis": "tradeoff-analysis",
+    "prioritization": "prioritization",
+    "fermi-estimation": "fermi-estimation",
+    "thinking-method-selector": "thinking-method-selector",
 }
 
 SKILLS = [

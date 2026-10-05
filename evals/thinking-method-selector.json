@@ -1,0 +1,66 @@
+[
+  {
+    "query": "how should I approach this? our team is split on whether to rebuild or patch the legacy app",
+    "should_trigger": true
+  },
+  {
+    "query": "help me think this through, I have three job offers and no idea how to compare them",
+    "should_trigger": true
+  },
+  {
+    "query": "we can't decide on anything, every meeting ends in circles",
+    "should_trigger": true
+  },
+  {
+    "query": "where do I even start? we have a failing product and a lot of opinions",
+    "should_trigger": true
+  },
+  {
+    "query": "I'm overwhelmed with a pile of problems at work, how do I think about them?",
+    "should_trigger": true
+  },
+  {
+    "query": "which framework should I use to figure out whether to quit my job and start a company?",
+    "should_trigger": true
+  },
+  {
+    "query": "we need to make a call on our pricing and I don't know how to structure my thinking",
+    "should_trigger": true
+  },
+  {
+    "query": "my manager asked me to 'analyze' the situation but I don't know what method to use",
+    "should_trigger": true
+  },
+  {
+    "query": "Use six thinking hats to decide whether we should rebuild the legacy app",
+    "should_trigger": false
+  },
+  {
+    "query": "Do a SWOT analysis for our company",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a script that renames files in a folder",
+    "should_trigger": false
+  },
+  {
+    "query": "What is the capital of Australia?",
+    "should_trigger": false
+  },
+  {
+    "query": "Run a pre-mortem on our launch",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the failing test in checkout.spec.ts",
+    "should_trigger": false
+  },
+  {
+    "query": "Rank these tickets by RICE",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize this meeting transcript into action items",
+    "should_trigger": false
+  }
+]
