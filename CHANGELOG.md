@@ -5,7 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0]
+## [1.2.0] - 2026-10-05
+
+### Added
+
+- **Seven new skills** - [`five-whys`](skills/five-whys/SKILL.md), [`swot-analysis`](skills/swot-analysis/SKILL.md), [`pre-mortem`](skills/pre-mortem/SKILL.md), [`tradeoff-analysis`](skills/tradeoff-analysis/SKILL.md), [`prioritization`](skills/prioritization/SKILL.md), [`fermi-estimation`](skills/fermi-estimation/SKILL.md), and [`thinking-method-selector`](skills/thinking-method-selector/SKILL.md), a router that picks a method when the user names none and carries a fallback outline for every other skill.
+- **Worked example per skill** - `skills/<name>/references/example.md` for all 17 skills.
+- **Trigger eval queries** - `evals/<name>.json` with 8 should-trigger and 8 near-miss queries per skill, plus [`evals/README.md`](evals/README.md).
+- **Repository checks** - [`scripts/validate_repo.py`](scripts/validate_repo.py), run by `validate-skills.sh`: description rules, example and eval files, README / marketplace / plugin keywords / ClawHub slug map in sync, router coverage, equal plugin and marketplace versions.
+
+### Changed
+
+- **All descriptions are intent-led** - each opens with the method name, then the situations and phrases it fits, then a Skip clause (253-300 characters, was 549-745 with a shared boilerplate prefix that is now banned).
+- **Skill bodies** - every skill gains When to use / Skip, a light path for small asks, a gather-first rule, pitfalls, and one tag vocabulary. `analytical-thinking` and `design-thinking` no longer contradict their own Setup text. `six-thinking-hats` defines the opening Blue block, confirms the closing Blue in Custom mode, and replaces the Depth table with the light path. `lateral-thinking` concept fan follows de Bono (directions, concepts, ideas). `strategic-thinking` states its time horizons per domain.
+- **[README.md](README.md)** - skills grouped by the job to be done with short "use it when" lines, install lines for all 17 skills, usage examples that describe a problem instead of naming a method.
+- **[AGENTS.md](AGENTS.md)** - new description rules, required example and eval files, self-contained skills, per-owner ClawHub slug policy, calendar skill versions.
+- **CI** - [validate-skills.yml](.github/workflows/validate-skills.yml) also runs on changes to `evals/`, `scripts/`, `README.md` and `.claude-plugin/`.
+
+### Fixed
+
+- **`scripts/publish_clawhub.py`** - `plan` reported `critical-thinking`, `design-thinking` and `lateral-thinking` as new because `clawhub inspect` fails on slugs shared with other owners. State now comes from the registry with the owner parameter, retries on rate limits, stops on unexpected errors, and lists other owners of a slug.
+- **CHANGELOG** - `[1.1.0]` now has its release date.
+
+## [1.1.0] - 2026-05-19
 
 ### Added
 
@@ -44,6 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Repository foundations** — README, MIT license, CODEOWNERS, and GitHub Sponsors funding metadata.
 
 
+[1.2.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ysskrishna/ai-agent-skills/releases/tag/v1.0.0
