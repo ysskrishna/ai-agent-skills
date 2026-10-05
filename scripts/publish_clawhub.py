@@ -4,6 +4,9 @@ import json
 import re
 import subprocess
 import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
@@ -19,10 +22,21 @@ clawhub_slug_map = {
     "systems-thinking": "systems-thinking",
     "six-thinking-hats": "six-hats-thinking",
     "first-principles-thinking": "first-principles-reasoning",
+    "five-whys": "five-whys",
+    "swot-analysis": "swot-analysis",
+    "pre-mortem": "pre-mortem",
+    "tradeoff-analysis": "tradeoff-analysis",
+    "prioritization": "prioritization",
+    "fermi-estimation": "fermi-estimation",
+    "thinking-method-selector": "thinking-method-selector",
 }
 
 SKILLS = [
 ]
+
+OWNER_HANDLE = "ysskrishna"
+REGISTRY_URL = "https://clawhub.ai"
+RATE_LIMIT_RETRIES = 5
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
@@ -80,19 +94,47 @@ def target_folders() -> list[str]:
     return folders
 
 
+def registry_get(slug: str, owner: str | None) -> tuple[int, dict]:
+    """GET one skill from the registry. Retries on HTTP 429 using the reset header.
+
+    Slugs are scoped per owner, so `clawhub inspect <slug>` fails with
+    AMBIGUOUS_SKILL_SLUG when another owner shares it. The registry accepts an
+    `owner` query parameter, which the CLI does not expose.
+    """
+    url = f"{REGISTRY_URL}/api/v1/skills/{urllib.parse.quote(slug)}"
+    if owner:
+        url += "?" + urllib.parse.urlencode({"owner": owner})
+    for _ in range(RATE_LIMIT_RETRIES):
+        request = urllib.request.Request(url, headers={"Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return response.status, json.loads(response.read())
+        except urllib.error.HTTPError as err:
+            if err.code == 429:
+                wait = int(err.headers.get("ratelimit-reset") or 10)
+                time.sleep(wait + 1)
+                continue
+            body = err.read().decode(errors="replace")
+            try:
+                return err.code, json.loads(body)
+            except json.JSONDecodeError:
+                return err.code, {"message": body}
+        except urllib.error.URLError as err:
+            raise SystemExit(f"registry unreachable for {slug!r}: {err.reason}")
+    raise SystemExit(f"registry rate limit did not clear for {slug!r}")
+
+
 def inspect_registry_version(slug: str) -> str | None:
-    result = subprocess.run(
-        ["clawhub", "inspect", slug, "--json"],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    if result.returncode != 0:
+    """Return my published version, or None when I have not published this slug.
+
+    Any other outcome (network error, rate limit that never clears, unexpected
+    status) stops the script. A failed lookup must never read as "new".
+    """
+    status, data = registry_get(slug, OWNER_HANDLE)
+    if status == 404:
         return None
-    try:
-        data = json.loads(result.stdout)
-    except json.JSONDecodeError:
-        return None
+    if status != 200:
+        raise SystemExit(f"unexpected registry status {status} for {slug!r}: {data}")
     skill = data.get("skill")
     if not skill:
         return None
@@ -100,9 +142,20 @@ def inspect_registry_version(slug: str) -> str | None:
     registry = latest.get("version")
     if registry:
         return str(registry).strip()
-    tags = skill.get("tags") or {}
-    tagged = tags.get("latest")
+    tagged = (skill.get("tags") or {}).get("latest")
     return str(tagged).strip() if tagged else None
+
+
+def other_owners(slug: str) -> list[str]:
+    """Other owners publishing the same slug. Informational: collisions do not block publishing."""
+    status, data = registry_get(slug, None)
+    if status == 200:
+        handle = ((data.get("owner") or {}).get("handle")) or ""
+        return [] if handle in ("", OWNER_HANDLE) else [handle]
+    if data.get("code") == "AMBIGUOUS_SKILL_SLUG":
+        handles = {m.get("ownerHandle") for m in data.get("matches", [])}
+        return sorted(h for h in handles if h and h != OWNER_HANDLE)
+    return []
 
 
 def check_sync_state(folder: str) -> SyncState:
@@ -154,7 +207,11 @@ def publish_cmd(folder: str) -> list[str]:
 def cmd_plan() -> None:
     for folder in target_folders():
         state = check_sync_state(folder)
-        print(format_status_line(state))
+        line = format_status_line(state)
+        others = other_owners(state.slug)
+        if others:
+            line += f"  (slug also used by: {', '.join(others)})"
+        print(line)
 
 
 def cmd_publish() -> None:

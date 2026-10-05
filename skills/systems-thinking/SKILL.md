@@ -1,92 +1,75 @@
 ---
 name: systems-thinking
 description: >
-  Use this skill when the user asks for systems thinking (including naming it
-  or directing use/apply/run with obvious misspellings; decisive) or wants to
-  see how parts connect—mapping interdependencies, feedback loops, delays, stocks
-  and flows, and leverage points before recommending action. Use when they worry
-  about unintended consequences, holistic views, root causes beyond single
-  blame, or how choices propagate across teams, products, or policies, even if
-  they never say "feedback loop" or "stock and flow". Skip for single-step
-  linear tasks, lone-variable calculations, or fixes that need no map of
-  interactions or incentives.
+  Use for systems thinking, or when a change may ripple beyond its target: "what are the side effects?", "why does this keep coming back?", "how do these teams or services affect each other?". Maps loops, delays and leverage points. Skip for single-step fixes.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.17"
+  version: "2026.10.5"
 ---
 
 # Systems Thinking
 
-See the whole before optimizing parts. End with leverage-aware recommendations.
+See the whole before optimizing a part. End with recommendations that account for loops and delays.
 
-**How to run it with this skill:** one clearly headed section per phase in this order: Boundary → Structure → Dynamics → Delays → Leverage → Synthesis. Do not skip **Structure** before **Leverage**.
+## When to use
 
----
+- A problem keeps returning after "fixes".
+- A change in one team, service or policy may hit others (unintended consequences, incentives, queues, backlogs).
+- The user asks for root causes beyond a single person or component, or for a holistic view.
 
-## Setup (run before starting)
+Skip: single-step linear tasks, one-variable calculations, fixes that need no map of interactions.
 
-In one short block:
+## Before you start
 
-1. **System in focus** — what is inside the boundary?
-2. **Default pass** — Boundary → Structure → Dynamics → Delays → Leverage → Synthesis (state this line)
+1. State in one block: **System in focus** (what is inside the boundary) and **Pass** (Boundary, Structure, Dynamics, Delays, Leverage, Synthesis).
+2. **Gather first.** Read the code, docs, tickets or metrics that describe how the parts connect before drawing the map. Ask up to 3 scoping questions only for what tools cannot answer.
+3. **Light path.** Small ask: 2-3 bullets per phase. Never skip Structure before Leverage, even on the light path.
+4. If the user already proposed an intervention, shorten Boundary but keep Structure and Dynamics.
 
-If the boundary is unclear, ask at most 3 scoping questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
+## Phases
 
-If the user already named a **proposed intervention**, you may spend less text on Boundary but still must not skip **Structure** before **Leverage**.
+### 1. Boundary
+What is in and out for this analysis. One sentence on the system's purpose from a stakeholder's view.
 
----
+### 2. Structure
+**Elements** (stocks that accumulate, actors, resources) and **flows** (rates in and out). Short pairs: **From -> To:** what moves.
 
-## The Phases
+### 3. Dynamics
+At least one reinforcing (R) and one balancing (B) loop where plausible:
 
-### Boundary
+> **Loop [R|B]:** ... - **Mechanism:** ...
 
-What is **in** vs **out** of the system for this analysis? State the **purpose** of the system from a stakeholder view (one sentence).
+If no loop applies, say so in one line and why.
 
-### Structure
+### 4. Delays
+Where is the lag between action and effect? How does it change behavior (overshoot, oscillation, giving up too early)?
 
-**Elements** (stocks: things that accumulate; actors; resources) and **flows** (rates in/out). Use short bullet pairs: **From → To** with what moves.
+### 5. Leverage
+> **Leverage point:** ... - **Why it matters:** ... - **Risk of backfire:** ...
 
-### Dynamics
+Prefer changes to rules, information flows, incentives or goals over exhorting people to behave differently. Donella Meadows ranks these as stronger levers than adjusting parameters such as limits and budgets.
 
-Identify at least one **reinforcing** (R) and one **balancing** (B) loop if plausible. Format:
+### 6. Synthesis
+1. **System story:** one plain-language paragraph.
+2. **Non-obvious consequence:** at least one.
+3. **Recommended moves:** 2-3 actions consistent with the loops and delays above.
 
-> **Loop [R|B]:** … — **Mechanism:** …
+## Pitfalls
 
-If a loop does not apply, say so in one line and justify.
+- Jumping to solutions before Structure and a light Dynamics pass.
+- Stopping at "X is careless". Translate to the incentive or information gap behind the behavior.
+- Drawing every box you can think of. Include only elements that change the answer.
+- A fix that works now but triggers a balancing loop later. Check Delays against each recommendation.
 
-### Delays
+Diagrams are optional; the bullets must stand alone. Worked example: [references/example.md](references/example.md).
 
-Where is **time lag** between action and effect? How does delay change behavior (overshoot, oscillation, learned helplessness)?
+## Checklist
 
-### Leverage
-
-**Leverage point:** … — **Why it matters:** … — **Risk of backfire:** …
-
-Prefer interventions that change rules, information flows, or goals over name-and-shame unless evidence supports it; favor levers that shift incentives rather than only blaming individuals.
-
-### Synthesis
-
-1. **System story** — one paragraph in plain language (no jargon wall)
-2. **Non-obvious consequence** — at least one
-3. **Recommended moves** — 2–3 actions compatible with the map (not contradicted by delays/loops)
-
----
-
-## Execution Rules
-
-1. Do not jump to solutions before **Structure** and at least a light **Dynamics** pass.
-2. Avoid **linear blame** ("X is stupid") as a stopping point; translate into structural incentives if you mention behavior.
-3. Diagrams optional; bullets must stand alone.
-
----
-
-## Checklist (verify before responding)
-
-- [ ] Setup: system in focus + default pass stated
-- [ ] Boundary explicit; purpose stated
-- [ ] Structure uses elements + From → To flows
-- [ ] Dynamics: R/B loops justified or explicitly N/A
+- [ ] System in focus and Pass stated
+- [ ] Boundary and purpose explicit
+- [ ] Structure uses elements and From -> To flows
+- [ ] Dynamics: R and B loops, or N/A justified
 - [ ] Delays considered where time matters
-- [ ] Leverage tied to structure/dynamics, with backfire risk
-- [ ] Synthesis tells a coherent system story
+- [ ] Leverage tied to the map, with backfire risk
+- [ ] Synthesis tells one coherent story

@@ -1,0 +1,66 @@
+[
+  {
+    "query": "We keep fixing the same bug class and it keeps coming back. Why?",
+    "should_trigger": true
+  },
+  {
+    "query": "what are the knock-on effects of adding a mandatory code review step across all teams?",
+    "should_trigger": true
+  },
+  {
+    "query": "Use systems thinking on our support queue - tickets pile up whenever we hire more agents",
+    "should_trigger": true
+  },
+  {
+    "query": "how do our platform team's priorities and the product teams' deadlines feed into each other?",
+    "should_trigger": true
+  },
+  {
+    "query": "I'm worried a pricing change will have side effects we haven't thought of, can you map the feedback loops?",
+    "should_trigger": true
+  },
+  {
+    "query": "why does adding more engineers to the late project make it later?",
+    "should_trigger": true
+  },
+  {
+    "query": "find the leverage points in our hiring and onboarding process",
+    "should_trigger": true
+  },
+  {
+    "query": "unintended consequences of switching to usage-based billing across sales, support and finance?",
+    "should_trigger": true
+  },
+  {
+    "query": "Fix the off-by-one error in this loop",
+    "should_trigger": false
+  },
+  {
+    "query": "What is 15% of 2,340?",
+    "should_trigger": false
+  },
+  {
+    "query": "Brainstorm a name for our internal tool",
+    "should_trigger": false
+  },
+  {
+    "query": "Why did last night's deploy fail? Walk me through five whys",
+    "should_trigger": false
+  },
+  {
+    "query": "Break down our signup drop into drivers and test hypotheses with the data",
+    "should_trigger": false
+  },
+  {
+    "query": "Draft a roadmap for next year, what should we focus on?",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain how TCP congestion control works",
+    "should_trigger": false
+  },
+  {
+    "query": "Review my plan for flaws and weak assumptions",
+    "should_trigger": false
+  }
+]

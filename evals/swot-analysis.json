@@ -1,0 +1,66 @@
+[
+  {
+    "query": "do a SWOT for our feature flag product",
+    "should_trigger": true
+  },
+  {
+    "query": "what are our strengths and weaknesses compared to the competition?",
+    "should_trigger": true
+  },
+  {
+    "query": "should we enter the German market? assess where we stand",
+    "should_trigger": true
+  },
+  {
+    "query": "review our team's position before the planning offsite - strengths, weaknesses, opportunities, threats",
+    "should_trigger": true
+  },
+  {
+    "query": "swot of Notion vs Obsidian from the point of view of a new entrant",
+    "should_trigger": true
+  },
+  {
+    "query": "help me evaluate whether our startup is ready to pitch enterprise buyers",
+    "should_trigger": true
+  },
+  {
+    "query": "TOWS matrix for our consultancy",
+    "should_trigger": true
+  },
+  {
+    "query": "competitor comparison for our analytics tool, what do we have going for us and what's against us?",
+    "should_trigger": true
+  },
+  {
+    "query": "How big is the market for developer tools? Ballpark the total addressable market",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a 12-month roadmap with milestones",
+    "should_trigger": false
+  },
+  {
+    "query": "Compare Postgres and MySQL for our workload and pick one",
+    "should_trigger": false
+  },
+  {
+    "query": "What should our overall strategy be for the next two years?",
+    "should_trigger": false
+  },
+  {
+    "query": "Rank these 20 feature requests by RICE score",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain what SWOT stands for",
+    "should_trigger": false
+  },
+  {
+    "query": "Is my argument that we should enter Germany sound? Poke holes",
+    "should_trigger": false
+  },
+  {
+    "query": "Write the competitor analysis section of my pitch deck in a punchy tone",
+    "should_trigger": false
+  }
+]

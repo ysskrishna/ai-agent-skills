@@ -1,4 +1,4 @@
-# Run validate-skills.sh against skills/*/SKILL.md (name, description, structure).
+# Run validate-skills.sh: spec checks per skill plus repo checks (descriptions, examples, evals, README / marketplace / slug map sync).
 name: Validate skills
 
 on:
@@ -6,12 +6,20 @@ on:
     branches: [main]
     paths:
       - "skills/**"
+      - "evals/**"
+      - "scripts/**"
+      - "README.md"
+      - ".claude-plugin/**"
       - "validate-skills.sh"
       - ".github/workflows/validate-skills.yml"
   pull_request:
     branches: [main]
     paths:
       - "skills/**"
+      - "evals/**"
+      - "scripts/**"
+      - "README.md"
+      - ".claude-plugin/**"
       - "validate-skills.sh"
       - ".github/workflows/validate-skills.yml"
 
@@ -25,5 +33,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate SKILL.md files
+      - name: Validate skills and repository
         run: bash validate-skills.sh

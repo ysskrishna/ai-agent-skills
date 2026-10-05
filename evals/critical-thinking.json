@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Our conversion went up after the redesign so the redesign worked. Sanity check this?",
+    "should_trigger": true
+  },
+  {
+    "query": "poke holes in my plan to launch the beta in two weeks",
+    "should_trigger": true
+  },
+  {
+    "query": "what am I missing here? I'm about to tell my boss we should cancel the vendor contract because their uptime was bad once",
+    "should_trigger": true
+  },
+  {
+    "query": "Play devil's advocate on moving everything to microservices",
+    "should_trigger": true
+  },
+  {
+    "query": "red team this proposal before I send it to the CTO",
+    "should_trigger": true
+  },
+  {
+    "query": "I read a study that says remote work lowers productivity, so we should end it. Is my reasoning sound?",
+    "should_trigger": true
+  },
+  {
+    "query": "Do a bias check on how we picked this candidate",
+    "should_trigger": true
+  },
+  {
+    "query": "steelman the case against rewriting our frontend and tell me where my argument is weak",
+    "should_trigger": true
+  },
+  {
+    "query": "Rewrite this paragraph so it sounds friendlier",
+    "should_trigger": false
+  },
+  {
+    "query": "Give me 15 creative ideas for a hackathon theme",
+    "should_trigger": false
+  },
+  {
+    "query": "Should we use Postgres or MongoDB? Compare them for our use case",
+    "should_trigger": false
+  },
+  {
+    "query": "What could go wrong with the migration next month? List the risks before we start",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the null pointer in OrderService.java",
+    "should_trigger": false
+  },
+  {
+    "query": "Is it ethical to track employee keystrokes?",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize this article in five bullets",
+    "should_trigger": false
+  },
+  {
+    "query": "Why do users keep churning after week two? Break it down with the data",
+    "should_trigger": false
+  }
+]

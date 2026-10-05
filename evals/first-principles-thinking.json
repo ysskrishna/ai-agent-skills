@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Why do we do code review in pull requests at all? let's reason from scratch",
+    "should_trigger": true
+  },
+  {
+    "query": "every competitor has a free tier so we must too, right? challenge that",
+    "should_trigger": true
+  },
+  {
+    "query": "what would our infrastructure cost if we designed it from first principles instead of copying AWS reference architectures?",
+    "should_trigger": true
+  },
+  {
+    "query": "is this process really necessary or are we doing it because we always have?",
+    "should_trigger": true
+  },
+  {
+    "query": "strip away the analogies - what is actually required for a reliable payment flow?",
+    "should_trigger": true
+  },
+  {
+    "query": "Elon-style first principles breakdown of our battery pack cost",
+    "should_trigger": true
+  },
+  {
+    "query": "should we copy how Stripe structured their API or is that just convention?",
+    "should_trigger": true
+  },
+  {
+    "query": "question our assumption that we need a mobile app",
+    "should_trigger": true
+  },
+  {
+    "query": "Give me a checklist for onboarding a new engineer",
+    "should_trigger": false
+  },
+  {
+    "query": "What are the first principles of thermodynamics? textbook summary please",
+    "should_trigger": false
+  },
+  {
+    "query": "Pick between two cloud providers for us",
+    "should_trigger": false
+  },
+  {
+    "query": "Brainstorm new product ideas",
+    "should_trigger": false
+  },
+  {
+    "query": "What are the side effects of this change on other teams?",
+    "should_trigger": false
+  },
+  {
+    "query": "Review my proposal for weak spots",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain how React hooks work",
+    "should_trigger": false
+  },
+  {
+    "query": "Follow our team's style guide when you refactor this module",
+    "should_trigger": false
+  }
+]

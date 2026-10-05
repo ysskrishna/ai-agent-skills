@@ -1,0 +1,66 @@
+[
+  {
+    "query": "last night's deploy took checkout down for 25 minutes. find the root cause",
+    "should_trigger": true
+  },
+  {
+    "query": "we keep shipping the same type of bug. why does this keep happening?",
+    "should_trigger": true
+  },
+  {
+    "query": "write a postmortem for the database outage on Tuesday",
+    "should_trigger": true
+  },
+  {
+    "query": "use the 5 whys on why our sprint goals keep slipping",
+    "should_trigger": true
+  },
+  {
+    "query": "customers got double-charged yesterday, help me find the real cause not just the symptom",
+    "should_trigger": true
+  },
+  {
+    "query": "do a root cause analysis on why our CI is flaky",
+    "should_trigger": true
+  },
+  {
+    "query": "our release was delayed again, ask why until we get to something we can fix",
+    "should_trigger": true
+  },
+  {
+    "query": "toyota style why-why analysis for our support backlog growing",
+    "should_trigger": true
+  },
+  {
+    "query": "There's a typo in the README, fix it",
+    "should_trigger": false
+  },
+  {
+    "query": "Weekly signups dropped 20%, break down the possible drivers and test them with data",
+    "should_trigger": false
+  },
+  {
+    "query": "What are the side effects of adding a mandatory review step across teams?",
+    "should_trigger": false
+  },
+  {
+    "query": "Review my claim that the outage was caused by the new hire. Is my reasoning sound?",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain what a root cause analysis is in two sentences",
+    "should_trigger": false
+  },
+  {
+    "query": "Here is a stack trace, fix the NullPointerException",
+    "should_trigger": false
+  },
+  {
+    "query": "What could go wrong with next week's migration?",
+    "should_trigger": false
+  },
+  {
+    "query": "Give me ideas to make deploys safer",
+    "should_trigger": false
+  }
+]

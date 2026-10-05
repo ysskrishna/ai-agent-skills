@@ -13,14 +13,21 @@ This is a curated collection of skills for AI Agents. Skills are packaged instru
 skills/
   {skill-name}/
     SKILL.md
-    references/     # optional; add when a skill needs extra on-demand docs
+    references/
+      example.md    # required; one worked example
+evals/
+  {skill-name}.json # required; trigger eval queries (see evals/README.md)
+scripts/            # publish_clawhub.py (ClawHub sync), validate_repo.py (repo checks)
 .claude-plugin/     # Claude Code plugin + marketplace metadata
-.github/workflows/  # release automation (GitHub Releases on version tags)
+.github/workflows/  # validation on PRs, release automation (GitHub Releases on version tags)
 ```
+
+Run `bash validate-skills.sh` before every commit. It checks each skill against the spec and runs `scripts/validate_repo.py` (description rules, example and eval files, and that the files below stay in sync).
 
 When you add or rename a skill, keep these in sync:
 
 - [README.md](README.md) — **Skills** table (including **Registry** badge column), **Installation** section, and footer ClawHub link when applicable.
+- [evals/](evals/) — `evals/{skill-name}.json` with 8 should-trigger and 8 near-miss should-not-trigger queries.
 - [scripts/publish_clawhub.py](scripts/publish_clawhub.py) — `clawhub_slug_map` entry (and publish when listing on ClawHub).
 - [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) — `plugins` catalog for Claude Code.
 - Claude Code install line: `/plugin install {skill-name}@ai-agent-skills`.
@@ -46,26 +53,35 @@ The README **Skills** table has a right-hand **Registry** column (generic label�
 | `six-thinking-hats` | `six-hats-thinking` |
 | `first-principles-thinking` | `first-principles-reasoning` |
 
-Add a new row to `clawhub_slug_map` whenever you publish a skill to ClawHub, then add the matching **Registry** badge in the README table. 
+Add a new row to `clawhub_slug_map` whenever you publish a skill to ClawHub, then add the matching **Registry** badge in the README table.
+
+### ClawHub slugs are per owner
+
+Several owners can publish the same slug, so a slug already in use does not block publishing under `ysskrishna`. The cost is ambiguity for users (`clawhub inspect <slug>` and likely `install` report `AMBIGUOUS_SKILL_SLUG`). Policy: use the natural skill name as the slug, accept collisions, and remap only when a name is unusable.
+
+- Check state with `python3 scripts/publish_clawhub.py plan`. It reads my version through the registry's `owner` parameter and lists other owners of the same slug.
+- Do not rely on `clawhub inspect <slug>` to decide whether a slug exists. It fails on ambiguous slugs and can miss skills that `clawhub search` finds. Use inspect and search together when scouting a new name.
 
 ## Creating a new skill
 
 Skills follow the [Agent Skills Open Standard](https://agentskills.io/).
 
-1. Create `skills/{skill-name}/SKILL.md` with the required frontmatter (see below).
-2. Add optional deep-dive files under `skills/{skill-name}/references/` and link them from the body of `SKILL.md` instead of inflating the main file.
-3. Register the skill in [README.md](README.md).
+1. Create `skills/{skill-name}/SKILL.md` with the required frontmatter (see below). Keep it at or under 120 lines.
+2. Add `skills/{skill-name}/references/example.md` (one realistic worked case, with invented inputs labeled as such). Add other deep-dive files under `references/` and link them from `SKILL.md` instead of inflating the main file.
+3. Add `evals/{skill-name}.json` (see [evals/README.md](evals/README.md)).
+4. Register the skill in [README.md](README.md).
    - Add a row to the **Skills** table with a **Registry** badge (see [README registry badges (ClawHub)](#readme-registry-badges-clawhub)).
    - Add the skill to `clawhub_slug_map` in [scripts/publish_clawhub.py](scripts/publish_clawhub.py) if it is published on ClawHub.
    - Extend **Installation** with a Claude Code line: `/plugin install {skill-name}@ai-agent-skills`.
    - Extend **Installation** with a [skills.sh](https://skills.sh) line: `npx skills add ysskrishna/ai-agent-skills --skill {skill-name}`.
    - Extend **Installation** with a GitHub CLI line: `gh skill install ysskrishna/ai-agent-skills {skill-name}`.
    - Follow the examples already in the README.
-4. Register the skill in [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
-   - Add a matching entry to the `plugins` array (`name`, `source`, `description`, and `skills` as needed).
+5. Register the skill in [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json).
+   - Add a matching entry to the `plugins` array (`name`, `source`, `description`, and `skills`). The `description` must equal the `SKILL.md` description exactly.
    - Ensure `name` matches the skill directory and the `name` field in `SKILL.md` frontmatter so `/plugin install` resolves correctly.
-5. If the skill should surface in plugin discovery, consider updating keywords.
-   - [.claude-plugin/plugin.json](.claude-plugin/plugin.json)
+6. Add the skill name to `keywords` in [.claude-plugin/plugin.json](.claude-plugin/plugin.json).
+7. If the skill is a new thinking method, add it to the `thinking-method-selector` table and fallback outlines.
+8. Run `bash validate-skills.sh`.
 
 ---
 
@@ -79,19 +95,20 @@ Skills follow the [Agent Skills Open Standard](https://agentskills.io/).
 ---
 name: skill-name
 description: >
-  Use this skill when the user ... (intent and triggers). Optional: skip when
-  ... (task-shape boundaries only—do not route to other skills by name).
+  Use for <method name>, or when the user <situation>: "<trigger phrase>",
+  "<trigger phrase>", "<trigger phrase>". <What it does in one clause>.
+  Skip for <task shapes>.
 ---
 ```
 
 | Field         | Required | Constraints |
 | ------------- | -------- | ----------- |
 | `name`        | Yes      | 1–64 chars. Lowercase alphanumeric and hyphens only. Must match the directory name. |
-| `description` | Yes    | 1–1024 chars. Primary trigger signal: imperative when-to-use, user intent, concrete triggers (see **Description field** below). |
+| `description` | Yes    | 1–1024 chars by the spec; this repo targets 200–350. Primary trigger signal: imperative when-to-use, user intent, concrete triggers (see **Description field** below). |
 | `license`     | No       | License name or reference to a bundled license file. |
 | `metadata`    | No       | Arbitrary key-value pairs (e.g. `author`, `version`). |
 
-When you ship meaningful updates to a skill, bump `metadata.version` (or your chosen versioning field) if the skill uses one—see [skills/six-thinking-hats/SKILL.md](skills/six-thinking-hats/SKILL.md) for an example.
+When you ship meaningful updates to a skill, bump `metadata.version` to the release date as `YYYY.M.D` (for example `2026.10.5`). `scripts/publish_clawhub.py` compares it with the ClawHub version and publishes when they differ.
 
 ### Name field rules
 
@@ -106,13 +123,15 @@ The description is how agents decide whether to activate the skill. See [Optimiz
 
 Write the `description` so it works at a glance:
 
-1. **Imperative open** — start with **“Use this skill when…”** (or equivalent). The agent is choosing an action; tell it when to load this skill, not only what the skill contains.
-2. **User intent first** — say what the user is trying to accomplish (decide, audit, brainstorm in a fixed structure, etc.), then the method labels. Avoid opening with implementation-only framing (“Applies the X framework…”) without a when-to-use clause in the same breath.
-3. **Obvious phrasing early** — if people often say the skill name or a stock phrase (“critical thinking”, “six thinking hats”), put that **near the start**, not only buried in a long parenthetical list. You can still add indirect triggers after.
-4. **Concrete triggers** — topics, tasks, casual and indirect phrasing, and “even if they don’t say …” style coverage where it helps recall.
-5. *(Optional)* **When not to use** — only if it materially cuts false activations. State boundaries as **task shape** (execution-only, plain factual lookup, single-angle hot take with no structured pass, etc.). **Do not** point at other skills in this repo by name, method, or “use skill Y instead” routing—those lists do not scale as the catalog grows and they go stale fast. The [Agent Skills Open Standard](https://agentskills.io/) does not require negatives—many published skills omit them.
+1. **Imperative open** — start with **“Use …”** (validated: the description must start with `Use `). The agent is choosing an action; tell it when to load this skill, not only what the skill contains.
+2. **Method name in sentence one** — people who name the method (“critical thinking”, “six thinking hats”) must still match. Then the situation.
+3. **User situation and quoted phrases** — most users never name a method. List the situations and 3–4 realistic phrases ("what could go wrong?", "A or B?") that should load the skill.
+4. **One clause on what it does**, then a **Skip** clause (required, validated). State boundaries as **task shape** (execution-only, plain factual lookup, exact data available, etc.). **Do not** point at other skills in this repo by name or “use skill Y instead” routing; those lists go stale as the catalog grows. Cross-skill routing lives in the `thinking-method-selector` body.
+5. **No meta text** — never describe how the match works (“naming it or directing use with typos is decisive”). Validation rejects that boilerplate. It wastes the first characters, which listings truncate first.
+6. **Length** — 200–350 characters. Claude Code caps each listing entry at 1,536 characters and drops descriptions when the whole listing exceeds its budget (1% of the context window), so every extra character costs every skill.
+7. **First 80 characters unique** across skills (validated).
 
-Put trigger guidance in **frontmatter `description`**, not only in the body—the body loads after the skill is already chosen.
+Put trigger guidance in **frontmatter `description`**, not only in the body—the body loads after the skill is already chosen. Test changes against the queries in `evals/{skill-name}.json`, adding queries that failed.
 
 ### Body content
 
@@ -120,9 +139,11 @@ Write concise, imperative instructions. Prefer short examples and links to `refe
 
 **Suggested structure:**
 
-1. Quick start or core workflow.
-2. Key patterns with examples.
-3. Pointers to reference files for advanced topics.
+1. When to use, with a Skip line.
+2. Before you start (state focus and pass, gather first, light path).
+3. The method steps.
+4. Pitfalls, then a checklist.
+5. A pointer to `references/example.md` and any deeper files.
 
 ### Progressive disclosure
 
@@ -140,7 +161,9 @@ Write concise, imperative instructions. Prefer short examples and links to `refe
 - Frame short **example lists** (biases, fallacies, prompts) as **examples**, not exhaustive catalogs, unless you intend completeness.
 - Prefer **one plain sentence** on strength of case or uncertainty over **ordinal scales** (e.g. High / Medium / Low) unless you commit to maintaining a rubric in the skill.
 - When a **named workflow step** could be mistaken for generic **Setup**, state explicitly whether Setup satisfies that step or a **separate labeled section** is required.
-- For content shared across many skills, use **one** `references/*.md` and **one-line links** from each skill instead of duplicating large routing or comparison blocks.
+- Keep every skill **self-contained**. Users install skills one at a time (`--skill`, `/plugin install`, `gh skill install`), so a link to another skill's files or a shared `references/` file will break. Repeat short shared rules (light path, gather first) in each skill.
+- **Light path and gather-first:** each skill states how to scale down for a small ask, and tells the agent to read files, search or run queries before marking evidence missing or asking questions.
+- **Fixed section order** in the body: When to use (with Skip), Before you start, the method steps, Pitfalls, Checklist.
 
 ---
 

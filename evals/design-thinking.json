@@ -1,0 +1,66 @@
+[
+  {
+    "query": "what do users really need from a team dashboard? managers asked for one but I'm not sure why",
+    "should_trigger": true
+  },
+  {
+    "query": "help me frame how-might-we questions for our checkout redesign",
+    "should_trigger": true
+  },
+  {
+    "query": "plan a 3-day discovery sprint for our new mobile feature",
+    "should_trigger": true
+  },
+  {
+    "query": "before we build the referral feature, how do we validate that people want it?",
+    "should_trigger": true
+  },
+  {
+    "query": "design thinking workshop outline for improving our hospital intake form",
+    "should_trigger": true
+  },
+  {
+    "query": "our users keep abandoning the setup wizard. I want to understand their problem before designing a fix",
+    "should_trigger": true
+  },
+  {
+    "query": "define the problem statement and test plan for a smart pantry app",
+    "should_trigger": true
+  },
+  {
+    "query": "turn these support tickets into a point of view and prototype ideas",
+    "should_trigger": true
+  },
+  {
+    "query": "Pick a color palette for our brand",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement the dashboard exactly as in this Figma spec",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the CSS so the sidebar does not overflow on mobile",
+    "should_trigger": false
+  },
+  {
+    "query": "Which UI library should we use, MUI or Chakra? compare",
+    "should_trigger": false
+  },
+  {
+    "query": "Brainstorm names for the app",
+    "should_trigger": false
+  },
+  {
+    "query": "Break down why signups dropped last month",
+    "should_trigger": false
+  },
+  {
+    "query": "Run a pre-launch risk review of the redesign",
+    "should_trigger": false
+  },
+  {
+    "query": "Write release notes for version 3.2",
+    "should_trigger": false
+  }
+]

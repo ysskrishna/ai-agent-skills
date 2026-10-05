@@ -6,68 +6,110 @@
   },
   "metadata": {
     "description": "Curated Agent Skills (SKILL.md) for Claude Code: structured thinking lenses, decision support, and brainstorming workflows.",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "six-thinking-hats",
       "source": "./skills/six-thinking-hats",
       "skills": "./",
-      "description": "Use when the user asks for Six Thinking Hats, parallel thinking, or Edward de Bono (naming or directing use/apply/run with typos is decisive), or wants sequential six-hat facilitation: facts, feelings, risks, benefits, new ideas, then synthesis for decisions and brainstorms."
+      "description": "Use for Six Thinking Hats or de Bono's parallel thinking, or when a decision or idea needs facts, gut feel, risks, benefits and new options kept apart: \"look at this from all sides\", \"full perspective check\". Skip for plain factual questions or single-angle hot takes."
     },
     {
       "name": "critical-thinking",
       "source": "./skills/critical-thinking",
       "skills": "./",
-      "description": "Use when the user asks for critical thinking (naming or directing use/apply/run with typos is decisive), or wants claim and argument audit: assumptions, evidence, logic gaps, bias and fallacy scan, red team, devil's advocate, epistemic calibration."
+      "description": "Use for critical thinking, or when the user wants a claim, plan or decision checked for weak spots: \"is this right?\", \"what am I missing?\", \"poke holes\", \"sanity check\", \"devil's advocate\", \"red team this\". Skip for execution-only tasks and wording edits."
     },
     {
       "name": "systems-thinking",
       "source": "./skills/systems-thinking",
       "skills": "./",
-      "description": "Use when the user asks for systems thinking (naming or directing use/apply/run with typos is decisive), or wants feedback loops, delays, stocks and flows, leverage points, unintended consequences, and holistic propagation across teams, products, and policies."
+      "description": "Use for systems thinking, or when a change may ripple beyond its target: \"what are the side effects?\", \"why does this keep coming back?\", \"how do these teams or services affect each other?\". Maps loops, delays and leverage points. Skip for single-step fixes."
     },
     {
       "name": "creative-thinking",
       "source": "./skills/creative-thinking",
       "skills": "./",
-      "description": "Use when the user asks for creative thinking (naming or directing use/apply/run with typos is decisive), or wants divergent ideation: fluency, reframes, novel combinations, blue-sky variety, optional light convergence before commitment."
+      "description": "Use for creative thinking, or when the user wants many fresh options before choosing: \"give me ideas\", \"brainstorm names\", \"other ways to do this\", \"think outside the box\". Diverges first, then picks. Skip when one answer is wanted or the task is pure execution."
     },
     {
       "name": "strategic-thinking",
       "source": "./skills/strategic-thinking",
       "skills": "./",
-      "description": "Use when the user asks for strategic thinking (naming or directing use/apply/run with typos is decisive), or wants bets under constraints: where to play, how to win, roadmap narrative, tradeoffs, risks, portfolio prioritization, sequenced path."
+      "description": "Use for strategic thinking, or when the user must choose a direction under constraints: \"where should we focus?\", \"how do we win?\", \"roadmap for next year\", \"what should we not do?\". Ends in explicit bets and risks. Skip for step-by-step implementation."
     },
     {
       "name": "analytical-thinking",
       "source": "./skills/analytical-thinking",
       "skills": "./",
-      "description": "Use when the user asks for analytical thinking (naming or directing use/apply/run with typos is decisive), or wants structured breakdown: hypotheses, metrics, evidence, MECE-ish trees, decision tables, explicit uncertainty in synthesis."
+      "description": "Use for analytical thinking, or when a question needs breaking down and evidence: \"why did metric X drop?\", \"what drives this?\", \"break this down\", \"what data do we need?\". Builds a tree, hypotheses and evidence, ends with an answer and key uncertainty. Skip for quick verdicts."
     },
     {
       "name": "lateral-thinking",
       "source": "./skills/lateral-thinking",
       "skills": "./",
-      "description": "Use when the user asks for lateral thinking (naming or directing use/apply/run with typos is decisive), or wants provocations, concept fans, challenge questions, reframes to escape local optima when ideation stalls or feels incremental."
+      "description": "Use for lateral thinking, or when ideas feel stuck or incremental: \"we've tried everything\", \"need a surprising angle\", \"break the pattern\", \"give me a wild idea that could work\". Uses provocations and reframes. Skip for rule lookups or strict logical proofs."
     },
     {
       "name": "design-thinking",
       "source": "./skills/design-thinking",
       "skills": "./",
-      "description": "Use when the user asks for design thinking (naming or directing use/apply/run with typos is decisive), or wants human-centered discovery: empathize, define POV and HMW, ideate, low-fi prototype intent, falsifiable test plan for HCD and UX sprints."
+      "description": "Use for design thinking, or when a product or service problem needs user understanding before solutions: \"what do users really need?\", \"how might we...\", \"plan a discovery sprint\", \"validate this concept\". Skip when the spec is frozen or the task is code maintenance."
     },
     {
       "name": "first-principles-thinking",
       "source": "./skills/first-principles-thinking",
       "skills": "./",
-      "description": "Use when the user asks for first-principles thinking or first principles (naming or directing use/apply/run with typos is decisive), or wants to strip analogies, tag fundamentals, rebuild logic from bedrock, challenge defaults, sanity-check copycat strategies."
+      "description": "Use for first principles thinking, or when the user questions an inherited default: \"why do we do it this way?\", \"is this cost really necessary?\", \"should we copy what competitors do?\". Strips analogies and rebuilds from fundamentals. Skip for convention-following checklists."
     },
     {
       "name": "ethical-thinking",
       "source": "./skills/ethical-thinking",
       "skills": "./",
-      "description": "Use when the user asks for ethical thinking (naming or directing use/apply/run with typos is decisive), or wants values, harms, benefits, power asymmetry, justice, consent, fair process—moral review, AI and data ethics, stakeholder harm scans beyond legality."
+      "description": "Use for ethical thinking, or when a plan could harm or unfairly burden people: \"should we do this?\", \"is this fair?\", \"privacy or bias risk\", \"who gets hurt?\". Maps stakeholders, harms, power and consent. Skip for legal advice, neutral fact lookups and implementation-only work."
+    },
+    {
+      "name": "five-whys",
+      "source": "./skills/five-whys",
+      "skills": "./",
+      "description": "Use for the 5 Whys, or when the user wants the root cause of a failure: \"why did this happen?\", \"this keeps breaking\", \"write the postmortem\", \"find the real cause\". Asks why repeatedly with evidence at each step, then sets countermeasures. Skip for one-off typos or when the cause is already proven."
+    },
+    {
+      "name": "swot-analysis",
+      "source": "./skills/swot-analysis",
+      "skills": "./",
+      "description": "Use for SWOT analysis, or when the user wants to assess where a team, product or company stands: \"strengths and weaknesses\", \"should we enter this market?\", \"review our position\", \"competitor comparison\". Turns findings into actions. Skip for detailed planning or pure market sizing."
+    },
+    {
+      "name": "pre-mortem",
+      "source": "./skills/pre-mortem",
+      "skills": "./",
+      "description": "Use for a pre-mortem, or before committing to a plan, launch or migration: \"what could go wrong?\", \"stress test this plan\", \"how might this fail?\", \"risks before we ship\". Assumes failure, lists causes, ranks them and sets mitigations. Skip for explaining a failure that already happened."
+    },
+    {
+      "name": "tradeoff-analysis",
+      "source": "./skills/tradeoff-analysis",
+      "skills": "./",
+      "description": "Use for tradeoff analysis, or when the user must pick between concrete options: \"A or B?\", \"which library should we use?\", \"build vs buy\", \"compare these approaches\". Scores options on weighted criteria, tests sensitivity and reversibility. Skip for open ideation or single-option reviews."
+    },
+    {
+      "name": "prioritization",
+      "source": "./skills/prioritization",
+      "skills": "./",
+      "description": "Use for prioritization, or when there are more tasks than capacity: \"what should we do first?\", \"rank this backlog\", \"cut scope for the MVP\", \"RICE score these\". Picks a method (RICE, ICE, MoSCoW, impact-effort), scores items and sets a cut line. Skip for choosing between two designs."
+    },
+    {
+      "name": "fermi-estimation",
+      "source": "./skills/fermi-estimation",
+      "skills": "./",
+      "description": "Use for Fermi estimation, or when a rough number is needed fast: \"roughly how many...\", \"ballpark the cost\", \"estimate capacity or market size\", \"is this even feasible?\". Decomposes, uses ranges and sanity-checks. Skip when exact data is available or a precise calculation is wanted."
+    },
+    {
+      "name": "thinking-method-selector",
+      "source": "./skills/thinking-method-selector",
+      "skills": "./",
+      "description": "Use when the user describes a problem, decision or stuck situation but names no method: \"how should I approach this?\", \"help me think this through\", \"we can't decide\", \"where do I start?\". Picks the best-fit thinking method and runs it. Skip for plain execution tasks or when a method is named."
     }
   ]
 }

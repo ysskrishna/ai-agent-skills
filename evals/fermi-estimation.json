@@ -1,0 +1,66 @@
+[
+  {
+    "query": "roughly how much storage will a recent activity feed add per year?",
+    "should_trigger": true
+  },
+  {
+    "query": "ballpark the monthly cloud cost for 50k users",
+    "should_trigger": true
+  },
+  {
+    "query": "how many requests per second do we need to handle at launch? just a rough number",
+    "should_trigger": true
+  },
+  {
+    "query": "estimate the market size for a tool that helps dentists schedule",
+    "should_trigger": true
+  },
+  {
+    "query": "is it even feasible to store every click for a year? back of envelope",
+    "should_trigger": true
+  },
+  {
+    "query": "how many engineers does it take to support 200 enterprise customers, rough guess",
+    "should_trigger": true
+  },
+  {
+    "query": "how many piano tuners are there in Chicago? fermi it",
+    "should_trigger": true
+  },
+  {
+    "query": "quick order-of-magnitude estimate for the number of emails our system sends a day",
+    "should_trigger": true
+  },
+  {
+    "query": "Here is our billing table, compute exact revenue per month with SQL",
+    "should_trigger": false
+  },
+  {
+    "query": "Query the database for the actual number of active users",
+    "should_trigger": false
+  },
+  {
+    "query": "Prioritize these six features",
+    "should_trigger": false
+  },
+  {
+    "query": "Pick between Redis and Memcached",
+    "should_trigger": false
+  },
+  {
+    "query": "What is 17.5% of 48,200?",
+    "should_trigger": false
+  },
+  {
+    "query": "Why did signups fall last month? Break it down with the data",
+    "should_trigger": false
+  },
+  {
+    "query": "Make a precise capacity plan from our load-test results",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a function that estimates the median of a list",
+    "should_trigger": false
+  }
+]

@@ -1,86 +1,74 @@
 ---
 name: ethical-thinking
 description: >
-  Use this skill when the user asks for ethical thinking (including naming it
-  or directing use/apply/run with obvious misspellings; decisive) or wants a
-  structured pass on values and harms—mapping stakeholders, tradeoffs, power
-  asymmetries, harms and benefits, consent, justice, and fair process for a plan
-  or product. Use for moral review, fairness or AI-ethics style questions,
-  stakeholder harm scans, or should-we questions beyond pure legality, including
-  indirect asks. Skip when they want legal advice as such, only neutral facts with
-  no normative review requested, or implementation-only work with no values lens
-  asked for.
+  Use for ethical thinking, or when a plan could harm or unfairly burden people: "should we do this?", "is this fair?", "privacy or bias risk", "who gets hurt?". Maps stakeholders, harms, power and consent. Skip for legal advice, neutral fact lookups and implementation-only work.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.17"
+  version: "2026.10.5"
 ---
 
 # Ethical Thinking
 
 Ethics is about **conflicts between legitimate goods**. End with transparent tradeoffs, not false certainty.
 
-**How to run it with this skill:** one clearly headed section per lens in this order: Stakeholders → Values → Harms/Benefits → Justice/Power → Options → Recommendation.
+## When to use
 
----
+- A product, policy or data decision that could affect people: privacy, fairness, consent, manipulation, safety.
+- "Should we?" questions that go beyond "can we" or "is it legal".
+- AI and data ethics reviews, stakeholder harm scans, moral review of a plan.
 
-## Setup (run before starting)
+Skip: legal advice as such, neutral fact-finding with no values review requested, implementation-only work.
 
-In one short block:
+## Before you start
 
-1. **Ethical focal action** — what is being considered?
-2. **Default pass** — Stakeholders → Values → Harms/Benefits → Justice/Power → Options → Recommendation (state this line)
+1. State in one block: **Focal action** (what is being considered) and **Pass** (Stakeholders, Values, Harms and Benefits, Justice and Power, Options, Recommendation).
+2. **Gather first.** Read the design doc, data fields, policy text or code to learn who and what is actually affected before assuming. Ask up to 3 questions only for affected parties or red lines that tools cannot answer.
+3. **Light path.** Small ask: 2-3 lines per lens, 2 options. For a pure harm scan you may compress Values, but still cover Justice and Power before Options.
 
-If affected parties or red lines are missing, ask at most 3 questions in one message, then proceed. Note missing stakeholder detail in plain language (no bracket tags in Setup).
+## Lenses
 
-If the user only wants a **harm scan**, you may compress **Values** and still touch **Justice/Power** before **Options**.
+### 1. Stakeholders
+Who is affected: direct, indirect, future, non-human where ecology matters. For vulnerable groups, describe dependence, cognitive load or marginalization in plain words and one sentence on why that raises caution. Justify from the context; never stereotype.
 
----
+### 2. Values
+Which values are in play (autonomy, beneficence, non-maleficence, justice, dignity, solidarity, others)? Name at least one **value tension**: **A vs B**, and why both matter here.
 
-## The Lenses
+### 3. Harms and Benefits
+Concrete harms and benefits. For each: how plausible, under what conditions, and how reversible. Separate **predicted** from **observed** when the user supplies history.
 
-### Stakeholders
+### 4. Justice and Power
+Who carries the burdens and who gets the benefits? Who can say no, and who bears the cost of errors? Check procedural fairness: voice, consent, appeal.
 
-Who is **affected** (direct / indirect / future / non-human if ecologically relevant)? **Vulnerability** — describe dependence, cognitive load, or marginalization in plain language and one sentence on why that raises duty-of-care or caution (justify from context; do not stereotype).
+### 5. Options
+Two or more ethically distinct paths, including "do not proceed" when plausible:
 
-### Values
+> **Option:** ... - **Value fit:** ... - **Residual harm:** ... - **Safeguards:** ...
 
-Which **values** are in play (autonomy, beneficence, non-maleficence, justice, dignity, solidarity, etc.)? Map **value tension** pairs: **A vs B** — why both matter here.
+### 6. Recommendation
+A preferred option if the analysis supports one, or conditional guidance. Include the **strongest reason against** your recommendation and **what to monitor** if the plan proceeds.
 
-### Harms / Benefits
+## Rules
 
-Concrete **harms** and **benefits**; for each, one sentence on how plausible it is and under what conditions, plus **reversibility** in plain language when it matters. Distinguish **predicted** vs **observed** (if user gave history).
+1. Do not demonize actors; focus on structures, incentives and foreseeable effects.
+2. If values truly clash, say so and recommend a process (deliberation, oversight) instead of fake unanimity.
+3. Never invent sensitive personal facts about real people; use only what the user gave.
+4. Not legal advice. Where law may bind, write "legal review needed" and do not predict legal outcomes.
 
-### Justice / Power
+## Pitfalls
 
-Distribution of **burdens and boons**. **Power asymmetry** — who can say no, who bears error cost? Note **procedural** fairness (voice, consent, appeal).
+- A stakeholder list that stops at "users". Include the people who bear the cost without using the product.
+- Harm stated with no plausibility or conditions, which reads as either alarmist or empty.
+- A Recommendation with no dissent. If you cannot name the strongest objection, the analysis is unfinished.
+- Safeguards that are only intentions ("we will be careful"). Name an owner or a mechanism.
 
-### Options
+Worked example: [references/example.md](references/example.md).
 
-2+ ethically distinct paths (including **do not proceed** if plausible). For each:
+## Checklist
 
-> **Option:** … — **Value fit:** … — **Residual harm:** … — **Safeguards:** …
-
-### Recommendation
-
-State a **preferred** option if the analysis supports one, or **conditional** guidance. Include **dissenting consideration** — strongest reason against your recommendation. Add **monitoring** — what to watch if you proceed.
-
----
-
-## Execution Rules
-
-1. Do not **demonize** actors; focus on structures, incentives, and foreseeable effects.
-2. If values irreconcilably clash, say so — recommend **process** (deliberation, oversight) not fake unanimity.
-3. Never invent sensitive personal attributes about real people; stick to user-supplied facts.
-4. This skill is **not legal advice**; when law may bind, flag **legal review needed** and keep analysis non-authoritative on legal outcomes.
-
----
-
-## Checklist (verify before responding)
-
-- [ ] Setup: focal action + default pass (note if harm-scan style compression)
-- [ ] Stakeholders include indirect/future if relevant
-- [ ] At least one explicit **value tension** pair
-- [ ] Harms/benefits state plausibility in plain language (no Low/Med/High scale); options have safeguards
-- [ ] Justice/power addresses distribution and voice/consent
-- [ ] Recommendation names residual harm and dissenting consideration
+- [ ] Focal action and Pass stated
+- [ ] Stakeholders include indirect or future parties when relevant
+- [ ] At least one explicit value tension
+- [ ] Harms and benefits give plausibility; options list safeguards
+- [ ] Justice and Power covers distribution, voice and consent
+- [ ] Recommendation names residual harm and the strongest dissent

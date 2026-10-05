@@ -1,0 +1,66 @@
+[
+  {
+    "query": "redis, postgres or a managed queue for our background jobs?",
+    "should_trigger": true
+  },
+  {
+    "query": "build vs buy for our analytics dashboard, we have 4 engineers",
+    "should_trigger": true
+  },
+  {
+    "query": "which library should we use for date handling in the frontend? compare date-fns, dayjs and luxon",
+    "should_trigger": true
+  },
+  {
+    "query": "I can't decide between two job offers, help me compare them properly",
+    "should_trigger": true
+  },
+  {
+    "query": "compare these two architectures and tell me which to pick: event sourcing or plain CRUD",
+    "should_trigger": true
+  },
+  {
+    "query": "should we self-host or use a hosted auth provider? we need to decide by Friday",
+    "should_trigger": true
+  },
+  {
+    "query": "monolith vs microservices for a team of six?",
+    "should_trigger": true
+  },
+  {
+    "query": "is it worth migrating to Kubernetes or stay on ECS? weigh it",
+    "should_trigger": true
+  },
+  {
+    "query": "Brainstorm 15 possible architectures for our notification system",
+    "should_trigger": false
+  },
+  {
+    "query": "Review my plan to migrate to Kubernetes and find the weak points",
+    "should_trigger": false
+  },
+  {
+    "query": "Rank the 40 items in our backlog",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain the difference between SQL and NoSQL in simple terms",
+    "should_trigger": false
+  },
+  {
+    "query": "What should our company strategy be this year?",
+    "should_trigger": false
+  },
+  {
+    "query": "Why did the cache outage happen? Find the root cause",
+    "should_trigger": false
+  },
+  {
+    "query": "Install date-fns and update the imports in utils.ts",
+    "should_trigger": false
+  },
+  {
+    "query": "Roughly how much storage will we need next year?",
+    "should_trigger": false
+  }
+]

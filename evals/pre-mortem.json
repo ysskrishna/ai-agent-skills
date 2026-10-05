@@ -1,0 +1,66 @@
+[
+  {
+    "query": "run a pre-mortem on our database migration next Friday",
+    "should_trigger": true
+  },
+  {
+    "query": "what could go wrong with this launch plan? we ship Monday",
+    "should_trigger": true
+  },
+  {
+    "query": "stress test our plan to roll out the new pricing",
+    "should_trigger": true
+  },
+  {
+    "query": "imagine this project failed six months from now, why did it fail?",
+    "should_trigger": true
+  },
+  {
+    "query": "before we sign the vendor contract, how might this fail?",
+    "should_trigger": true
+  },
+  {
+    "query": "risks before we ship the reorg announcement",
+    "should_trigger": true
+  },
+  {
+    "query": "we are about to move everyone to the new CRM, play out the failure for me",
+    "should_trigger": true
+  },
+  {
+    "query": "premortem on our hiring plan for q1",
+    "should_trigger": true
+  },
+  {
+    "query": "Why did last night's outage happen? Do a postmortem",
+    "should_trigger": false
+  },
+  {
+    "query": "Is my argument for the launch date sound? Check the logic and evidence",
+    "should_trigger": false
+  },
+  {
+    "query": "Which of these three vendors should we pick?",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a risk register template as a spreadsheet",
+    "should_trigger": false
+  },
+  {
+    "query": "What are the side effects of this change across teams over time?",
+    "should_trigger": false
+  },
+  {
+    "query": "Brainstorm launch campaign ideas",
+    "should_trigger": false
+  },
+  {
+    "query": "Rank these 15 risks by severity for the board slide",
+    "should_trigger": false
+  },
+  {
+    "query": "Add input validation to the signup form",
+    "should_trigger": false
+  }
+]

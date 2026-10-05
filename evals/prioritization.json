@@ -1,0 +1,66 @@
+[
+  {
+    "query": "we have 30 items in the backlog and one engineer for six weeks. what first?",
+    "should_trigger": true
+  },
+  {
+    "query": "rank this backlog for me",
+    "should_trigger": true
+  },
+  {
+    "query": "help me cut scope for the MVP, we have a hard deadline in 8 weeks",
+    "should_trigger": true
+  },
+  {
+    "query": "RICE score these 6 features",
+    "should_trigger": true
+  },
+  {
+    "query": "too many tasks, what do I do first today?",
+    "should_trigger": true
+  },
+  {
+    "query": "moscow this list of requirements for the pilot",
+    "should_trigger": true
+  },
+  {
+    "query": "which of these bugs should we fix this sprint? there are 25",
+    "should_trigger": true
+  },
+  {
+    "query": "I need an order for our roadmap items and a cut line",
+    "should_trigger": true
+  },
+  {
+    "query": "Should we use Postgres or MySQL?",
+    "should_trigger": false
+  },
+  {
+    "query": "Build vs buy for our email service",
+    "should_trigger": false
+  },
+  {
+    "query": "Brainstorm new features for our app",
+    "should_trigger": false
+  },
+  {
+    "query": "Where should our company focus over the next three years?",
+    "should_trigger": false
+  },
+  {
+    "query": "Estimate how many support tickets we will get after the launch",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain what MoSCoW means",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement a priority queue in Python",
+    "should_trigger": false
+  },
+  {
+    "query": "What could go wrong with our launch plan?",
+    "should_trigger": false
+  }
+]

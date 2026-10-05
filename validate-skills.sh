@@ -163,6 +163,13 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     fi
 done
 
+# Repository-level checks: description rules, example and eval files, README / marketplace / slug map sync.
+echo ""
+echo "Repository checks"
+if ! python3 "$(dirname "$0")/scripts/validate_repo.py"; then
+    ISSUES=$((ISSUES + 1))
+fi
+
 echo ""
 echo "======================================================"
 echo "Summary:"
