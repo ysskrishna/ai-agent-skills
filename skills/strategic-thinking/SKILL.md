@@ -1,84 +1,67 @@
 ---
 name: strategic-thinking
 description: >
-  Use this skill when the user asks for strategic thinking (including naming it
-  or directing use/apply/run with obvious misspellings; decisive) or wants
-  direction under constraint—connecting intent, context, capabilities, and
-  options into coherent bets, tradeoffs, risks, and a sequenced path. Use when
-  they talk about competitive positioning, roadmap narrative, where to play and
-  how to win, portfolio prioritization, or leadership narrative that links goals
-  to constraints, even if they never use the word strategy. Skip for step-by-step
-  implementation detail when no strategic framing or choice among directions is
-  requested.
+  Use for strategic thinking, or when the user must choose a direction under constraints: "where should we focus?", "how do we win?", "roadmap for next year", "what should we not do?". Ends in explicit bets and risks. Skip for step-by-step implementation.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.17"
+  version: "2026.10.5"
 ---
 
 # Strategic Thinking
 
 Strategy is choosing what **not** to do as much as what to do. End with explicit bets and guardrails.
 
-**How to run it with this skill:** one clearly headed section per phase in this order: Intent → Landscape → Advantage → Options → Choice → Risks & Cadence. Optional **Short story** subsection only when Setup calls for it.
+## When to use
 
----
+- Choosing a direction for a product, team, company, technology platform or career under real constraints.
+- Competitive positioning, "where to play and how to win", roadmap narrative, portfolio trade-offs.
+- Leadership or board-style narrative that links goals to constraints.
 
-## Setup (run before starting)
+Skip: step-by-step implementation detail, or choosing between two concrete options on named criteria.
 
-In one short block:
+## Before you start
 
-1. **Strategic question** — one sentence (e.g. "How should we win in X given Y?")
-2. **Default pass** — Intent → Landscape → Advantage → Options → Choice → Risks & Cadence (state this line)
+1. State in one block: **Strategic question** (one sentence) and **Pass** (Intent, Landscape, Advantage, Options, Choice, Risks and Cadence).
+2. **Gather first.** Read the roadmap, docs, metrics or market notes you can reach before writing Landscape. Never invent market facts; say what is unknown. Ask up to 3 questions only for goals and non-negotiables that tools cannot answer.
+3. **Light path.** Small ask: 1-2 lines per phase, 2 options, same order.
+4. If the user wants a memo or deck storyline, add a **Short story** after Risks and Cadence (5-7 sentences: tension, insight, decision, proof path).
 
-If goals, constraints, or non-negotiables are missing, ask at most 3 questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
+## Phases
 
-If the user asked for a **memo or deck storyline**, add after **Risks & Cadence** a **Short story** subsection (5–7 sentences: tension → insight → decision → proof path).
+### 1. Intent
+**Win definition:** which outcome, by when. **Non-goals:** what is explicitly out of scope.
 
----
+### 2. Landscape
+Forces that matter: customers, competition, technology, regulation, economics. Use **Implication:** bullets, not encyclopedic lists. Keep short when information is thin.
 
-## The Phases
+### 3. Advantage (or **Honest gap**)
+Where could durable advantage come from: assets, learning loops, distribution, data, brand, cost? If none is credible, say so and pivot to how to build one.
 
-### Intent
+### 4. Options
+2-4 genuinely different strategies:
 
-**Win definition** — what outcome in what timeframe? **Non-goals** — what is explicitly out of scope?
+> **Option:** ... - **Bet:** ... - **Cost:** ... - **Kill signal:** ...
 
-### Landscape
+### 5. Choice
+Name one primary option (parallel bets only if clearly justified). Say **why now** and what you are **deferring or rejecting**.
 
-Forces that matter: customers, competition, technology, regulation, economics. Use **Implication:** bullets — not encyclopedic lists.
+### 6. Risks and Cadence
+Top 3 risks with mitigations. Then a **near-term focus**, a **longer-term thesis** and a **review trigger** (a metric or event that forces a rethink). Match the horizons to the domain: 90 days and 12 months suit a business plan; an architecture or career decision may need different spans, so state the spans you chose.
 
-### Advantage (or **Honest gap**)
+## Pitfalls
 
-Where could durable advantage come from — assets, learning loops, distribution, data, brand, cost? If none is credible, say so and pivot to **options to build advantage**.
+- Platitudes ("innovate", "customer-centric") with no mechanism.
+- Options that are really one option in different words.
+- A Choice that introduces a strategy not in Options. Label it a revision if so.
+- Advantage claimed with no evidence. Use Honest gap.
 
-### Options
+Worked example: [references/example.md](references/example.md).
 
-2–4 mutually distinct strategies or postures. For each:
+## Checklist
 
-> **Option:** … — **Bet:** … — **Cost:** … — **Kill signal:** …
-
-### Choice
-
-Name **one primary** option (or **parallel** bets if truly justified). Explain **why now** and what you are **deferring or rejecting**.
-
-### Risks & Cadence
-
-Top **3 risks** with mitigations. **90-day focus**, **12-month thesis**, and **review trigger** (metric or event that forces rethink).
-
----
-
-## Execution Rules
-
-1. **Choice** must reference **Options**; do not introduce a new strategy in the final section without labeling it a revision.
-2. Avoid generic platitudes ("innovate", "customer-centric") without a mechanism.
-3. If information is thin, keep **Landscape** short and say plainly what is unknown instead of fabricating market facts.
-
----
-
-## Checklist (verify before responding)
-
-- [ ] Setup: strategic question + default pass (note if Short story added)
+- [ ] Strategic question and Pass stated
 - [ ] Intent includes non-goals
-- [ ] Options use Bet / Cost / Kill signal
-- [ ] Choice is explicit; tradeoffs named
-- [ ] Risks & Cadence has 90-day / 12-month / review trigger
+- [ ] Options use Bet, Cost, Kill signal
+- [ ] Choice explicit, with what is deferred or rejected
+- [ ] Risks and Cadence: top 3 risks, stated horizons, review trigger

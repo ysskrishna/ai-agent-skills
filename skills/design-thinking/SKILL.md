@@ -1,80 +1,72 @@
 ---
 name: design-thinking
 description: >
-  Use this skill when the user asks for design thinking (including naming it
-  or directing use/apply/run with obvious misspellings; decisive) or wants
-  human-centered exploration—empathizing with needs, framing the problem,
-  ideating, prototyping intent, and defining what to learn next. Use for HCD,
-  service or UX concept sprints, how-might-we style discovery before build, or
-  reframing from user evidence, even with messy context. Skip when the spec is
-  fully frozen and they want no discovery, or when the task is code-only
-  maintenance with no user problem framing requested.
+  Use for design thinking, or when a product or service problem needs user understanding before solutions: "what do users really need?", "how might we...", "plan a discovery sprint", "validate this concept". Skip when the spec is frozen or the task is code maintenance.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.17"
+  version: "2026.10.5"
 ---
 
 # Design Thinking
 
 Fall in love with the problem, not the first solution. End with **what to learn next**, not just ideas.
 
-**How to run it with this skill:** one clearly headed section per stage in this order: Empathize → Define → Ideate → Prototype → Test plan.
+## When to use
 
----
+- A product, service or UX problem where the real user need is unclear.
+- "How might we" framing, discovery sprints, concept validation before building.
+- Reframing a request using what users actually do or say.
 
-## Setup (run before starting)
+Skip: the spec is fully frozen and no discovery is wanted, or the task is code-only maintenance with no user problem to frame.
 
-In one short block:
+## Before you start
 
-1. **Design challenge** — who is affected and in what situation?
-2. **Default pass** — Empathize → Define → Ideate → Prototype → Test plan (state this line)
+1. State in one block: **Design challenge** (who is affected, in what situation) and **Pass** (Empathize, Define, Ideate, Prototype, Test plan).
+2. **Gather first.** Read tickets, interview notes, support threads, analytics or the product itself before writing Empathize. Ask up to 3 questions only for users, constraints or success signals that tools cannot answer.
+3. **Light path.** Small ask: 1-2 lines per stage, 3 ideas, one prototype, 2 signals.
+4. If Empathize has no real user input, say so in Define and keep the POV narrow. Never invent research.
 
-If users, constraints, or success signals are missing, ask at most 3 questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
+## Stages
 
-If **Empathize** is thin (no real user input), say so honestly in **Define** and keep the POV narrow instead of inventing research.
+### 1. Empathize
+- **Who:** primary user or stakeholder. Mark facts from the user versus `[INFERRED]`.
+- **Jobs, pains, gains:** what they are trying to do and what hurts.
+- **Context:** when and where the need shows up.
 
----
+No fabricated quotes. Paraphrase only what the user supplied.
 
-## The Stages
+### 2. Define
+- **Insight:** a non-obvious tension connecting pains and context.
+- **POV:** "**[User]** needs **[verb]** because **[insight]**."
+- **How Might We:** 2-3 well-scoped questions opened by the POV.
 
-### Empathize
+### 3. Ideate
+Quantity and variety, using each HMW as a prompt. Tag each idea `desirable`, `feasible` or `viable` as a **hypothesis**, not a fact. Default 8-10 ideas unless the user sets a number.
 
-**Who** — primary user or stakeholder (facts from user vs `[INFERRED]`). **Jobs / pains / gains** — what they are trying to do and what hurts. **Context** — when/where the need shows up.
+### 4. Prototype
+Describe low-fidelity artifacts: paper flow, roleplay script, landing-page smoke test, clickable sketch. For each: **Purpose:** the question it answers. **Fidelity:** one line placing it between sketch-only and interactive.
 
-No fabricated quotes; paraphrase only what the user supplied.
+### 5. Test plan
+- **Learning goals:** what would convince you the idea is wrong?
+- **Participants:** who and how many, or "to be decided".
+- **Signals:** behaviors or metrics to observe, stated so they can fail.
+- **Next iteration:** what changes if results are mixed.
 
-### Define
+## Pitfalls
 
-**Insight statement** — non-obvious tension connecting pains and context. **Point of View (POV)** — "**[User]** needs **[verb]** because **[insight]**." **How Might We (HMW)** — 2–3 well-scoped questions opened by the POV.
+- A POV that restates the solution ("users need a dashboard").
+- HMW questions that are too broad ("improve the experience") or too narrow (they hide the solution).
+- Treating desirable / feasible / viable tags as proven.
+- A Test plan with no signal that could show the idea is wrong.
 
-### Ideate
+Worked example: [references/example.md](references/example.md).
 
-Quantity + variety. Use **HMW** as prompts. Tag ideas `desirable` / `feasible` / `viable` as **hypotheses** (not proven). Produce a **substantive** list (no fixed count unless the user specifies one).
+## Checklist
 
-### Prototype
-
-Describe **low-fidelity** artifacts: paper flow, roleplay script, landing smoke test, clickable sketch. For each: **Purpose:** what question does this answer? **Fidelity note:** one line placing the artifact on a sketch-only vs interactive spectrum (no low/medium labels).
-
-### Test plan
-
-**Learning goals** — what would convince you the idea is wrong? **Participants / sample** (or `[TBD]`). **Signals** — behaviors or metrics to observe. **Next iteration** — what changes if results are mixed.
-
----
-
-## Execution Rules
-
-1. **Define** must reflect whatever **Empathize** actually contains; do not invent field research.
-2. Do not collapse **Ideate** into a single solution before **Prototype**.
-3. **Test plan** must include falsifiable signals.
-
----
-
-## Checklist (verify before responding)
-
-- [ ] Setup: design challenge + default pass
-- [ ] Empathize distinguishes fact vs `[INFERRED]`
-- [ ] POV + HMW before Ideate
-- [ ] Ideation is substantive; desirable / feasible / viable tags used
-- [ ] Prototype states purpose and a one-line fidelity note (no low/medium labels)
-- [ ] Test plan has learning goals and signals
+- [ ] Challenge and Pass stated
+- [ ] Empathize separates facts from `[INFERRED]`
+- [ ] POV and HMW before Ideate
+- [ ] Ideas tagged desirable, feasible or viable as hypotheses
+- [ ] Prototype gives purpose and a fidelity line
+- [ ] Test plan has learning goals and falsifiable signals

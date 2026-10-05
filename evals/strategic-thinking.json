@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Where should we focus next year with a team of eight?",
+    "should_trigger": true
+  },
+  {
+    "query": "how do we win against a much bigger competitor in the logging space?",
+    "should_trigger": true
+  },
+  {
+    "query": "help me draft a 12 month roadmap narrative for the board",
+    "should_trigger": true
+  },
+  {
+    "query": "what should we NOT do this year? we're stretched thin",
+    "should_trigger": true
+  },
+  {
+    "query": "we have three possible directions for the product - hosted, enterprise, or open core. what's our strategy?",
+    "should_trigger": true
+  },
+  {
+    "query": "strategic thinking on whether to enter the EU market",
+    "should_trigger": true
+  },
+  {
+    "query": "I'm a new engineering director, how do I set direction for the platform org?",
+    "should_trigger": true
+  },
+  {
+    "query": "Decide how we position against the incumbent and what bets to take",
+    "should_trigger": true
+  },
+  {
+    "query": "Write the Terraform for our VPC",
+    "should_trigger": false
+  },
+  {
+    "query": "Rank these 30 backlog items by RICE score",
+    "should_trigger": false
+  },
+  {
+    "query": "Is this plan flawed? Check my assumptions",
+    "should_trigger": false
+  },
+  {
+    "query": "Pick between Kafka and RabbitMQ for our event bus",
+    "should_trigger": false
+  },
+  {
+    "query": "Do a SWOT of our company",
+    "should_trigger": false
+  },
+  {
+    "query": "Estimate how many requests per second we will need at launch",
+    "should_trigger": false
+  },
+  {
+    "query": "Break down why revenue is flat quarter over quarter",
+    "should_trigger": false
+  },
+  {
+    "query": "Give me a list of fun team names",
+    "should_trigger": false
+  }
+]

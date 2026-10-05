@@ -1,0 +1,66 @@
+[
+  {
+    "query": "we've tried everything to cut onboarding drop off and every idea is a small tweak. need a surprising angle",
+    "should_trigger": true
+  },
+  {
+    "query": "give me a wild idea that could actually work for reducing support tickets",
+    "should_trigger": true
+  },
+  {
+    "query": "use lateral thinking on our slow sales cycle",
+    "should_trigger": true
+  },
+  {
+    "query": "break the pattern - we keep reorganizing the same 12 setup steps",
+    "should_trigger": true
+  },
+  {
+    "query": "do a provocation (Po) exercise on our pricing page",
+    "should_trigger": true
+  },
+  {
+    "query": "I'm stuck. Everything we brainstormed feels incremental",
+    "should_trigger": true
+  },
+  {
+    "query": "challenge the rules everyone assumes about our release process",
+    "should_trigger": true
+  },
+  {
+    "query": "random entry technique: help me find new product ideas using the word 'lighthouse'",
+    "should_trigger": true
+  },
+  {
+    "query": "Brainstorm 10 ideas for a team offsite",
+    "should_trigger": false
+  },
+  {
+    "query": "What's the syntax for a Python list comprehension?",
+    "should_trigger": false
+  },
+  {
+    "query": "Prove that this algorithm runs in O(n log n)",
+    "should_trigger": false
+  },
+  {
+    "query": "Is this plan realistic? Find the gaps",
+    "should_trigger": false
+  },
+  {
+    "query": "Look up the data retention rules for GDPR",
+    "should_trigger": false
+  },
+  {
+    "query": "Which of these two designs is better for our needs?",
+    "should_trigger": false
+  },
+  {
+    "query": "List possible causes for our latency spike",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a funny poem about merge conflicts",
+    "should_trigger": false
+  }
+]

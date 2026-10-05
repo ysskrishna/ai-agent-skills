@@ -1,81 +1,68 @@
 ---
 name: first-principles-thinking
 description: >
-  Use this skill when the user asks for first-principles thinking or first
-  principles (including naming them or directing use/apply/run with obvious
-  misspellings; decisive) or wants to reason from bedrock—stripping borrowed
-  analogies and convention, surfacing fundamentals, then rebuilding the reasoning
-  chain and implications. Use when they want to reason from scratch, challenge
-  industry defaults, want physics-style business breakdowns, or sanity-check
-  whether copying incumbents still makes sense, even if they never say first
-  principles. Skip when they want a quick convention-following checklist with no
-  rebuild of assumptions, or purely social coordination with no modeling ask.
+  Use for first principles thinking, or when the user questions an inherited default: "why do we do it this way?", "is this cost really necessary?", "should we copy what competitors do?". Strips analogies and rebuilds from fundamentals. Skip for convention-following checklists.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.17"
+  version: "2026.10.5"
 ---
 
 # First Principles Thinking
 
 Question inherited baggage. Rebuild only from **bedrock** you can defend.
 
-**How to run it with this skill:** one clearly headed section per step in this order: Surface → Question → Bedrock → Rebuild → Implications.
+## When to use
 
----
+- "Why do we do it this way?", "is this really required?", "what would this cost if we started from scratch?"
+- A strategy or design copied from an incumbent ("like Uber for X") that nobody has checked.
+- Cost, architecture or process choices that exist only because they always have.
 
-## Setup (run before starting)
+Skip: quick convention-following checklists with no wish to revisit assumptions, or purely social coordination with nothing to model.
 
-In one short block:
+## Before you start
 
-1. **Reconstruction target** — belief, cost, design, or strategy to ground
-2. **Default pass** — Surface → Question → Bedrock → Rebuild → Implications (state this line)
+1. State in one block: **Reconstruction target** (belief, cost, design or strategy to ground) and **Pass** (Surface, Question, Bedrock, Rebuild, Implications).
+2. **Gather first.** Read the code, contracts, specs or data that show what is actually required (a regulation, an SLA, a measured limit) before tagging anything fundamental. Ask up to 3 questions only for immutable constraints that tools cannot answer.
+3. **Light path.** Small ask: 3 assumptions, 3 bedrock items, a 3-step rebuild, 2 implications.
 
-If immutable constraints (physics, law, budget) are unclear, ask at most 3 questions in one message, then proceed. Note unknowns or working guesses in plain language (no bracket tags in Setup).
+## Steps
 
----
+### 1. Surface
+State the conventional answer or the analogy people rely on. List loaded words and hidden comparisons.
 
-## The Steps
+### 2. Question
+For each major assumption: **Assumption:** ... - **Why believed?** (authority, analogy, experience) - **What if false?**
 
-### Surface
+### 3. Bedrock
+List truths that survive scrutiny: physics, logic, arithmetic, legal musts, documented needs of real users. Tag each `[FUNDAMENTAL]` or `[ASSUMPTION]`.
 
-State the **conventional answer** or analogy people rely on. List **loaded words** or hidden comparisons ("like Uber for…").
+Aim for three or more honest bedrock items. If fewer exist, say why in one line.
 
-### Question
+### 4. Rebuild
+Derive conclusions in numbered steps using only `[FUNDAMENTAL]` items. "Industry standard" is not a premise unless translated into a fundamental (for example "buyers require SLA X because regulation Y"). A new premise goes into Bedrock first, with a tag.
 
-For each major assumption: **Assumption:** … — **Why believed?** (authority, analogy, experience) — **What if false?**
+### 5. Implications
+- **So what:** what changes versus the conventional path.
+- **Cost of being wrong** if a tagged assumption fails.
+- A short **vs convention** contrast when it helps the decision.
 
-### Bedrock
+If bedrock is too thin to rebuild, write **insufficient grounding** and list the evidence that would fix it.
 
-List **fundamental truths** that survive scrutiny — physics, logic identities, legal musts, documented preferences of real users, arithmetic. Label each `[FUNDAMENTAL]` vs `[STILL ASSUMPTION]`.
+## Pitfalls
 
-Prefer three or more honest bedrock items when that is credible; if fewer are honest, say why in one line.
+- Calling a preference or a habit "fundamental".
+- Rebuilding from first principles and arriving exactly at the old answer. That is fine if each step is defended; say so.
+- Faux profundity. Keep every step short and checkable.
+- Ignoring switching cost. A better design from scratch may not beat the current one after migration.
 
-### Rebuild
+Worked example: [references/example.md](references/example.md).
 
-From **only** `[FUNDAMENTAL]` items, derive conclusions in numbered steps. No smuggled analogies; if you need a new premise, add it to **Bedrock** first with a tag.
+## Checklist
 
-### Implications
-
-**So what** for decisions: what changes vs the conventional path? **Cost of being wrong** if a tagged assumption fails.
-
-Add a short **vs convention** contrast (a few bullets or a two-column mini-summary) if it clarifies the decision.
-
----
-
-## Execution Rules
-
-1. **Rebuild** cannot cite "industry standard" as a premise unless translated into a fundamental (e.g. "buyers require SLA X because regulation Y").
-2. If bedrock is too thin to rebuild, say **insufficient grounding** and list what evidence would fix it.
-3. Avoid faux profundity; keep steps short and checkable.
-
----
-
-## Checklist (verify before responding)
-
-- [ ] Setup: reconstruction target + default pass
-- [ ] Surface names convention or analogy explicitly
-- [ ] Question step ties assumptions to why held
-- [ ] Bedrock uses `[FUNDAMENTAL]` / `[STILL ASSUMPTION]`
-- [ ] Rebuild chain only uses fundamentals
-- [ ] Implications name what changes vs convention (and vs-contrast if helpful)
+- [ ] Target and Pass stated
+- [ ] Surface names the convention or analogy
+- [ ] Question ties each assumption to why it is held
+- [ ] Bedrock tagged `[FUNDAMENTAL]` or `[ASSUMPTION]`
+- [ ] Rebuild uses only fundamentals
+- [ ] Implications name what changes and the cost of being wrong

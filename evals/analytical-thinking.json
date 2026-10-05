@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Weekly signups dropped last month, what should we look at?",
+    "should_trigger": true
+  },
+  {
+    "query": "break down why our cloud bill grew 40%",
+    "should_trigger": true
+  },
+  {
+    "query": "what drives churn in our SaaS? build me a driver tree and tell me what data to collect",
+    "should_trigger": true
+  },
+  {
+    "query": "analytical thinking: why are checkout errors higher on mobile?",
+    "should_trigger": true
+  },
+  {
+    "query": "support response time got worse after the new tool. what are the possible explanations and how do we test them?",
+    "should_trigger": true
+  },
+  {
+    "query": "can you structure this question: is our onboarding the reason trial users don't convert?",
+    "should_trigger": true
+  },
+  {
+    "query": "I have this CSV of sales by region, help me figure out what explains the dip in the north",
+    "should_trigger": true
+  },
+  {
+    "query": "compare these three hosting options against cost, latency and effort, show your reasoning in a table",
+    "should_trigger": true
+  },
+  {
+    "query": "Why did the deploy fail last night? Ask why five times to find the root cause",
+    "should_trigger": false
+  },
+  {
+    "query": "Give me ideas to increase signups",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a SQL query that sums revenue per region",
+    "should_trigger": false
+  },
+  {
+    "query": "Quick answer only: is Python or Go better for a CLI?",
+    "should_trigger": false
+  },
+  {
+    "query": "Make a pie chart of this data in matplotlib",
+    "should_trigger": false
+  },
+  {
+    "query": "Is my argument that the redesign caused the lift sound?",
+    "should_trigger": false
+  },
+  {
+    "query": "Roughly how many users could 1 TB of storage hold? ballpark it",
+    "should_trigger": false
+  },
+  {
+    "query": "What should our strategy be for the next two years?",
+    "should_trigger": false
+  }
+]

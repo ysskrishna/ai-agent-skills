@@ -1,76 +1,63 @@
 ---
 name: creative-thinking
 description: >
-  Use this skill when the user asks for creative thinking (including naming it
-  or directing use/apply/run with obvious misspellings; decisive) or wants
-  divergent ideation—fluency, flexible perspectives, novel combinations, and
-  elaboration, with optional light convergence. Use when they want fresh ideas,
-  blue-sky options, reframes, or more variety before committing, including casual
-  or messy prompts. Skip when they want a single delivered answer with no
-  exploration, audit-only teardown with no generation asked for, or purely
-  mechanical execution.
+  Use for creative thinking, or when the user wants many fresh options before choosing: "give me ideas", "brainstorm names", "other ways to do this", "think outside the box". Diverges first, then picks. Skip when one answer is wanted or the task is pure execution.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.17"
+  version: "2026.10.5"
 ---
 
 # Creative Thinking
 
-Defer judgment during divergence. Keep **generate** (Prime, Diverge, Connect) separate from **Harvest** (pick and plan).
+Defer judgment while generating. Keep **generate** (Prime, Diverge, Connect) separate from **Harvest** (pick and plan).
 
-**How to run it with this skill:** one clearly headed section per phase in this order: Prime → Diverge → Connect → Harvest. Optional **Perspectives** beat only when noted in Setup.
+## When to use
 
----
+- The user wants variety: names, concepts, features, angles, campaigns, designs.
+- The user says the first idea is not good enough and wants more options.
+- A choice is coming and the option list is still thin.
 
-## Setup (run before starting)
+Skip: a single delivered answer with no exploration, audit-only teardown, mechanical execution. If the user is stuck in a rut and wants deliberately odd angles, a provocation-based approach fits better than plain divergence.
 
-In one short block:
+## Before you start
 
-1. **Creative brief** — goal, audience, constraints (time, tone, taboos)
-2. **Default pass** — Prime → Diverge → Connect → Harvest (state this line)
+1. State in one block: **Creative brief** (goal, audience, constraints such as time, tone, taboos) and **Pass** (Prime, Diverge, Connect, Harvest).
+2. **Gather first.** If you can read the project, brand docs or earlier attempts, do it so ideas fit the context. Ask up to 3 questions only for what tools cannot answer.
+3. **Light path.** Small ask: 6 ideas, 2 mashups, 3 picks. Default sizes: Diverge 10-15 ideas, Connect 3 mashups.
+4. If the user is stuck on one framing, add a **Perspectives** beat before Diverge: Optimist, Skeptic, Outsider, two reframes each, no cross-critique yet.
 
-If constraints are missing, ask at most 3 clarifying questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
+## Phases
 
-If the user is **stuck on one framing**, add a short **Perspectives** beat before **Diverge**: Optimist / Skeptic / Outsider — two reframes each, no cross-critique yet.
+### 1. Prime
+2-4 bullets: what would a delightful or surprising success look like? What must not be violated?
 
----
+### 2. Diverge
+Quantity first. Tag each idea `F` (flexible reuse of something existing), `N` (novel twist) or `W` (wild, may be impractical).
 
-## The Phases
+Use at least two triggers from: **analogy** (unrelated domain), **constraint flip** (remove or add a rule), **user fantasy** (absurd ideal), **time shift** (past or future), **scale shift** (micro or macro).
 
-### Prime
+### 3. Connect
+Combine ideas: **A + B ->** hybrid concept in a few lines. Fewer than Diverge, never just one unless the brief is tiny.
 
-Warm context in 2–4 bullets: what would **delight** or **surprise** success look like? What must **not** be violated?
+### 4. Harvest
+1. **Top picks:** 3 ideas with a selection rationale tied to the brief.
+2. **Next creative step:** for example a storyboard, a user interview, a spike, a moodboard.
+3. **Parking lot:** 2 promising ideas deferred, and why.
 
-### Diverge
+## Pitfalls
 
-Quantity first. Produce a **substantive** list of ideas (no fixed count unless the user asks for one). Tag ideas `F` (flexible reuse of existing), `N` (novel twist), or `W` (wild — may be impractical).
+- Criticizing during Prime, Diverge or Connect. Park risks for a separate pass.
+- Ten variations of one idea. Check that triggers produced different directions.
+- Ideas that ignore the brief's constraints. Re-read Prime before Harvest.
+- Claiming user research happened. Label any benefit as hypothetical.
 
-Use at least **two** different creative triggers drawn from: **analogy** (unrelated domain), **constraint flip** (remove/add a rule), **user fantasy** (absurd ideal), **time shift** (past/future), **scale shift** (micro/macro).
+Worked example: [references/example.md](references/example.md).
 
-### Connect
+## Checklist
 
-Combine or **mash** ideas: **A + B →** hybrid concept in several lines (aim for multiple mashups, fewer than Diverge but not a single mashup unless the brief is tiny).
-
-### Harvest
-
-1. **Top picks** — 3 ideas with **selection rationale** tied to the brief
-2. **Next creative step** — e.g. prototype storyboard, user interview, spike, moodboard
-3. **Parking lot** — 2 promising ideas deferred (why deferred)
-
----
-
-## Execution Rules
-
-1. No harsh criticism in **Prime**, **Diverge**, or **Connect**; park risks for a separate pass if the user asks.
-2. Do not pretend user research happened; label speculative benefits as hypothetical.
-3. One response for all phases unless the user requests pacing.
-
----
-
-## Checklist (verify before responding)
-
-- [ ] Setup: brief + default pass (and optional Perspectives if used)
-- [ ] Diverge uses two+ triggers; ideas tagged F/N/W where applicable
-- [ ] Connect present with multiple mashups
-- [ ] Harvest has top picks + next step + parking lot
+- [ ] Brief and Pass stated (Perspectives if used)
+- [ ] Diverge uses two or more triggers; ideas tagged F, N or W
+- [ ] Connect has several mashups
+- [ ] Harvest: top picks, next step, parking lot
+- [ ] No criticism before Harvest

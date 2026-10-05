@@ -1,82 +1,68 @@
 ---
 name: analytical-thinking
 description: >
-  Use this skill when the user asks for analytical thinking (including naming it
-  or directing use/apply/run with obvious misspellings; decisive) or wants a
-  structured breakdown—decomposing the problem, defining metrics and
-  hypotheses, organizing evidence, and synthesizing findings with explicit
-  uncertainty. Use for quant-style reasoning framing, root-cause trees, decision
-  tables, or comparable structure, including informal or incomplete data asks.
-  Skip when they want open-ended idea spray with no measurement or hypothesis
-  angle, or a short verdict with no decomposition requested.
+  Use for analytical thinking, or when a question needs breaking down and evidence: "why did metric X drop?", "what drives this?", "break this down", "what data do we need?". Builds a tree, hypotheses and evidence, ends with an answer and key uncertainty. Skip for quick verdicts.
 license: MIT
 metadata:
   author: ysskrishna
-  version: "2026.5.17"
+  version: "2026.10.5"
 ---
 
 # Analytical Thinking
 
-Clarity beats cleverness. End with answers tied to structure and stated confidence.
+Clarity beats cleverness. End with an answer tied to structure and a stated confidence.
 
-**How to run it with this skill:** one clearly headed section per step in this order: Frame → Decompose → Hypotheses → Evidence → Synthesis. Insert **Options matrix** only when Setup calls for it (after Evidence, before Synthesis).
+## When to use
 
----
+- Explaining or predicting a number: a metric moved, a cost is high, a funnel leaks.
+- A messy question that needs a driver tree, hypotheses and a plan for what data to collect.
+- Comparing concrete alternatives against criteria when the user wants the reasoning laid out.
 
-## Setup (run before starting)
+Skip: open-ended idea generation with nothing to measure, or a short verdict with no decomposition asked for.
 
-In one short block:
+## Before you start
 
-1. **Analytical question** — precise, ideally falsifiable
-2. **Default pass** — Frame → Decompose → Hypotheses → Evidence → Synthesis (state this line)
+1. State in one block: **Analytical question** (precise, ideally falsifiable) and **Pass** (Frame, Decompose, Hypotheses, Evidence, Synthesis).
+2. **Gather first.** If you can query data, read dashboards, logs or code, do that before listing Evidence. Ask up to 3 questions only for definitions or data that tools cannot supply.
+3. **Light path.** Small ask: a 2-level tree, 2 hypotheses, one observation each, answer in 3 lines.
+4. If the user is choosing among concrete options, insert an **Options matrix** after Evidence: rows are options, columns are criteria (state any weights), cells are `-`, `0` or `+` with a one-line reason. Then Synthesis.
 
-If data availability or definitions are missing, ask at most 3 questions in one message, then proceed. Note any remaining gaps or working guesses in plain language (no bracket tags in Setup).
+## Steps
 
-If the user is **choosing among concrete alternatives**, after **Evidence** insert **Options matrix**: rows = options, columns = criteria (state weights if any), qualitative scores (− / 0 / +) with one-line justification per cell — then finish with **Synthesis**.
+### 1. Frame
+**Question type** (estimate, compare, explain, predict, optimize), **unit of analysis**, and **baseline** (even a hypothetical one).
 
----
+### 2. Decompose
+A tree or table of drivers or workstreams. Aim for branches that do not overlap and together cover the question well enough for the decision.
 
-## The Steps
+### 3. Hypotheses
+Ranked H1, H2, H3. For each: what would we see if it were true, and what would **falsify** it?
 
-### Frame
+### 4. Evidence
+For each hypothesis: **Observation:** ... - **Strength:** one sentence on how much it supports or undermines the hypothesis and its main limit. **Caveat:** ...
 
-**Question type** (estimate, compare, explain, predict, optimize). **Unit of analysis** and **baseline** (even if hypothetical).
+No real data? Replace this step with a section titled **Thought experiment (no data)**. Inputs you guess are shown as ranges and marked `[ESTIMATED]`.
 
-### Decompose
+### 5. Synthesis
+1. **Answer** to the analytical question.
+2. **Key uncertainty:** the one unknown that swings the answer most.
+3. **Next data or step:** what to collect or run next.
 
-Tree or table: factors, drivers, or workstreams. Each child node should be **MECE-ish** (mutually exclusive where it matters; collectively exhaustive enough for the decision).
+## Pitfalls
 
-### Hypotheses
+- Mixing Hypotheses and Evidence in one list. Keep them separate.
+- Reading a pattern from a few data points. State sample size or window.
+- Ignoring base rates (how often this happens anyway) and confounders (what else changed).
+- A single point estimate from guessed inputs. Use ranges and show which input moves the result most.
+- A tree whose branches overlap, so the same cause is counted twice.
 
-Ranked **H1, H2, H3** — what would we expect to observe if each were true? What would **falsify** each?
+Worked example: [references/example.md](references/example.md).
 
-### Evidence
+## Checklist
 
-For each hypothesis: **Observation:** … — **Strength note:** one short sentence on how much this observation supports or undermines the hypothesis and the main limit (no Strong/Moderate/Weak labels). **Caveat:** …
-
-If no real data, run a **thought experiment** section instead — label bullets `[THEORETICAL]`.
-
-### Synthesis
-
-1. **Answer** — direct response to the analytical question
-2. **Key uncertainty** — what single unknown swings the answer most
-3. **Next data / step** — what to collect or run next
-
----
-
-## Execution Rules
-
-1. Do not conflate **Hypotheses** and **Evidence** in the same bullet list.
-2. Numbers: if inputs are guessed, show **ranges** and label `[ESTIMATED]`.
-3. Prefer **structure** over long prose.
-
----
-
-## Checklist (verify before responding)
-
-- [ ] Setup: analytical question + default pass (note if Options matrix used)
-- [ ] Frame states question type and baseline
-- [ ] Decompose is scannable (tree or table)
+- [ ] Question and Pass stated (Options matrix noted if used)
+- [ ] Frame gives question type and baseline
+- [ ] Decompose is scannable
 - [ ] Hypotheses have falsifiers
-- [ ] Evidence (or `[THEORETICAL]`) mapped to hypotheses
-- [ ] Synthesis: answer, uncertainty, next step
+- [ ] Evidence (or Thought experiment) maps to hypotheses; guesses marked `[ESTIMATED]`
+- [ ] Synthesis: answer, key uncertainty, next step

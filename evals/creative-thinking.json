@@ -1,0 +1,66 @@
+[
+  {
+    "query": "give me ideas for a launch campaign for our budgeting app",
+    "should_trigger": true
+  },
+  {
+    "query": "brainstorm names for a CLI that explains CI failures",
+    "should_trigger": true
+  },
+  {
+    "query": "what are some other ways we could do customer onboarding? I only have the obvious ones",
+    "should_trigger": true
+  },
+  {
+    "query": "think outside the box - how could we make our docs site memorable",
+    "should_trigger": true
+  },
+  {
+    "query": "I need 10 feature ideas for a habit tracker aimed at students",
+    "should_trigger": true
+  },
+  {
+    "query": "help me come up with fresh angles for our conference talk",
+    "should_trigger": true
+  },
+  {
+    "query": "creative thinking pass: ways to reward open source contributors",
+    "should_trigger": true
+  },
+  {
+    "query": "need a bunch of options for our team offsite activities before we pick",
+    "should_trigger": true
+  },
+  {
+    "query": "Write the final tagline. Just one, no options",
+    "should_trigger": false
+  },
+  {
+    "query": "We've brainstormed for hours and everything is incremental. Need a truly different angle, break the pattern",
+    "should_trigger": false
+  },
+  {
+    "query": "Critique the three ideas I came up with, what's wrong with each?",
+    "should_trigger": false
+  },
+  {
+    "query": "Pick the best of these two vendors and explain",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement a color picker component in React",
+    "should_trigger": false
+  },
+  {
+    "query": "Translate this slogan into Spanish",
+    "should_trigger": false
+  },
+  {
+    "query": "What's a good title for this blog post? Fix grammar too",
+    "should_trigger": false
+  },
+  {
+    "query": "Which of these features should we build first?",
+    "should_trigger": false
+  }
+]

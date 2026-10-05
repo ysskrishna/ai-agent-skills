@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Use six thinking hats on whether we should rewrite our billing service in Go",
+    "should_trigger": true
+  },
+  {
+    "query": "can u do a de bono hats pass for moving our team to 4-day weeks",
+    "should_trigger": true
+  },
+  {
+    "query": "I want to look at this from every angle - facts, gut feeling, risks, upside, new ideas - should we open a second office in Pune?",
+    "should_trigger": true
+  },
+  {
+    "query": "Run parallel thinking on our decision to drop the free tier. Decision mode please",
+    "should_trigger": true
+  },
+  {
+    "query": "do the six hats thing but only the risk version for our database migration plan",
+    "should_trigger": true
+  },
+  {
+    "query": "my cofounder and I keep arguing about pricing, one of us is all excitement and the other all doom. can we structure this so we stop talking past each other?",
+    "should_trigger": true
+  },
+  {
+    "query": "hat by hat analysis: should we adopt a monorepo?",
+    "should_trigger": true
+  },
+  {
+    "query": "Give me a full-spectrum perspective check on switching our mobile app to Flutter",
+    "should_trigger": true
+  },
+  {
+    "query": "What are the six colors in the de Bono hats and what do they stand for? Just a quick list",
+    "should_trigger": false
+  },
+  {
+    "query": "Is this plan any good? Poke holes in our assumptions about the Q3 launch",
+    "should_trigger": false
+  },
+  {
+    "query": "Brainstorm 20 names for our new analytics product",
+    "should_trigger": false
+  },
+  {
+    "query": "Why did last night's deploy fail? Find the root cause",
+    "should_trigger": false
+  },
+  {
+    "query": "Compare Redis and Memcached for our session cache and pick one",
+    "should_trigger": false
+  },
+  {
+    "query": "Give me your honest take in two sentences: is Kubernetes overkill for us?",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a hat-themed marketing slogan for our beanie shop",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement the retry logic in client.py with exponential backoff",
+    "should_trigger": false
+  }
+]

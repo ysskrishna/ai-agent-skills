@@ -1,0 +1,66 @@
+[
+  {
+    "query": "should we use customer chat transcripts to train an internal model?",
+    "should_trigger": true
+  },
+  {
+    "query": "is it fair to show different prices to different users based on their location?",
+    "should_trigger": true
+  },
+  {
+    "query": "who could be harmed by our new recommendation feature?",
+    "should_trigger": true
+  },
+  {
+    "query": "privacy and bias risk review for our hiring screening tool",
+    "should_trigger": true
+  },
+  {
+    "query": "we're considering monitoring employee screen time. is this ok?",
+    "should_trigger": true
+  },
+  {
+    "query": "ethical thinking on adding a streak feature that nudges users to log in daily",
+    "should_trigger": true
+  },
+  {
+    "query": "I'm uneasy about how we're collecting location data. help me think through the harms and consent",
+    "should_trigger": true
+  },
+  {
+    "query": "stakeholder harm scan for automating loan decisions",
+    "should_trigger": true
+  },
+  {
+    "query": "Is this GDPR compliant? Give me legal advice",
+    "should_trigger": false
+  },
+  {
+    "query": "How many users have opted out of tracking this month? Query the table",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement the consent banner component",
+    "should_trigger": false
+  },
+  {
+    "query": "Poke holes in my logic for this decision",
+    "should_trigger": false
+  },
+  {
+    "query": "What are the pros and cons of Postgres vs MySQL?",
+    "should_trigger": false
+  },
+  {
+    "query": "Write an apology email to customers about the outage",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain the trolley problem in two sentences",
+    "should_trigger": false
+  },
+  {
+    "query": "Which features should we build next quarter?",
+    "should_trigger": false
+  }
+]
