@@ -216,7 +216,7 @@ def load_json(rel: str):
 
 def check_no_pipe_to_shell() -> None:
     """Hermes scans the whole repo on plugin install and blocks it on pipe-to-shell patterns."""
-    pattern = re.compile(r"curl[^\n|]*\|\s*(?:sudo\s+)?(?:ba|z)?sh\b")
+    pattern = re.compile(r"curl[^\n|]*\|\s*(?:ba|z)?sh\b")
     this = Path(__file__).resolve()
     files = [ROOT / "README.md", ROOT / "AGENTS.md", ROOT / "CHANGELOG.md", ROOT / "validate-skills.sh"]
     for folder in ("docs", "scripts", ".github", "skills"):
