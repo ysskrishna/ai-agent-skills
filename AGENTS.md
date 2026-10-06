@@ -30,7 +30,7 @@ When you add or rename a skill, keep these in sync:
 - [evals/](evals/) — `evals/{skill-name}.json` with 8 should-trigger and 8 near-miss should-not-trigger queries.
 - [scripts/publish_clawhub.py](scripts/publish_clawhub.py) — `clawhub_slug_map` entry (and publish when listing on ClawHub).
 - [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) — `plugins` catalog for Claude Code.
-- Claude Code install line: `/plugin install {skill-name}@ai-agent-skills`.
+- Claude Code install line: `/plugin install {skill-name}@ai-agent-skills`. The `ai-agent-skills` bundle plugin picks up new skills from `skills/` by itself, and the other CLI manifests point at `skills/`, so they need no per-skill edit.
 - [skills.sh](https://skills.sh) install line: `npx skills add ysskrishna/ai-agent-skills --skill {skill-name}`.
 - GitHub CLI install line: `gh skill install ysskrishna/ai-agent-skills {skill-name}`.
 
@@ -189,12 +189,21 @@ Brief explanation.
 
 ---
 
+## Per-CLI manifests
+
+One bundle plugin (`ai-agent-skills`, source `./`) serves every CLI. Do not edit skill text per CLI and do not add session-start hooks or bootstrap prompts: every supported CLI already lists skill descriptions to the model. When you change a manifest:
+
+- Check the CLI's own schema. Cursor rejects unknown keys and allows only `name` and `email` in `author`. Agent Plugins `plugin.json` is a closed schema.
+- Run `bash validate-skills.sh` (offline manifest checks) and `bash scripts/test_installs.sh <cli>` (real install, needs the CLI on `PATH`). See [docs/README.md](docs/README.md#how-this-is-tested).
+- Update the CLI's guide in [docs/](docs/) and the README row. State what was verified and what was not.
+
 ## Repository release versioning
 
-When you ship a **repository** semver release (distinct from per-skill `metadata.version` in `SKILL.md`, documented under **Writing `SKILL.md` files** above), update these together:
+When you ship a **repository** semver release (distinct from per-skill `metadata.version` in `SKILL.md`, documented under **Writing `SKILL.md` files** above), run `python3 scripts/bump_version.py X.Y.Z`. It sets the version in every manifest below, and `validate-skills.sh` fails if any differ. Then update:
 
 - [CHANGELOG.md](CHANGELOG.md) — add `## [X.Y.Z]` with release notes and a footer reference link at the bottom (e.g. `releases/tag/vX.Y.Z`, or `compare/vA.B.C...vX.Y.Z` per [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)).
-- [.claude-plugin/plugin.json](.claude-plugin/plugin.json) — top-level `version`.
-- [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) — `metadata.version`.
+- Versioned manifests (set by the script): `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` (`metadata.version` and the bundle entry), `plugin.json`, `.codex-plugin/plugin.json`, `.cursor-plugin/plugin.json`, `.kimi-plugin/plugin.json`, `gemini-extension.json`, `package.json`.
+
+Gemini CLI and Qwen Code install from the **latest GitHub Release**, so a release must exist for a new version to reach their users.
 
 Then push an annotated Git tag `vX.Y.Z`; [.github/workflows/release.yml](.github/workflows/release.yml) creates the GitHub Release (notes prefer the tag message, else the matching changelog section).

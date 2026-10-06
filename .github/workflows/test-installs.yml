@@ -1,0 +1,99 @@
+# Install the repo into each coding CLI and check that every skill is discovered.
+# Runs scripts/test_installs.sh, which uses a throwaway HOME per CLI.
+#
+# npm-installed CLIs must pass. CLIs installed through a vendor script are marked
+# continue-on-error until they have a green run on GitHub's Linux runners, because
+# those installers were only exercised on macOS. Check the job summary for them.
+name: Test installs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "plugin.json"
+      - "package.json"
+      - "index.js"
+      - "gemini-extension.json"
+      - ".claude-plugin/**"
+      - ".agents/**"
+      - ".codex-plugin/**"
+      - ".cursor-plugin/**"
+      - ".kimi-plugin/**"
+      - "scripts/test_installs.sh"
+      - "scripts/kimi_tui_install.py"
+      - "scripts/mock_openai.py"
+      - ".github/workflows/test-installs.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "plugin.json"
+      - "package.json"
+      - "index.js"
+      - "gemini-extension.json"
+      - ".claude-plugin/**"
+      - ".agents/**"
+      - ".codex-plugin/**"
+      - ".cursor-plugin/**"
+      - ".kimi-plugin/**"
+      - "scripts/test_installs.sh"
+      - "scripts/kimi_tui_install.py"
+      - "scripts/mock_openai.py"
+      - ".github/workflows/test-installs.yml"
+  workflow_dispatch:
+  schedule:
+    # Weekly, to catch CLIs that change their plugin formats.
+    - cron: "17 5 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    name: ${{ matrix.cli }}
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.optional || false }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { cli: skills }
+          - { cli: gh }
+          - { cli: cursor }
+          - { cli: claude, npm: "@anthropic-ai/claude-code" }
+          - { cli: codex, npm: "@openai/codex" }
+          - { cli: gemini, npm: "@google/gemini-cli" }
+          - { cli: gemini-skills, npm: "@google/gemini-cli" }
+          - { cli: copilot, npm: "@github/copilot" }
+          - { cli: qwen, npm: "@qwen-code/qwen-code" }
+          - { cli: pi, npm: "@earendil-works/pi-coding-agent" }
+          - { cli: opencode, npm: "opencode-ai" }
+          - { cli: droid, optional: true, script: "curl -fsSL https://app.factory.ai/cli | sh", path: "$HOME/.local/bin" }
+          - { cli: grok, optional: true, script: "curl -fsSL https://x.ai/cli/install.sh | bash", path: "$HOME/.grok/bin" }
+          - { cli: agy, optional: true, script: "curl -fsSL https://antigravity.google/cli/install.sh | bash", path: "$HOME/.local/bin" }
+          - { cli: kimi, optional: true, script: "curl -fsSL https://code.kimi.com/kimi-code/install.sh | bash", path: "$HOME/.kimi-code/bin" }
+          - { cli: muse, optional: true, script: "curl -fsSL https://dev.meta.ai/install.sh | sh", path: "$HOME/.local/bin" }
+          - { cli: hermes, optional: true, script: "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -s -- --non-interactive --skip-browser --skip-computer-use", path: "$HOME/.local/bin" }
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install CLI from npm
+        if: matrix.npm
+        run: npm install -g "${{ matrix.npm }}"
+
+      - name: Install CLI with the vendor script
+        if: matrix.script
+        run: |
+          ${{ matrix.script }}
+          echo "${{ matrix.path }}" >> "$GITHUB_PATH"
+
+      - name: Install test
+        env:
+          REQUIRE: "1"
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/test_installs.sh "${{ matrix.cli }}"

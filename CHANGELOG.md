@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-10-06
+
+### Added
+
+- **Install support for more coding CLIs** - Codex CLI and App, Gemini CLI, Cursor, Antigravity, GitHub Copilot CLI, Factory Droid, Qwen Code, Grok Build, OpenCode, Pi, Kimi Code, Hermes Agent, Devin and Muse, next to the existing Claude Code, skills.sh and `gh skill` routes. Every route installs straight from this repo with no vendor approval.
+- **`ai-agent-skills` bundle plugin** - all skills in one install, listed in the Claude Code marketplace beside the single-skill plugins. Codex, Droid, Grok, Muse and Cursor read `<plugin>/skills/<name>/SKILL.md` only, so they need the bundle.
+- **Per-CLI manifests** - `plugin.json` (Agent Plugins 1.0), `.agents/plugins/marketplace.json`, `.codex-plugin/plugin.json`, `.cursor-plugin/`, `gemini-extension.json`, `.kimi-plugin/plugin.json`, and `package.json` with `index.js` for OpenCode. No skill text changed and nothing runs at session start.
+- **Install guides** - [README](README.md#installation) with an expandable section per CLI, and [docs/](docs/README.md) with one guide per CLI, what was verified and what was not.
+- **Install tests** - [`scripts/test_installs.sh`](scripts/test_installs.sh) installs the repo into each CLI with a throwaway `HOME` and checks that every skill is discovered, and [test-installs.yml](.github/workflows/test-installs.yml) runs it in CI and weekly.
+- **`scripts/bump_version.py`** - sets one version in every manifest.
+
+### Changed
+
+- **`scripts/validate_repo.py`** - parses every manifest, requires one version across all of them, and rejects keys that a CLI's schema forbids.
+- **CI** - [validate-skills.yml](.github/workflows/validate-skills.yml) also runs on changes to the new manifests and `docs/`.
+
+### Known limits
+
+- Kimi Code cuts skill descriptions to about 250 characters, so a trailing "Skip for ..." clause can be clipped.
+- Grok and Factory Droid do not load the single-skill plugins. Install the bundle.
+- Devin, OpenCode 2.x, Cursor's IDE install and the Codex App were not verified. See [docs/](docs/README.md#how-this-is-tested).
+
 ## [1.2.0] - 2026-10-05
 
 ### Added
@@ -66,6 +88,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Repository foundations** — README, MIT license, CODEOWNERS, and GitHub Sponsors funding metadata.
 
 
+[1.3.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.0.0...v1.0.1
