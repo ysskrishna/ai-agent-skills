@@ -244,6 +244,10 @@ def check_manifests() -> None:
         if skills != "./skills/":
             err("manifests", f"{rel} skills is {skills!r}, expected './skills/'")
 
+    cursor_author = set((docs.get(".cursor-plugin/plugin.json") or {}).get("author", {}))
+    if not cursor_author <= {"name", "email"}:
+        err("manifests", f".cursor-plugin/plugin.json author allows only name and email, found {sorted(cursor_author)}")
+
     gem = docs.get("gemini-extension.json") or {}
     if not re.fullmatch(r"[a-zA-Z0-9-]+", gem.get("name", "")):
         err("manifests", "gemini-extension.json name must match [a-zA-Z0-9-]+")
