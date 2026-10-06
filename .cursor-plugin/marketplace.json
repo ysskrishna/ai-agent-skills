@@ -1,0 +1,16 @@
+{
+  "name": "ai-agent-skills",
+  "owner": {
+    "name": "ysskrishna"
+  },
+  "metadata": {
+    "description": "Curated Agent Skills (SKILL.md): structured thinking lenses, decision support, and brainstorming workflows for AI coding agents."
+  },
+  "plugins": [
+    {
+      "name": "ai-agent-skills",
+      "source": "./",
+      "description": "All structured thinking skills in one install: root-cause analysis, trade-offs, pre-mortems, prioritization, estimation, creative and critical thinking, plus a selector that picks the right method."
+    }
+  ]
+}

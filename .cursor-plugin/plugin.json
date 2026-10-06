@@ -1,0 +1,21 @@
+{
+  "name": "ai-agent-skills",
+  "displayName": "AI Agent Skills",
+  "description": "Curated Agent Skills (SKILL.md): structured thinking lenses, decision support, and brainstorming workflows for AI coding agents.",
+  "version": "1.3.0",
+  "author": {
+    "name": "ysskrishna",
+    "url": "https://ysskrishna.space"
+  },
+  "homepage": "https://github.com/ysskrishna/ai-agent-skills",
+  "repository": "https://github.com/ysskrishna/ai-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "agent-skills",
+    "thinking",
+    "decision-support",
+    "brainstorming"
+  ],
+  "skills": "./skills/"
+}
