@@ -4,7 +4,7 @@
 # never touched. Tests that need a login are skipped, not faked.
 #
 # Usage: scripts/test_installs.sh [--source DIR] <cli>... | all
-#   cli: claude codex gemini gemini-skills copilot qwen droid grok agy pi opencode muse cursor
+#   cli: skills gh claude codex gemini gemini-skills copilot qwen droid grok agy pi opencode kimi hermes devin muse cursor
 # The source is a fresh git clone of the committed HEAD, so commit before testing.
 # Env: WORK (scratch dir), KEEP=1 (keep scratch dir), REQUIRE=1 (a missing CLI is a failure).
 # Exit code: 0 when nothing failed (skips allowed), 1 otherwise.
@@ -13,7 +13,7 @@ set -u
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCE="$ROOT"
-ALL="claude codex gemini gemini-skills copilot qwen droid grok agy pi opencode muse cursor"
+ALL="skills gh claude codex gemini gemini-skills copilot qwen droid grok agy pi opencode kimi hermes devin muse cursor"
 WORK="${WORK:-$(mktemp -d "${TMPDIR:-/tmp}/ai-agent-skills-install-test.XXXXXX")}"
 REPO="$WORK/ai-agent-skills" # the clone directory name doubles as the marketplace name for some CLIs
 SKILLS="$(cd "$ROOT/skills" && ls -d */ | tr -d '/')"
@@ -59,6 +59,21 @@ prepare_source() {
     echo "note: working tree has uncommitted changes. Tests use the committed HEAD only." >&2
   fi
   git clone -q "$SOURCE" "$REPO" || { echo "cannot clone $SOURCE" >&2; exit 2; }
+}
+
+t_skills() {
+  need npx skills || return
+  local h f; h="$(new_home skills)"; f="$(log skills)"
+  (export HOME="$h" DISABLE_TELEMETRY=1; to 120 npx -y skills add "$REPO" --list) >"$f" 2>&1 || { fail skills "npx skills add --list failed"; return; }
+  check_count skills "$f"
+}
+
+t_gh() {
+  need gh gh || return
+  local h f n; h="$(new_home gh)"; f="$(log gh)"
+  (export HOME="$h" GH_CONFIG_DIR="$h/gh"; to 60 gh skill install --from-local "$REPO" --all --agent github-copilot --scope user) >"$f" 2>&1 || { fail gh "gh skill install failed"; return; }
+  n="$(find "$h" -name SKILL.md | wc -l | tr -d ' ')"
+  if [ "$n" -ge "$EXPECTED" ]; then pass gh "$n SKILL.md files installed"; else fail gh "$n/$EXPECTED SKILL.md files installed"; fi
 }
 
 t_claude() {
@@ -198,13 +213,62 @@ t_opencode() {
   need opencode opencode || return
   local h f; h="$(new_home opencode)"; f="$(log opencode)"
   mkdir -p "$h/.config/opencode"
-  printf '{"plugin":["%s"]}\n' "$REPO" >"$h/.config/opencode/opencode.json"
+  printf '{"plugin":["ai-agent-skills@git+file://%s"]}\n' "$REPO" >"$h/.config/opencode/opencode.json"
   (
     export HOME="$h" XDG_CONFIG_HOME="$h/.config" XDG_DATA_HOME="$h/.local/share" XDG_CACHE_HOME="$h/.cache" XDG_STATE_HOME="$h/.local/state"
     # Write to a file: piping truncates large output.
     to 90 opencode debug skill >"$f.skills"
   ) 2>"$f" || { fail opencode "opencode debug skill failed"; return; }
   check_count opencode "$f.skills"
+}
+
+t_kimi() {
+  need kimi kimi || return
+  local h f port; h="$(new_home kimi)"; f="$(log kimi)"; port=$((20000 + RANDOM % 10000))
+  python3 "$ROOT/scripts/kimi_tui_install.py" "$h" "$REPO" >"$f" 2>&1 || { fail kimi "TUI plugin install failed"; return; }
+  mkdir -p "$h/.kimi-code"
+  printf 'default_model = "mock"\n\n[providers.mock]\ntype = "openai"\nbase_url = "http://127.0.0.1:%s/v1"\napi_key = "dummy"\n\n[models.mock]\nprovider = "mock"\nmodel = "mock-model"\nmax_context_size = 128000\n' "$port" >"$h/.kimi-code/config.toml"
+  python3 "$ROOT/scripts/mock_openai.py" "$port" "$f.request" &
+  local mock=$!
+  sleep 1
+  (cd "$h" && HOME="$h" KIMI_CODE_HOME="$h/.kimi-code" to 90 kimi -p hi) >>"$f" 2>&1
+  kill "$mock" 2>/dev/null
+  [ -s "$f.request" ] || { fail kimi "mock model server got no request"; return; }
+  # The system prompt Kimi sends to the model must list every skill from the plugin.
+  check_count kimi "$f.request"
+}
+
+t_hermes() {
+  need hermes hermes || return
+  local h f; h="$(new_home hermes)"; f="$(log hermes)"
+  (
+    export HOME="$h" HERMES_HOME="$h/.hermes"
+    hermes plugins validate "$REPO" &&
+      hermes plugins install "file://$REPO" --enable &&
+      hermes plugins list --plain --no-bundled
+  ) >"$f" 2>&1 || { fail hermes "plugin validate/install failed"; return; }
+  grep -q "enabled.*ai-agent-skills" "$f" || { fail hermes "plugin not enabled"; return; }
+  # Plugin skills are not advertised to the model on Hermes, so the documented route is a skills tap.
+  # This leg reads GitHub, so it tests whatever is on the default branch of the public repo.
+  (
+    export HOME="$h" HERMES_HOME="$h/.hermes"
+    hermes skills tap add ysskrishna/ai-agent-skills &&
+      hermes skills install ysskrishna/ai-agent-skills/five-whys --yes &&
+      hermes skills list --source hub
+  ) >"$f.tap" 2>&1 || { fail hermes "skills tap install failed"; return; }
+  grep -q "five-whys" "$f.tap" && pass hermes "plugin validates and enables; tap installs five-whys (plugin skills are not model-advertised)" || fail hermes "tap-installed skill not listed"
+}
+
+t_devin() {
+  need devin devin || return
+  local h f; h="$(new_home devin)"; f="$(log devin)"
+  # Plugin commands need a Devin login, which a throwaway HOME never has.
+  if ! HOME="$h" devin plugins list >"$f" 2>&1; then
+    skip devin "needs a Devin login (run: devin plugins install --local <clone> -y, then devin plugins info ai-agent-skills)"
+    return
+  fi
+  (HOME="$h" devin plugins install --local "$REPO" -y && HOME="$h" devin plugins info ai-agent-skills) >"$f" 2>&1 || { fail devin "plugin install failed"; return; }
+  pass devin "plugin installed"
 }
 
 t_muse() {
@@ -261,7 +325,7 @@ main() {
   for a in "${want[@]}"; do
     case "$a" in
       gemini-skills) t_gemini_skills ;;
-      claude|codex|gemini|copilot|qwen|droid|grok|agy|pi|opencode|muse|cursor) "t_$a" ;;
+      skills|gh|claude|codex|gemini|copilot|qwen|droid|grok|agy|pi|opencode|kimi|hermes|devin|muse|cursor) "t_$a" ;;
       *) echo "unknown cli: $a" >&2; FAILED=1 ;;
     esac
   done
