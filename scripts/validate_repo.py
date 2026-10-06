@@ -214,6 +214,20 @@ def load_json(rel: str):
         return None
 
 
+def check_no_pipe_to_shell() -> None:
+    """Hermes scans the whole repo on plugin install and blocks it on pipe-to-shell patterns."""
+    pattern = re.compile(r"curl[^\n|]*\|\s*(?:sudo\s+)?(?:ba|z)?sh\b")
+    this = Path(__file__).resolve()
+    files = [ROOT / "README.md", ROOT / "AGENTS.md", ROOT / "CHANGELOG.md", ROOT / "validate-skills.sh"]
+    for folder in ("docs", "scripts", ".github", "skills"):
+        files += [f for f in (ROOT / folder).rglob("*") if f.is_file() and f.suffix in {".md", ".sh", ".py", ".yml", ".yaml", ".json"}]
+    for f in files:
+        if f.resolve() == this or not f.is_file():
+            continue
+        if pattern.search(f.read_text(errors="ignore")):
+            err("hermes", f"{f.relative_to(ROOT)} pipes curl into a shell. Hermes blocks plugin installs on that; download to a file, then run it")
+
+
 def check_manifests() -> None:
     """Every per-CLI manifest must parse, agree on version, and follow its CLI's path and key rules."""
     docs = {rel: load_json(rel) for rel in VERSIONED_MANIFESTS}
@@ -292,6 +306,7 @@ def main() -> int:
     check_router(info)
     check_sync(info)
     check_manifests()
+    check_no_pipe_to_shell()
 
     for w in warnings:
         print(f"  warning: {w}")

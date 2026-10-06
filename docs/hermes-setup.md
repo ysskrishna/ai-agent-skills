@@ -34,6 +34,7 @@ This installs and enables the plugin, but Hermes does not list plugin skills in 
 ## Notes
 
 - `hermes plugins validate` accepts the root `plugin.json` (Agent Plugins 1.0).
+- Hermes scans every file in a plugin repo on install and blocks a "caution" verdict. Piping a download straight into a shell anywhere in the repo, even in a CI file, triggers it. `validate-skills.sh` rejects that pattern for this reason.
 - Hermes prints a notice that the plugin "declares Node dependencies" because of `package.json`. The file declares none, and Hermes skips the step.
 - Hermes also installs from skills.sh and ClawHub sources.
 - A catalog listing is optional and needs a pull request to the Hermes repo.

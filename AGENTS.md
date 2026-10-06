@@ -198,6 +198,7 @@ One bundle plugin (`ai-agent-skills`, source `./`) serves every CLI. Do not edit
 
 - Check the CLI's own schema. Cursor rejects unknown keys and allows only `name` and `email` in `author`. Agent Plugins `plugin.json` is a closed schema.
 - Run `bash validate-skills.sh` (offline manifest checks) and `bash scripts/test_installs.sh <cli>` (real install, needs the CLI on `PATH`). See [docs/README.md](docs/README.md#how-this-is-tested).
+- Never pipe a download into a shell in any file, including CI and docs. Hermes scans the whole repo on plugin install and blocks it. Download to a file, then run the file.
 - Update the CLI's guide in [docs/](docs/) and the README row. State what was verified and what was not.
 
 ## Repository release versioning
