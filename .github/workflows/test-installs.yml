@@ -69,12 +69,12 @@ jobs:
           - { cli: qwen, npm: "@qwen-code/qwen-code" }
           - { cli: pi, npm: "@earendil-works/pi-coding-agent" }
           - { cli: opencode, npm: "opencode-ai" }
-          - { cli: droid, optional: true, script: "curl -fsSL https://app.factory.ai/cli | sh", path: "$HOME/.local/bin" }
-          - { cli: grok, optional: true, script: "curl -fsSL https://x.ai/cli/install.sh | bash", path: "$HOME/.grok/bin" }
-          - { cli: agy, optional: true, script: "curl -fsSL https://antigravity.google/cli/install.sh | bash", path: "$HOME/.local/bin" }
-          - { cli: kimi, optional: true, script: "curl -fsSL https://code.kimi.com/kimi-code/install.sh | bash", path: "$HOME/.kimi-code/bin" }
-          - { cli: muse, optional: true, script: "curl -fsSL https://dev.meta.ai/install.sh | sh", path: "$HOME/.local/bin" }
-          - { cli: hermes, optional: true, script: "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -s -- --non-interactive --skip-browser --skip-computer-use", path: "$HOME/.local/bin" }
+          - { cli: droid, optional: true, url: "https://app.factory.ai/cli", shell: sh, path: "$HOME/.local/bin" }
+          - { cli: grok, optional: true, url: "https://x.ai/cli/install.sh", shell: bash, path: "$HOME/.grok/bin" }
+          - { cli: agy, optional: true, url: "https://antigravity.google/cli/install.sh", shell: bash, path: "$HOME/.local/bin" }
+          - { cli: kimi, optional: true, url: "https://code.kimi.com/kimi-code/install.sh", shell: bash, path: "$HOME/.kimi-code/bin" }
+          - { cli: muse, optional: true, url: "https://dev.meta.ai/install.sh", shell: sh, path: "$HOME/.local/bin" }
+          - { cli: hermes, optional: true, url: "https://hermes-agent.nousresearch.com/install.sh", shell: bash, args: "--non-interactive --skip-browser --skip-computer-use", path: "$HOME/.local/bin" }
     steps:
       - uses: actions/checkout@v4
 
@@ -87,9 +87,10 @@ jobs:
         run: npm install -g "${{ matrix.npm }}"
 
       - name: Install CLI with the vendor script
-        if: matrix.script
+        if: matrix.url
         run: |
-          ${{ matrix.script }}
+          curl -fsSL "${{ matrix.url }}" -o "$RUNNER_TEMP/install-cli.sh"
+          ${{ matrix.shell }} "$RUNNER_TEMP/install-cli.sh" ${{ matrix.args }}
           echo "${{ matrix.path }}" >> "$GITHUB_PATH"
 
       - name: Install test
