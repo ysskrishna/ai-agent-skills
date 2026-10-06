@@ -17,9 +17,12 @@ skills/
       example.md    # required; one worked example
 evals/
   {skill-name}.json # required; trigger eval queries (see evals/README.md)
-scripts/            # publish_clawhub.py (ClawHub sync), validate_repo.py (repo checks)
-.claude-plugin/     # Claude Code plugin + marketplace metadata
-.github/workflows/  # validation on PRs, release automation (GitHub Releases on version tags)
+scripts/            # publish_clawhub.py (ClawHub sync), validate_repo.py (repo checks), test_installs.sh (real install tests), bump_version.py
+docs/               # one install guide per CLI
+.claude-plugin/     # Claude Code plugin + marketplace metadata (also read by Copilot CLI, Qwen, Antigravity, Grok, Devin, Muse)
+.agents/ .codex-plugin/ .cursor-plugin/ .kimi-plugin/   # Codex/Droid, Codex, Cursor, Kimi manifests
+plugin.json gemini-extension.json package.json index.js # Agent Plugins 1.0, Gemini, OpenCode
+.github/workflows/  # validation on PRs, install tests, release automation (GitHub Releases on version tags)
 ```
 
 Run `bash validate-skills.sh` before every commit. It checks each skill against the spec and runs `scripts/validate_repo.py` (description rules, example and eval files, and that the files below stay in sync).
