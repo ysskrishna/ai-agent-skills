@@ -232,7 +232,7 @@ t_kimi() {
   local mock=$!
   sleep 1
   (cd "$h" && HOME="$h" KIMI_CODE_HOME="$h/.kimi-code" to 90 kimi -p hi) >>"$f" 2>&1
-  kill "$mock" 2>/dev/null
+  kill "$mock" 2>/dev/null; wait "$mock" 2>/dev/null
   [ -s "$f.request" ] || { fail kimi "mock model server got no request"; return; }
   # The system prompt Kimi sends to the model must list every skill from the plugin.
   check_count kimi "$f.request"
