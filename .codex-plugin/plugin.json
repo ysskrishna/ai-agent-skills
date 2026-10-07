@@ -1,0 +1,36 @@
+{
+  "name": "ai-agent-skills",
+  "version": "1.3.0",
+  "description": "Curated Agent Skills (SKILL.md): structured thinking lenses, decision support, and brainstorming workflows for AI coding agents.",
+  "author": {
+    "name": "ysskrishna",
+    "url": "https://ysskrishna.space"
+  },
+  "homepage": "https://github.com/ysskrishna/ai-agent-skills",
+  "repository": "https://github.com/ysskrishna/ai-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "agent-skills",
+    "thinking",
+    "decision-support",
+    "brainstorming"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI Agent Skills",
+    "shortDescription": "Structured thinking methods for decisions, root causes, risks, and ideas",
+    "longDescription": "Standalone thinking skills that run a method on a real decision: five whys, pre-mortem, trade-off analysis, prioritization, first principles, six thinking hats, and more. A selector skill picks the right method when you do not know which one fits.",
+    "developerName": "ysskrishna",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "defaultPrompt": [
+      "We have to pick between two options. Help me decide.",
+      "What could go wrong with this plan?"
+    ],
+    "websiteURL": "https://github.com/ysskrishna/ai-agent-skills"
+  }
+}
