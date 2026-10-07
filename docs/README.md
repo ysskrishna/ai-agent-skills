@@ -55,10 +55,10 @@ What each check proves:
 | The model's system prompt contains all skills (captured from a mock model server) | Kimi Code |
 | The plugin cache holds every `SKILL.md`, but listing needs a login | Factory Droid, Antigravity |
 | Vendor JSON schemas accept the manifests | Cursor |
-| Plugin installs and enables, tap installs a skill | Hermes |
 
 Not proven, and why:
 
+- Hermes Agent: not in CI until the vendor Linux installer is reliable; install and tap flow are documented in [hermes-setup.md](hermes-setup.md).
 - Devin: plugin commands need a Devin login.
 - Cursor IDE and Codex App: GUI steps. Follow the guide and report back if one fails.
 - OpenCode 2.x: no 2.x build was available. The code path exists but never ran.

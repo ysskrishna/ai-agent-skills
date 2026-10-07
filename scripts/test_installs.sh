@@ -4,7 +4,7 @@
 # never touched. Tests that need a login are skipped, not faked.
 #
 # Usage: scripts/test_installs.sh [--source DIR] <cli>... | all
-#   cli: skills gh claude codex gemini gemini-skills copilot qwen droid grok agy pi opencode kimi hermes devin muse cursor
+#   cli: skills gh claude codex gemini gemini-skills copilot qwen droid grok agy pi opencode kimi devin muse cursor
 # The source is a fresh git clone of the committed HEAD, so commit before testing.
 # Env: WORK (scratch dir), KEEP=1 (keep scratch dir), REQUIRE=1 (a missing CLI is a failure).
 # Exit code: 0 when nothing failed (skips allowed), 1 otherwise.
@@ -13,7 +13,7 @@ set -u
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCE="$ROOT"
-ALL="skills gh claude codex gemini gemini-skills copilot qwen droid grok agy pi opencode kimi hermes devin muse cursor"
+ALL="skills gh claude codex gemini gemini-skills copilot qwen droid grok agy pi opencode kimi devin muse cursor"
 WORK="${WORK:-$(mktemp -d "${TMPDIR:-/tmp}/ai-agent-skills-install-test.XXXXXX")}"
 REPO="$WORK/ai-agent-skills" # the clone directory name doubles as the marketplace name for some CLIs
 SKILLS="$(cd "$ROOT/skills" && ls -d */ | tr -d '/')"
@@ -238,27 +238,6 @@ t_kimi() {
   check_count kimi "$f.request"
 }
 
-t_hermes() {
-  need hermes hermes || return
-  local h f; h="$(new_home hermes)"; f="$(log hermes)"
-  (
-    export HOME="$h" HERMES_HOME="$h/.hermes"
-    hermes plugins validate "$REPO" &&
-      hermes plugins install "file://$REPO" --enable &&
-      hermes plugins list --plain --no-bundled
-  ) >"$f" 2>&1 || { fail hermes "plugin validate/install failed"; return; }
-  grep -q "enabled.*ai-agent-skills" "$f" || { fail hermes "plugin not enabled"; return; }
-  # Plugin skills are not advertised to the model on Hermes, so the documented route is a skills tap.
-  # This leg reads GitHub, so it tests whatever is on the default branch of the public repo.
-  (
-    export HOME="$h" HERMES_HOME="$h/.hermes"
-    hermes skills tap add ysskrishna/ai-agent-skills &&
-      hermes skills install ysskrishna/ai-agent-skills/five-whys --yes &&
-      hermes skills list --source hub
-  ) >"$f.tap" 2>&1 || { fail hermes "skills tap install failed"; return; }
-  grep -q "five-whys" "$f.tap" && pass hermes "plugin validates and enables; tap installs five-whys (plugin skills are not model-advertised)" || fail hermes "tap-installed skill not listed"
-}
-
 t_devin() {
   need devin devin || return
   local h f; h="$(new_home devin)"; f="$(log devin)"
@@ -325,7 +304,7 @@ main() {
   for a in "${want[@]}"; do
     case "$a" in
       gemini-skills) t_gemini_skills ;;
-      skills|gh|claude|codex|gemini|copilot|qwen|droid|grok|agy|pi|opencode|kimi|hermes|devin|muse|cursor) "t_$a" ;;
+      skills|gh|claude|codex|gemini|copilot|qwen|droid|grok|agy|pi|opencode|kimi|devin|muse|cursor) "t_$a" ;;
       *) echo "unknown cli: $a" >&2; FAILED=1 ;;
     esac
   done

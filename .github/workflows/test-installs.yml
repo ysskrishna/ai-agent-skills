@@ -73,8 +73,7 @@ jobs:
           - { cli: grok, optional: true, url: "https://x.ai/cli/install.sh", shell: bash, path: "$HOME/.grok/bin" }
           - { cli: agy, optional: true, url: "https://antigravity.google/cli/install.sh", shell: bash, path: "$HOME/.local/bin" }
           - { cli: kimi, optional: true, url: "https://code.kimi.com/kimi-code/install.sh", shell: bash, path: "$HOME/.kimi-code/bin" }
-          - { cli: muse, optional: true, url: "https://dev.meta.ai/install.sh", shell: sh, path: "$HOME/.local/bin" }
-          - { cli: hermes, optional: true, url: "https://hermes-agent.nousresearch.com/install.sh", shell: bash, args: "--non-interactive --skip-browser --skip-computer-use", path: "$HOME/.local/bin" }
+          - { cli: muse, optional: true, url: "https://dev.meta.ai/install.sh", shell: bash, path: "$HOME/.local/bin" }
     steps:
       - uses: actions/checkout@v4
 
