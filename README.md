@@ -186,7 +186,13 @@ Check with `grok plugin list`. Update with `grok plugin update ai-agent-skills`.
 <details>
 <summary><b>OpenCode</b></summary>
 
-Add the plugin to `opencode.json` and restart OpenCode:
+Add the plugin to `opencode.json` and restart OpenCode (npm or git):
+
+```json
+{
+  "plugin": ["@ysskrishna/ai-agent-skills"]
+}
+```
 
 ```json
 {
@@ -194,7 +200,7 @@ Add the plugin to `opencode.json` and restart OpenCode:
 }
 ```
 
-OpenCode 2.0.4 or later uses the key `plugins` instead of `plugin`. Check by asking the agent to list skills. OpenCode also reads `.agents/skills`, so `npx skills add ysskrishna/ai-agent-skills` works without a plugin. More in [docs/opencode-setup.md](docs/opencode-setup.md).
+OpenCode 2.0.4 or later uses the key `plugins` instead of `plugin`. Or install globally: `opencode plugin @ysskrishna/ai-agent-skills --global`. Check by asking the agent to list skills. OpenCode also reads `.agents/skills`, so `npx skills add ysskrishna/ai-agent-skills` works without a plugin. More in [docs/opencode-setup.md](docs/opencode-setup.md).
 
 </details>
 
@@ -204,10 +210,14 @@ OpenCode 2.0.4 or later uses the key `plugins` instead of `plugin`. Check by ask
 <summary><b>Pi</b></summary>
 
 ```bash
+pi install npm:@ysskrishna/ai-agent-skills
+```
+
+```bash
 pi install git:github.com/ysskrishna/ai-agent-skills
 ```
 
-Check with `pi list`. Update with `pi update`. Remove with `pi remove git:github.com/ysskrishna/ai-agent-skills`. More in [docs/pi-setup.md](docs/pi-setup.md).
+Check with `pi list`. Update with `pi update`. Remove with `pi remove npm:@ysskrishna/ai-agent-skills` or `pi remove git:github.com/ysskrishna/ai-agent-skills`. More in [docs/pi-setup.md](docs/pi-setup.md).
 
 </details>
 

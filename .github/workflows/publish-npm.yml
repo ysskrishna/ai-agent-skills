@@ -1,0 +1,73 @@
+name: Publish npm
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag (must match package.json), e.g. v1.0.0
+        required: true
+        type: string
+
+concurrency:
+  group: publish-npm-${{ github.event.inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  RELEASE_TAG: ${{ github.event.inputs.tag || github.ref_name }}
+
+jobs:
+  publish:
+    name: Validate and publish package
+    runs-on: ubuntu-latest
+    environment: prod
+    timeout-minutes: 15
+    steps:
+      - name: Checkout release tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+          fetch-depth: 0
+
+      - name: Validate release tag
+        uses: ./.github/actions/validate-release
+        with:
+          tag: ${{ env.RELEASE_TAG }}
+          base-branch: main
+
+      - name: Validate skills and repository
+        run: bash validate-skills.sh
+
+      - name: Syntax-check OpenCode entry
+        run: node --check index.js
+
+      - name: Use Node.js for publish
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: https://registry.npmjs.org
+
+      - name: Upgrade npm for trusted publishing
+        run: npm install -g npm@latest
+
+      - name: Skip publish if version already on npm
+        id: npm_exists
+        run: |
+          set -euo pipefail
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "@ysskrishna/ai-agent-skills@${VERSION}" version 2>/dev/null; then
+            echo "skip_publish=true" >> "$GITHUB_OUTPUT"
+            echo "Version ${VERSION} is already on npm; skipping publish."
+          else
+            echo "skip_publish=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish package
+        if: steps.npm_exists.outputs.skip_publish != 'true'
+        run: npm publish --access public

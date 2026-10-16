@@ -2,6 +2,14 @@
 
 ## Install
 
+From npm (listed in Pi's package gallery via the `pi-package` keyword):
+
+```bash
+pi install npm:@ysskrishna/ai-agent-skills
+```
+
+From GitHub:
+
 ```bash
 pi install git:github.com/ysskrishna/ai-agent-skills
 ```
@@ -20,6 +28,7 @@ Pi puts each skill's name and description in the system prompt. Force one with `
 
 ```bash
 pi update
+pi remove npm:@ysskrishna/ai-agent-skills
 pi remove git:github.com/ysskrishna/ai-agent-skills
 ```
 
@@ -27,7 +36,7 @@ pi remove git:github.com/ysskrishna/ai-agent-skills
 
 - Pi finds the `skills/` folder by convention, so no Pi-specific manifest is needed.
 - Pi warns that packages can run code. This repo ships skills only. Its `index.js` is the OpenCode entry point.
-- Pi's package gallery lists npm packages with the `pi-package` keyword. This repo is not published to npm, so it is not listed there. The git install needs no listing.
+- Pi's package gallery lists npm packages with the `pi-package` keyword. This repo publishes as `@ysskrishna/ai-agent-skills`. Git install works without a gallery listing.
 
 ## Status
 
