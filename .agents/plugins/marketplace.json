@@ -1,7 +1,7 @@
 {
   "name": "ai-agent-skills",
   "interface": {
-    "displayName": "AI Agent Skills"
+    "displayName": "Thinking Methods"
   },
   "plugins": [
     {

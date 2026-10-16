@@ -1,6 +1,6 @@
 {
   "name": "ai-agent-skills",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Curated Agent Skills (SKILL.md): structured thinking lenses, decision support, and brainstorming workflows for AI coding agents.",
   "author": {
     "name": "ysskrishna",
@@ -11,15 +11,43 @@
   "license": "MIT",
   "keywords": [
     "skills",
+    "agents",
     "agent-skills",
+    "agentskills",
+    "skill-md",
+    "cursor",
+    "claude-code",
     "thinking",
     "decision-support",
-    "brainstorming"
+    "six-thinking-hats",
+    "critical-thinking",
+    "systems-thinking",
+    "creative-thinking",
+    "strategic-thinking",
+    "analytical-thinking",
+    "lateral-thinking",
+    "design-thinking",
+    "first-principles-thinking",
+    "ethical-thinking",
+    "five-whys",
+    "swot-analysis",
+    "pre-mortem",
+    "tradeoff-analysis",
+    "prioritization",
+    "fermi-estimation",
+    "thinking-method-selector",
+    "brainstorming",
+    "llm",
+    "decision-making",
+    "root-cause-analysis",
+    "postmortem",
+    "brainstorm",
+    "problem-solving"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "AI Agent Skills",
-    "shortDescription": "Structured thinking methods for decisions, root causes, risks, and ideas",
+    "displayName": "Thinking Methods",
+    "shortDescription": "Structured thinking methods",
     "longDescription": "Standalone thinking skills that run a method on a real decision: five whys, pre-mortem, trade-off analysis, prioritization, first principles, six thinking hats, and more. A selector skill picks the right method when you do not know which one fits.",
     "developerName": "ysskrishna",
     "category": "Productivity",
@@ -29,8 +57,12 @@
     ],
     "defaultPrompt": [
       "We have to pick between two options. Help me decide.",
-      "What could go wrong with this plan?"
+      "What could go wrong with this plan?",
+      "Find the root cause of this bug."
     ],
-    "websiteURL": "https://github.com/ysskrishna/ai-agent-skills"
+    "websiteURL": "https://github.com/ysskrishna/ai-agent-skills",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo-dark.png",
+    "brandColor": "#000000"
   }
 }

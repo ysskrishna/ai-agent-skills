@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2026-10-16
+
+### Added
+
+- Listing metadata: display name Thinking Methods, a Codex subtitle of 30 characters or fewer, skills.sh groupings, the Matrix logo, and the horizontal lockup (mark, Thinking Methods on one line, AGENT SKILLS subtitle).
+
+### Changed
+
+- Removed the root CLAUDE.md file so strict Claude plugin validation passes.
+- Plugin keyword lists now include the search terms people type.
+
 ## [1.3.0] - 2026-10-06
 
 ### Added
@@ -88,6 +99,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Repository foundations** — README, MIT license, CODEOWNERS, and GitHub Sponsors funding metadata.
 
 
+[1.3.1]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.0.1...v1.1.0
