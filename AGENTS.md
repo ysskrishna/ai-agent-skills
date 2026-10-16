@@ -210,4 +210,4 @@ When you ship a **repository** semver release (distinct from per-skill `metadata
 
 Gemini CLI and Qwen Code install from the **latest GitHub Release**, so a release must exist for a new version to reach their users.
 
-Then push an annotated Git tag `vX.Y.Z`; [.github/workflows/release.yml](.github/workflows/release.yml) creates the GitHub Release (notes prefer the tag message, else the matching changelog section).
+Then push an annotated Git tag `vX.Y.Z`; [.github/workflows/release.yml](.github/workflows/release.yml) creates the GitHub Release (notes prefer the tag message, else the matching changelog section). The same tag triggers [.github/workflows/publish-npm.yml](.github/workflows/publish-npm.yml) (npm trusted publishing, `prod` environment). When you change npm `files`, OpenCode/Pi install docs, or publish steps, keep `package.json`, `scripts/validate_repo.py`, README, and `docs/opencode-setup.md` / `docs/pi-setup.md` in sync.

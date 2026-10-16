@@ -21,6 +21,8 @@ on:
       - ".kimi-plugin/**"
       - "validate-skills.sh"
       - ".github/workflows/validate-skills.yml"
+      - ".github/workflows/publish-npm.yml"
+      - ".github/actions/**"
   pull_request:
     branches: [main]
     paths:
@@ -40,6 +42,8 @@ on:
       - ".kimi-plugin/**"
       - "validate-skills.sh"
       - ".github/workflows/validate-skills.yml"
+      - ".github/workflows/publish-npm.yml"
+      - ".github/actions/**"
 
 permissions:
   contents: read

@@ -2,7 +2,21 @@
 
 ## Install
 
+From npm (recommended when you want registry installs and cache behavior):
+
+```bash
+opencode plugin @ysskrishna/ai-agent-skills --global
+```
+
+Or add the package name in `opencode.json`.
+
 OpenCode 1.x, in `opencode.json`:
+
+```json
+{
+  "plugin": ["@ysskrishna/ai-agent-skills"]
+}
+```
 
 ```json
 {
@@ -14,11 +28,17 @@ OpenCode 2.0.4 or later uses the key `plugins`:
 
 ```json
 {
+  "plugins": ["@ysskrishna/ai-agent-skills"]
+}
+```
+
+```json
+{
   "plugins": ["ai-agent-skills@git+https://github.com/ysskrishna/ai-agent-skills.git"]
 }
 ```
 
-Restart OpenCode. To pin a release, add `#v1.3.0` after `.git`.
+Restart OpenCode. To pin a git release, add `#v1.3.0` after `.git`.
 
 ## Verify
 

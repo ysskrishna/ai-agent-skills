@@ -19,6 +19,7 @@ MIN_EVAL_QUERIES_PER_SIDE = 8
 UNIQUE_PREFIX_CHARS = 80
 BUNDLE = "ai-agent-skills"
 BUNDLE_SOURCE = "./"
+NPM_PACKAGE_NAME = "@ysskrishna/ai-agent-skills"
 # Manifests whose "version" must equal the repo release version.
 VERSIONED_MANIFESTS = [
     "plugin.json",
@@ -295,6 +296,61 @@ def check_manifests() -> None:
     pkg = docs.get("package.json") or {}
     if pkg.get("main") != "index.js" or not (ROOT / "index.js").is_file():
         err("manifests", "package.json main must be index.js and the file must exist")
+    check_npm_package(pkg)
+
+
+def _npm_files_covers(files: list[str], rel_path: str) -> bool:
+    rel_path = rel_path.replace("\\", "/").lstrip("./")
+    for entry in files:
+        entry = entry.replace("\\", "/")
+        if entry.endswith("/"):
+            prefix = entry
+            if rel_path == prefix.rstrip("/") or rel_path.startswith(prefix):
+                return True
+        elif rel_path == entry:
+            return True
+    return False
+
+
+def _collect_relative_asset_paths(obj: object, found: set[str]) -> None:
+    if isinstance(obj, dict):
+        for value in obj.values():
+            _collect_relative_asset_paths(value, found)
+    elif isinstance(obj, list):
+        for value in obj:
+            _collect_relative_asset_paths(value, found)
+    elif isinstance(obj, str) and obj.startswith("./"):
+        found.add(obj)
+
+
+def check_npm_package(pkg: dict) -> None:
+    if pkg.get("private"):
+        err("manifests", "package.json must not set private: true for npm publish")
+    if pkg.get("name") != NPM_PACKAGE_NAME:
+        err("manifests", f"package.json name must be {NPM_PACKAGE_NAME}")
+    files = pkg.get("files")
+    if not isinstance(files, list) or not files:
+        err("manifests", "package.json files must be a non-empty list for npm publish")
+        return
+    for entry in files:
+        if not isinstance(entry, str):
+            err("manifests", "package.json files entries must be strings")
+            continue
+        path = ROOT / entry.rstrip("/")
+        if not path.exists():
+            err("manifests", f"package.json files lists missing path: {entry}")
+    asset_paths: set[str] = set()
+    for manifest in (".codex-plugin/plugin.json", ".cursor-plugin/plugin.json"):
+        data = load_json(manifest)
+        if data:
+            _collect_relative_asset_paths(data, asset_paths)
+    for rel in sorted(asset_paths):
+        normalized = rel.replace("\\", "/").lstrip("./")
+        if not _npm_files_covers(files, normalized):
+            err(
+                "manifests",
+                f"package.json files must include {rel} (referenced by Codex/Cursor manifests)",
+            )
 
 
 def main() -> int:

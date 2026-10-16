@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - Unreleased
+
+### Added
+
+- **npm package** `@ysskrishna/ai-agent-skills` with a `files` whitelist (skills, manifests, assets, OpenCode entry). Trusted publishing via GitHub Actions (`publish-npm.yml`, environment `prod`) on `v*` tags and manual dispatch.
+- **OpenCode and Pi npm install** documented in the README and [docs/opencode-setup.md](docs/opencode-setup.md) / [docs/pi-setup.md](docs/pi-setup.md).
+
+### Changed
+
+- `package.json` is publishable (scoped name, `publishConfig`, `engines`, `pi-package` and `opencode-plugin` keywords). Repository validation checks npm `files` coverage for Codex/Cursor asset paths.
+
 ## [1.3.1] - 2026-10-16
 
 ### Added
@@ -99,6 +110,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Repository foundations** — README, MIT license, CODEOWNERS, and GitHub Sponsors funding metadata.
 
 
+[1.4.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.1.0...v1.2.0
