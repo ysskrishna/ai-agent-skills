@@ -5,7 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.4.0] - Unreleased
+## [1.4.1] - Unreleased
+
+### Added
+
+- **ClawHub bundle package** — `openclaw.plugin.json` for OpenClaw `bundle-plugin` publish as `@ysskrishna/ai-agent-skills` (display name Thinking Methods). `.clawhubignore` excludes dev-only paths from package uploads.
+- **`publish_clawhub.py package`** — `package plan` and `package publish` sync the bundle via `clawhub package publish` (per-skill `plan` / `publish` unchanged).
+
+## [1.4.0] - 2026-10-17
 
 ### Added
 

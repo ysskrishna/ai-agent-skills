@@ -246,6 +246,19 @@ def check_manifests() -> None:
         if d and rel != "package.json" and d.get("name") != BUNDLE:
             err("manifests", f"{rel} name is {d.get('name')!r}, expected {BUNDLE!r}")
 
+    openclaw = load_json("openclaw.plugin.json")
+    if openclaw:
+        if openclaw.get("version") != expected:
+            err(
+                "release",
+                f"openclaw.plugin.json version is {openclaw.get('version')!r}, expected {expected!r}",
+            )
+        if openclaw.get("id") != BUNDLE:
+            err(
+                "manifests",
+                f"openclaw.plugin.json id is {openclaw.get('id')!r}, expected {BUNDLE!r}",
+            )
+
     root = docs.get("plugin.json") or {}
     unknown = set(root) - AGENT_PLUGINS_KEYS
     if unknown:

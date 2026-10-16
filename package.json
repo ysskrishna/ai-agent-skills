@@ -1,6 +1,6 @@
 {
   "name": "@ysskrishna/ai-agent-skills",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Curated Agent Skills (SKILL.md): structured thinking lenses, decision support, and brainstorming workflows for AI coding agents.",
   "type": "module",
   "main": "index.js",
@@ -27,6 +27,7 @@
     ".kimi-plugin/",
     ".agents/",
     "plugin.json",
+    "openclaw.plugin.json",
     "gemini-extension.json",
     "skills.sh.json",
     "README.md",
