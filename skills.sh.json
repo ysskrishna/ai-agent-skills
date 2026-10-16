@@ -1,0 +1,12 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {"title": "Start here", "skills": ["thinking-method-selector"]},
+    {"title": "Understand a problem", "skills": ["five-whys","analytical-thinking","systems-thinking","first-principles-thinking","design-thinking"]},
+    {"title": "Assess and decide", "skills": ["swot-analysis","tradeoff-analysis","prioritization","strategic-thinking","fermi-estimation"]},
+    {"title": "Check and de-risk", "skills": ["critical-thinking","pre-mortem","ethical-thinking"]},
+    {"title": "Generate ideas", "skills": ["creative-thinking","lateral-thinking"]},
+    {"title": "Several angles", "skills": ["six-thinking-hats"]}
+  ]
+}

@@ -1,4 +1,6 @@
-# AI Agent Skills
+# Thinking Methods
+
+<img src="assets/logo-lockup.png" alt="Thinking Methods" width="520">
 
 [![Tests](https://github.com/ysskrishna/ai-agent-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/ysskrishna/ai-agent-skills/actions/workflows/validate-skills.yml) [![License: MIT](https://img.shields.io/github/license/ysskrishna/ai-agent-skills)](https://github.com/ysskrishna/ai-agent-skills/blob/main/LICENSE) [![GitHub release](https://img.shields.io/github/v/release/ysskrishna/ai-agent-skills?label=release)](https://github.com/ysskrishna/ai-agent-skills/releases) [![ClawHub](https://img.shields.io/badge/ClawHub-ysskrishna-informational)](https://clawhub.ai/user/ysskrishna) [![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
 
@@ -413,7 +415,7 @@ To call a skill by name, use `/skill-name` after a skills.sh or `gh skill` insta
 
 ## Built and maintained by
 
-AI Agent Skills is built and maintained by:
+Thinking Methods is built and maintained by:
 
 | | Name | GitHub | Role |
 |---|------|--------|------|
