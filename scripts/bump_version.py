@@ -40,6 +40,13 @@ def main() -> int:
             plugin["version"] = version
     write(path, market)
     print(f"{rel}: {version}")
+
+    openclaw = ROOT / "openclaw.plugin.json"
+    if openclaw.is_file():
+        data = json.loads(openclaw.read_text())
+        data["version"] = version
+        write(openclaw, data)
+        print(f"openclaw.plugin.json: {version}")
     return 0
 
 

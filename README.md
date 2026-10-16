@@ -282,6 +282,21 @@ Check with `muse skills list --source plugin`. Update with `muse plugins update 
 
 </details>
 
+<a id="openclaw-clawhub"></a>
+
+<details>
+<summary><b>OpenClaw (ClawHub)</b></summary>
+
+Install **all skills in one bundle** from the ClawHub package (OpenClaw bundle-plugin):
+
+```bash
+clawhub package download @ysskrishna/ai-agent-skills --output ./thinking-methods
+```
+
+Browse with `clawhub package inspect @ysskrishna/ai-agent-skills`. Per-skill installs stay on ClawHub too, for example `clawhub install critical-thinking` (see the [Skills](#skills) table). Maintainer sync: `python3 scripts/publish_clawhub.py package plan` and `package publish` after bumping the repo version; per-skill sync uses `plan` / `publish`.
+
+</details>
+
 <a id="skillssh-npx-skills"></a>
 
 <details>

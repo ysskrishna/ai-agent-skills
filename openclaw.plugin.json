@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-skills",
+  "name": "Thinking Methods",
+  "description": "Curated Agent Skills (SKILL.md): structured thinking lenses, decision support, and brainstorming workflows for AI coding agents.",
+  "version": "1.4.1",
+  "icon": "https://raw.githubusercontent.com/ysskrishna/ai-agent-skills/main/assets/icon.png",
+  "skills": [
+    "./skills"
+  ]
+}
