@@ -2,6 +2,7 @@
 import argparse
 import json
 import re
+import shutil
 import subprocess
 import tempfile
 import time
@@ -40,6 +41,12 @@ PACKAGE_NAME = "@ysskrishna/ai-agent-skills"
 PACKAGE_DISPLAY_NAME = "Thinking Methods"
 REGISTRY_URL = "https://clawhub.ai"
 RATE_LIMIT_RETRIES = 5
+
+# ClawHub bundle-plugin uploads need exactly one host bundle manifest (cursor/claude/codex)
+# plus openclaw.plugin.json. A ClawPack tarball with only openclaw.plugin.json is rejected;
+# multi-file folder publish with one .cursor-plugin/plugin.json works (--bundle-format cursor).
+BUNDLE_HOST_MANIFEST = (".cursor-plugin", "plugin.json")
+BUNDLE_FORMAT = "cursor"
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
@@ -281,16 +288,15 @@ def publish_cmd(folder: str) -> list[str]:
     ]
 
 
-def package_pack_cmd(dest: Path) -> list[str]:
-    return [
-        "clawhub",
-        "package",
-        "pack",
-        str(ROOT),
-        "--pack-destination",
-        str(dest),
-        "--json",
-    ]
+def prepare_bundle_publish_source(stage: Path) -> None:
+    for name in ("openclaw.plugin.json", "package.json", "README.md", "LICENSE", "CHANGELOG.md", "index.js"):
+        shutil.copy2(ROOT / name, stage / name)
+    shutil.copytree(ROOT / "skills", stage / "skills")
+    shutil.copytree(ROOT / "assets", stage / "assets")
+    host_dir, host_file = BUNDLE_HOST_MANIFEST
+    dest_host = stage / host_dir
+    dest_host.mkdir(parents=True)
+    shutil.copy2(ROOT / host_dir / host_file, dest_host / host_file)
 
 
 def git_head() -> str:
@@ -299,15 +305,17 @@ def git_head() -> str:
     ).stdout.strip()
 
 
-def package_publish_cmd(ver: str, tarball: Path, dry_run: bool = False) -> list[str]:
-    """Publish the ClawPack tarball: a folder publish of a bundle uploads a legacy ZIP."""
+def package_publish_cmd(ver: str, source_dir: Path, dry_run: bool = False) -> list[str]:
+    """Multi-file bundle publish (legacy-zip). ClawPack-only uploads fail bundle-manifest checks."""
     return [
         "clawhub",
         "package",
         "publish",
-        str(tarball),
+        str(source_dir),
         "--family",
         "bundle-plugin",
+        "--bundle-format",
+        BUNDLE_FORMAT,
         "--source-repo",
         "ysskrishna/ai-agent-skills",
         "--source-commit",
@@ -366,11 +374,10 @@ def cmd_package_publish(dry_run: bool = False) -> None:
         print("Nothing to publish.")
         return
     with tempfile.TemporaryDirectory(prefix="clawpack-") as tmp:
-        packed = subprocess.run(
-            package_pack_cmd(Path(tmp)), check=True, capture_output=True, text=True
-        )
-        tarball = Path(json.loads(packed.stdout)["path"])
-        subprocess.run(package_publish_cmd(state.local_version, tarball, dry_run), check=True)
+        stage = Path(tmp) / "source"
+        stage.mkdir()
+        prepare_bundle_publish_source(stage)
+        subprocess.run(package_publish_cmd(state.local_version, stage, dry_run), check=True)
 
 
 def main() -> None:
@@ -390,7 +397,8 @@ def main() -> None:
     package_sub = package.add_subparsers(dest="package_command", required=True)
     package_sub.add_parser("plan", help="Show new / update / synced for the bundle package")
     package_publish = package_sub.add_parser(
-        "publish", help="Pack a ClawPack tarball and publish it when repo version differs"
+        "publish",
+        help="Stage a bundle folder and publish when repo version differs (folder upload, not ClawPack)",
     )
     package_publish.add_argument(
         "--dry-run", action="store_true", help="Preview the upload without publishing"
