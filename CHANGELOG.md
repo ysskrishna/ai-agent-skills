@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1] - 2026-11-11
+
+### Fixed
+
+- **`publish_clawhub.py package publish`** — stage a minimal bundle folder (`openclaw.plugin.json`, `package.json` with `openclaw.compat`, skills, assets, and one host manifest) and publish with `clawhub package publish` (`--bundle-format cursor`). ClawPack-only uploads were rejected by ClawHub (“exactly one supported bundle manifest”); publishing the full repo folder with every CLI `plugin.json` fails for the same reason.
+
+### Changed
+
+- **Docs** — [AGENTS.md](AGENTS.md) and maintainer guidance now describe the staged folder flow, not ClawPack tarball upload for the bundle package.
+
 ## [1.5.0] - 2026-11-11
 
 ### Security
@@ -17,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `publish_clawhub.py package publish` packs a ClawPack tarball (`clawhub package pack`) and publishes it with source repo, commit and ref, instead of a legacy ZIP. New `--dry-run` flag.
+- `publish_clawhub.py package publish` gained a `--dry-run` flag (bundle upload path corrected in 1.5.1).
 - Skill `metadata.version` is `2026.11.11` for all skills.
 
 ## [1.4.1] - 2026-10-17
@@ -132,6 +142,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Repository foundations** — README, MIT license, CODEOWNERS, and GitHub Sponsors funding metadata.
 
 
+[1.5.1]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.4.1...v1.5.0
 [1.4.1]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.3.1...v1.4.0

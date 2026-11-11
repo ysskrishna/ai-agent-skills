@@ -293,7 +293,7 @@ Install **all skills in one bundle** from the ClawHub package (OpenClaw bundle-p
 clawhub package download @ysskrishna/ai-agent-skills --output ./thinking-methods
 ```
 
-Browse with `clawhub package inspect @ysskrishna/ai-agent-skills`. Per-skill installs stay on ClawHub too, for example `clawhub install critical-thinking` (see the [Skills](#skills) table). Maintainer sync: `python3 scripts/publish_clawhub.py package plan` and `package publish` (add `--dry-run` to preview) after bumping the repo version; per-skill sync uses `plan` / `publish`.
+Browse with `clawhub package inspect @ysskrishna/ai-agent-skills`. Per-skill installs stay on ClawHub too, for example `clawhub install critical-thinking` (see the [Skills](#skills) table). Maintainer sync: `python3 scripts/publish_clawhub.py package plan` and `package publish` (staged bundle folder upload; add `--dry-run` to preview) after bumping the repo version; per-skill sync uses `plan` / `publish`.
 
 </details>
 
