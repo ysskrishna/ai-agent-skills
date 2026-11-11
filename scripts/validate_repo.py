@@ -266,6 +266,13 @@ def check_manifests() -> None:
                 f"openclaw.plugin.json id is {openclaw.get('id')!r}, expected {BUNDLE!r}",
             )
 
+        # ClawHub readiness fails with "pluginApi range and build OpenClaw version are required".
+        oc = (docs.get("package.json") or {}).get("openclaw") or {}
+        if not (oc.get("compat") or {}).get("pluginApi"):
+            err("manifests", "package.json needs openclaw.compat.pluginApi (ClawHub compatibility)")
+        if not (oc.get("build") or {}).get("openclawVersion"):
+            err("manifests", "package.json needs openclaw.build.openclawVersion (ClawHub compatibility)")
+
     root = docs.get("plugin.json") or {}
     unknown = set(root) - AGENT_PLUGINS_KEYS
     if unknown:
