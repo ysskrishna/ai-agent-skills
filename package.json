@@ -1,6 +1,6 @@
 {
   "name": "@ysskrishna/ai-agent-skills",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Curated Agent Skills (SKILL.md): structured thinking lenses, decision support, and brainstorming workflows for AI coding agents.",
   "type": "module",
   "main": "index.js",
@@ -36,6 +36,15 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "openclaw": {
+    "compat": {
+      "pluginApi": ">=2026.3.24-beta.2",
+      "minGatewayVersion": "2026.3.24-beta.2"
+    },
+    "build": {
+      "openclawVersion": "2026.11.2"
+    }
   },
   "keywords": [
     "skills",

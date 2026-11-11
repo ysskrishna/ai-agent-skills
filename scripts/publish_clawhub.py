@@ -3,6 +3,7 @@ import argparse
 import json
 import re
 import subprocess
+import tempfile
 import time
 import urllib.error
 import urllib.parse
@@ -280,12 +281,40 @@ def publish_cmd(folder: str) -> list[str]:
     ]
 
 
-def package_publish_cmd(ver: str) -> list[str]:
+def package_pack_cmd(dest: Path) -> list[str]:
+    return [
+        "clawhub",
+        "package",
+        "pack",
+        str(ROOT),
+        "--pack-destination",
+        str(dest),
+        "--json",
+    ]
+
+
+def git_head() -> str:
+    return subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True
+    ).stdout.strip()
+
+
+def package_publish_cmd(ver: str, tarball: Path, dry_run: bool = False) -> list[str]:
+    """Publish the ClawPack tarball: a folder publish of a bundle uploads a legacy ZIP."""
     return [
         "clawhub",
         "package",
         "publish",
-        str(ROOT),
+        str(tarball),
+        "--family",
+        "bundle-plugin",
+        "--source-repo",
+        "ysskrishna/ai-agent-skills",
+        "--source-commit",
+        git_head(),
+        "--source-ref",
+        f"v{ver}",
+        *(["--dry-run"] if dry_run else []),
         "--owner",
         OWNER_HANDLE,
         "--name",
@@ -330,13 +359,18 @@ def cmd_package_plan() -> None:
     print(format_package_status_line(state))
 
 
-def cmd_package_publish() -> None:
+def cmd_package_publish(dry_run: bool = False) -> None:
     state = check_package_sync_state()
     print(format_package_status_line(state))
     if state.status == "synced":
         print("Nothing to publish.")
         return
-    subprocess.run(package_publish_cmd(state.local_version), check=True)
+    with tempfile.TemporaryDirectory(prefix="clawpack-") as tmp:
+        packed = subprocess.run(
+            package_pack_cmd(Path(tmp)), check=True, capture_output=True, text=True
+        )
+        tarball = Path(json.loads(packed.stdout)["path"])
+        subprocess.run(package_publish_cmd(state.local_version, tarball, dry_run), check=True)
 
 
 def main() -> None:
@@ -355,7 +389,12 @@ def main() -> None:
     package = subparsers.add_parser("package", help="OpenClaw bundle-plugin package")
     package_sub = package.add_subparsers(dest="package_command", required=True)
     package_sub.add_parser("plan", help="Show new / update / synced for the bundle package")
-    package_sub.add_parser("publish", help="Publish bundle when repo version differs")
+    package_publish = package_sub.add_parser(
+        "publish", help="Pack a ClawPack tarball and publish it when repo version differs"
+    )
+    package_publish.add_argument(
+        "--dry-run", action="store_true", help="Preview the upload without publishing"
+    )
     args = parser.parse_args()
     if args.command == "plan":
         cmd_plan()
@@ -365,7 +404,7 @@ def main() -> None:
         if args.package_command == "plan":
             cmd_package_plan()
         elif args.package_command == "publish":
-            cmd_package_publish()
+            cmd_package_publish(args.dry_run)
 
 
 if __name__ == "__main__":
