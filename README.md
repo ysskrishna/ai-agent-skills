@@ -295,6 +295,8 @@ clawhub package download @ysskrishna/ai-agent-skills --output ./thinking-methods
 
 Browse with `clawhub package inspect @ysskrishna/ai-agent-skills`. Per-skill installs stay on ClawHub too, for example `clawhub install critical-thinking` (see the [Skills](#skills) table). Maintainer sync: `python3 scripts/publish_clawhub.py package plan` and `package publish` (staged bundle folder upload; add `--dry-run` to preview) after bumping the repo version; per-skill sync uses `plan` / `publish`.
 
+ClawHub category is `context` in `openclaw.plugin.json`. Topics are set on publish (`scripts/publish_clawhub.py`): `ai-agent-skills`, `thinking-methods`, `agent-skills`, `cursor`, `claude-code`, `decision-support`. Use clawhub CLI **≥ 0.26.0** for `--topics` on `package publish`.
+
 </details>
 
 <a id="skillssh-npx-skills"></a>

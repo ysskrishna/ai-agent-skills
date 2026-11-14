@@ -265,6 +265,12 @@ def check_manifests() -> None:
                 "manifests",
                 f"openclaw.plugin.json id is {openclaw.get('id')!r}, expected {BUNDLE!r}",
             )
+        if openclaw.get("categories") != ["context"]:
+            err(
+                "manifests",
+                f"openclaw.plugin.json categories is {openclaw.get('categories')!r}, "
+                "expected ['context']",
+            )
 
         # ClawHub readiness fails with "pluginApi range and build OpenClaw version are required".
         oc = (docs.get("package.json") or {}).get("openclaw") or {}

@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2] - 2026-11-14
+
+### Changed
+
+- **ClawHub bundle metadata** — `openclaw.plugin.json` sets category `context`; `publish_clawhub.py` passes topics (`ai-agent-skills`, `thinking-methods`, `agent-skills`, `cursor`, `claude-code`, `decision-support`) on `package publish`. `.cursor-plugin/plugin.json` adds matching `category`. Docs note clawhub CLI ≥ 0.26.0 for `--topics`.
+
 ## [1.5.1] - 2026-11-11
 
 ### Fixed
@@ -142,6 +148,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Repository foundations** — README, MIT license, CODEOWNERS, and GitHub Sponsors funding metadata.
 
 
+[1.5.2]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.4.1...v1.5.0
 [1.4.1]: https://github.com/ysskrishna/ai-agent-skills/compare/v1.4.0...v1.4.1
