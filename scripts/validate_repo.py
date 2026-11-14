@@ -272,11 +272,10 @@ def check_manifests() -> None:
                 "expected ['context']",
             )
         pub = (ROOT / "scripts" / "publish_clawhub.py").read_text()
-        skill_cat = re.search(r'SKILL_CATEGORIES\s*=\s*"([^"]+)"', pub)
-        if not skill_cat or skill_cat.group(1) != openclaw["categories"][0]:
+        if "SKILL_CATEGORIES" not in pub or '"--categories"' not in pub:
             err(
                 "manifests",
-                "SKILL_CATEGORIES in publish_clawhub.py must match openclaw.plugin.json categories[0]",
+                "publish_clawhub.py must set SKILL_CATEGORIES and pass --categories on skill publish",
             )
 
         # ClawHub readiness fails with "pluginApi range and build OpenClaw version are required".

@@ -43,8 +43,8 @@ PACKAGE_DISPLAY_NAME = "Thinking Methods"
 PACKAGE_TOPICS = (
     "ai-agent-skills,thinking-methods,agent-skills,cursor,claude-code"
 )
-# Matches openclaw.plugin.json categories for per-skill publish.
-SKILL_CATEGORIES = "context"
+# ClawHub skill browse slugs (not openclaw.plugin.json bundle categories).
+SKILL_CATEGORIES = "agents,knowledge"
 REGISTRY_URL = "https://clawhub.ai"
 RATE_LIMIT_RETRIES = 5
 
