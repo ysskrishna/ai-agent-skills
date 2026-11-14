@@ -39,10 +39,12 @@ SKILLS = [
 OWNER_HANDLE = "ysskrishna"
 PACKAGE_NAME = "@ysskrishna/ai-agent-skills"
 PACKAGE_DISPLAY_NAME = "Thinking Methods"
-# ClawHub package publish --topics (requires clawhub CLI >= 0.26.0).
+# ClawHub skill/package --topics (requires clawhub CLI >= 0.26.0). Max five topics.
 PACKAGE_TOPICS = (
     "ai-agent-skills,thinking-methods,agent-skills,cursor,claude-code"
 )
+# Matches openclaw.plugin.json categories for per-skill publish.
+SKILL_CATEGORIES = "context"
 REGISTRY_URL = "https://clawhub.ai"
 RATE_LIMIT_RETRIES = 5
 
@@ -289,6 +291,10 @@ def publish_cmd(folder: str) -> list[str]:
         changelog(path),
         "--tags",
         "latest",
+        "--categories",
+        SKILL_CATEGORIES,
+        "--topics",
+        PACKAGE_TOPICS,
     ]
 
 
