@@ -41,7 +41,7 @@ PACKAGE_NAME = "@ysskrishna/ai-agent-skills"
 PACKAGE_DISPLAY_NAME = "Thinking Methods"
 # ClawHub package publish --topics (requires clawhub CLI >= 0.26.0).
 PACKAGE_TOPICS = (
-    "ai-agent-skills,thinking-methods,agent-skills,cursor,claude-code,decision-support"
+    "ai-agent-skills,thinking-methods,agent-skills,cursor,claude-code"
 )
 REGISTRY_URL = "https://clawhub.ai"
 RATE_LIMIT_RETRIES = 5
