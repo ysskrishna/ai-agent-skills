@@ -1,0 +1,32 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "AI Agent Skills (Thinking Methods)",
+  "description": "Collection of 17 structured-thinking agent skills (SKILL.md) for Claude Code, Cursor, Codex, Gemini CLI and other agents: five whys, first principles, systems thinking, pre-mortem, SWOT, trade-off analysis, six thinking hats and more, with install guides per agent.",
+  "excludeFolders": [
+    "archive",
+    "archived",
+    "old",
+    "deprecated",
+    "legacy",
+    "tests",
+    ".github",
+    "assets",
+    "evals",
+    "scripts"
+  ],
+  "excludeFiles": [
+    "CHANGELOG.md",
+    "changelog.md",
+    "LICENSE.md",
+    "license.md",
+    "CODE_OF_CONDUCT.md",
+    "NEWS.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "AGENTS.md"
+  ],
+  "rules": [
+    "Install every skill with npx skills add ysskrishna/ai-agent-skills, or one skill with --skill <name>; skill names match the folders under skills/.",
+    "Start with the thinking-method-selector skill when it is unclear which method fits a problem."
+  ]
+}
