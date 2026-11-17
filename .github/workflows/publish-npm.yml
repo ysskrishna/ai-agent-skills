@@ -17,21 +17,24 @@ concurrency:
 
 permissions:
   contents: read
-  id-token: write
 
 env:
   RELEASE_TAG: ${{ github.event.inputs.tag || github.ref_name }}
 
 jobs:
   publish:
+    permissions:
+      contents: read
+      id-token: write
     name: Validate and publish package
     runs-on: ubuntu-latest
     environment: prod
     timeout-minutes: 15
     steps:
       - name: Checkout release tag
-        uses: actions/checkout@v4
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           ref: ${{ env.RELEASE_TAG }}
           fetch-depth: 0
 
@@ -48,8 +51,9 @@ jobs:
         run: node --check index.js
 
       - name: Use Node.js for publish
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
+          package-manager-cache: false
           node-version: "22"
           registry-url: https://registry.npmjs.org
 
