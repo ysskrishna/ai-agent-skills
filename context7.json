@@ -1,5 +1,7 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
+  "url": "https://context7.com/ysskrishna/ai-agent-skills",
+  "public_key": "pk_VesXVq9WjBT8ecKU9XIZz",
   "projectTitle": "AI Agent Skills (Thinking Methods)",
   "description": "Collection of 17 structured-thinking agent skills (SKILL.md) for Claude Code, Cursor, Codex, Gemini CLI and other agents: five whys, first principles, systems thinking, pre-mortem, SWOT, trade-off analysis, six thinking hats and more, with install guides per agent.",
   "excludeFolders": [
