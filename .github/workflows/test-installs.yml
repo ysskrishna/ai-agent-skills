@@ -49,6 +49,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   install:
     name: ${{ matrix.cli }}
@@ -75,9 +79,11 @@ jobs:
           - { cli: kimi, optional: true, url: "https://code.kimi.com/kimi-code/install.sh", shell: bash, path: "$HOME/.kimi-code/bin" }
           - { cli: muse, optional: true, url: "https://dev.meta.ai/install.sh", shell: bash, path: "$HOME/.local/bin" }
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
           node-version: "22"
 
